@@ -1,0 +1,17 @@
+.DS_Store
+*.swp
+.cache
+
+node_modules/
+dist/
+
+coverage
+
+*.log
+
+yarn.lock
+package-lock.json
+.docusaurus/
+build/
+
+
