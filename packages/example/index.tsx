@@ -1,15 +1,13 @@
-// import * as React from "react";
-// import * as ReactDOM from "react-dom";
-import React from "react";
-import ReactDOM from "react-dom";
-import { Button } from "@bone-ui/button";
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { AvatarDemo } from './components/AvatarDemo'
 
 const App = () => {
   return (
     <div>
-      <Button />
+      <AvatarDemo></AvatarDemo>
     </div>
-  );
-};
+  )
+}
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById('root'))

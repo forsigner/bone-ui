@@ -8,7 +8,8 @@
     "build": "parcel build index.html"
   },
   "dependencies": {
-    "@bone-ui/button": "^0.1.0"
+    "@bone-ui/button": "^0.1.0",
+    "@bone-ui/avatar": "^0.1.0"
   },
   "devDependencies": {
     "parcel": "^1.12.3"
