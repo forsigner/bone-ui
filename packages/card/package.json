@@ -1,5 +1,5 @@
 {
-  "name": "@bone-ui/avatar",
+  "name": "@bone-ui/card",
   "version": "0.1.0",
   "license": "MIT",
   "main": "dist/index.js",
@@ -21,14 +21,14 @@
     "analyze": "size-limit --why"
   },
   "author": "forsigner",
-  "module": "dist/avatar.esm.js",
+  "module": "dist/card.esm.js",
   "size-limit": [
     {
-      "path": "dist/avatar.cjs.production.min.js",
+      "path": "dist/card.cjs.production.min.js",
       "limit": "10 KB"
     },
     {
-      "path": "dist/avatar.esm.js",
+      "path": "dist/card.esm.js",
       "limit": "10 KB"
     }
   ],
