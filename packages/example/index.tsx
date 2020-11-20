@@ -1,12 +1,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+
+import { View } from '@styli/react'
 import { AvatarDemo } from './components/AvatarDemo'
+import { InputDemo } from './components/InputDemo'
+import './index.css'
 
 const App = () => {
   return (
-    <div>
+    <View p-100>
       <AvatarDemo></AvatarDemo>
-    </div>
+      <br />
+      <InputDemo></InputDemo>
+    </View>
   )
 }
 

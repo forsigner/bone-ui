@@ -31,5 +31,8 @@
       "path": "dist/input.esm.js",
       "limit": "10 KB"
     }
-  ]
+  ],
+  "devDependencies": {
+    "@styli/react": "^0.15.1"
+  }
 }
