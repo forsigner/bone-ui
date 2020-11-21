@@ -6,15 +6,14 @@ import { AvatarDemo } from './components/AvatarDemo'
 import { InputDemo } from './components/InputDemo'
 import './index.css'
 import { CardDemo } from './components/CardDemo'
+import { AlertDemo } from './components/AlertDemo'
 
 const App = () => {
   return (
-    <View p-100>
+    <View p-100 spaceY-10>
+      <AlertDemo></AlertDemo>
       <CardDemo></CardDemo>
-      <br />
-      <br />
       <AvatarDemo></AvatarDemo>
-      <br />
       <InputDemo></InputDemo>
     </View>
   )

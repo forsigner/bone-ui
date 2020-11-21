@@ -5,9 +5,7 @@ import { Card } from '@bone-ui/card'
 export const CardDemo = () => {
   return (
     <View p9 w-400>
-      <Card bgTeal20 variant="outline">
-        A basic card.
-      </Card>
+      <Card variant="outline">A basic card.</Card>
       <br />
       <br />
       <Card variant="shadow">
@@ -34,6 +32,12 @@ export const CardDemo = () => {
       <br />
 
       <Card variant="unstyled" hoverable>
+        A basic card.
+      </Card>
+      <br />
+      <br />
+
+      <Card bgTeal20 variant="unstyled" hoverable>
         A basic card.
       </Card>
       <br />

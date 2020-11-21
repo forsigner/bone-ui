@@ -24,13 +24,7 @@ const variants = {
 }
 
 export const Card = forwardRef<HTMLDivElement, CardProps>((props, ref) => {
-  const {
-    colorScheme: colorSchema = 'blue50',
-    size = 'medium',
-    hoverable = false,
-    variant = 'outline',
-    ...rest
-  } = props
+  const { hoverable = false, variant = 'outline', ...rest } = props
 
   return (
     <View
