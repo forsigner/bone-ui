@@ -4,7 +4,7 @@ import { AtomicProps } from '@styli/types'
 
 type OmitInputHTMLAttributes = Omit<InputHTMLAttributes<HTMLDivElement>, 'size' | 'color'>
 
-export interface CardProps
+export interface AlertProps
   extends React.DetailedHTMLProps<OmitInputHTMLAttributes, HTMLDivElement>,
     AtomicProps {
   variant?: 'outline' | 'filled'
@@ -53,7 +53,7 @@ const typeStyles = {
   },
 }
 
-export const Alert = forwardRef<HTMLDivElement, CardProps>((props, ref) => {
+export const Alert = forwardRef<HTMLDivElement, AlertProps>((props, ref) => {
   const { type = 'default', ...rest } = props
 
   return (
