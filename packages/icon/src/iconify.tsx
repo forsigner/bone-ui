@@ -46,16 +46,17 @@ export function iconify(options: IconifyOptions) {
           strokeLinejoin: 'round',
           strokeWidth: props.strokeWidth || 2,
         }
-      : {}
+      : {
+          fillRule: 'evenodd',
+          clipRule: 'evenodd',
+        }
 
     return (
       <Svg
         ref={ref}
         className={`bone-icon bone-icon--${displayName}`}
-        w-24
-        h-24
+        s6
         fill={svgFill}
-        stroke="currentColor"
         viewBox={viewBox || `0 0 ${size} ${size}`}
         xmlns="http://www.w3.org/2000/svg"
         {...(props as any)}

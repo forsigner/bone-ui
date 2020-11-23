@@ -1,5 +1,5 @@
 {
-  "name": "@bone-ui/alert",
+  "name": "@bone-ui/radio",
   "version": "0.1.0",
   "license": "MIT",
   "main": "dist/index.js",
@@ -21,21 +21,15 @@
     "analyze": "size-limit --why"
   },
   "author": "forsigner",
-  "module": "dist/alert.esm.js",
+  "module": "dist/radio.esm.js",
   "size-limit": [
     {
-      "path": "dist/alert.cjs.production.min.js",
+      "path": "dist/radio.cjs.production.min.js",
       "limit": "10 KB"
     },
     {
-      "path": "dist/alert.esm.js",
+      "path": "dist/radio.esm.js",
       "limit": "10 KB"
     }
-  ],
-  "dependencies": {
-    "@bone-ui/icons": "^0.1.0"
-  },
-  "devDependencies": {
-    "@styli/react": "^0.15.1"
-  }
+  ]
 }

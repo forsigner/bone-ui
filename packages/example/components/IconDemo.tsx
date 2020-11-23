@@ -8,11 +8,10 @@ import {
   KeyOutline,
   KeySolid,
   UserOutline,
-  // UserAddSolid,
-  // CakeOutline,
 } from '@bone-ui/icons'
 import UserAddSolid from '@bone-ui/icons/lib/UserAddSolid'
 import { CakeOutline } from '@bone-ui/icons/lib/CakeOutline'
+import CheckCircleSolid from '@bone-ui/icons/lib/CheckCircleSolid'
 
 export const IconDemo = () => {
   return (
@@ -26,6 +25,7 @@ export const IconDemo = () => {
       <UserOutline s-60> </UserOutline>
       <UserAddSolid s-48 teal50></UserAddSolid>
       <CakeOutline s-48 red40></CakeOutline>
+      <CheckCircleSolid></CheckCircleSolid>
     </View>
   )
 }
