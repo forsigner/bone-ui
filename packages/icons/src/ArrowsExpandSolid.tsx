@@ -3,5 +3,6 @@ import { iconify } from '@bone-ui/icon'
 export const ArrowsExpandSolid = iconify({
   displayName: 'ArrowsExpandSolid',
   fill: 'currentColor',
-  d: 'M3 8V4M3 4H7M3 4L7 8M15 8V4M15 4H11M15 4L11 8M3 12V16M3 16H7M3 16L7 12M15 16L11 12M15 16V12M15 16H11',
+  d: 'M3 8V4m0 0h4M3 4l4 4m8 0V4m0 0h-4m4 0l-4 4m-8 4v4m0 0h4m-4 0l4-4m8 4l-4-4m4 4v-4m0 4h-4',
 })
+export default ArrowsExpandSolid

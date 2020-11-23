@@ -3,5 +3,6 @@ import { iconify } from '@bone-ui/icon'
 export const DeviceMobileSolid = iconify({
   displayName: 'DeviceMobileSolid',
   fill: 'currentColor',
-  d: 'M7 2C5.89543 2 5 2.89543 5 4V16C5 17.1046 5.89543 18 7 18H13C14.1046 18 15 17.1046 15 16V4C15 2.89543 14.1046 2 13 2H7ZM10 16C10.5523 16 11 15.5523 11 15C11 14.4477 10.5523 14 10 14C9.44772 14 9 14.4477 9 15C9 15.5523 9.44772 16 10 16Z',
+  d: 'M7 2a2 2 0 00-2 2v12a2 2 0 002 2h6a2 2 0 002-2V4a2 2 0 00-2-2H7zm3 14a1 1 0 100-2 1 1 0 000 2z',
 })
+export default DeviceMobileSolid

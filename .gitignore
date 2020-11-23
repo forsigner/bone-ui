@@ -13,5 +13,6 @@ yarn.lock
 package-lock.json
 .docusaurus/
 build/
+lib/
 
 

@@ -3,5 +3,6 @@ import { iconify } from '@bone-ui/icon'
 export const CodeOutline = iconify({
   displayName: 'CodeOutline',
   fill: 'none',
-  d: 'M10 20L14 4M18 8L22 12L18 16M6 16L2 12L6 8',
+  d: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',
 })
+export default CodeOutline

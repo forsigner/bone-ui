@@ -3,5 +3,6 @@ import { iconify } from '@bone-ui/icon'
 export const ArrowCircleRightOutline = iconify({
   displayName: 'ArrowCircleRightOutline',
   fill: 'none',
-  d: 'M13 9L16 12M16 12L13 15M16 12L8 12M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z',
+  d: 'M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z',
 })
+export default ArrowCircleRightOutline

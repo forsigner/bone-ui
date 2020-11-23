@@ -13,7 +13,8 @@
   },
   "scripts": {
     "start": "tsdx watch",
-    "build": "tsdx build",
+    "build:lib": "tsc --build tsconfig.lib.json",
+    "build": "npm run build:lib && tsdx build",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
