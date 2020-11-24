@@ -8,10 +8,12 @@ import { InputDemo } from './components/InputDemo'
 import { CardDemo } from './components/CardDemo'
 import { AlertDemo } from './components/AlertDemo'
 import { IconDemo } from './components/IconDemo'
+import { CloseButtonDemo } from './components/CloseButtonDemo'
 
 const App = () => {
   return (
     <View p-100 spaceY-10>
+      <CloseButtonDemo></CloseButtonDemo>
       <IconDemo></IconDemo>
       <AlertDemo></AlertDemo>
       <CardDemo></CardDemo>

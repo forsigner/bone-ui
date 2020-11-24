@@ -24,6 +24,7 @@ export const Alert = forwardRef<HTMLDivElement, AlertProps>((props, ref) => {
         p4
         rounded-4
         centerY
+        relative
         {...typeStyles[type]}
         {...(rest as any)}
       ></View>

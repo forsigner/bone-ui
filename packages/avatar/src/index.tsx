@@ -1,6 +1,9 @@
 import React, { forwardRef } from 'react'
-import { Image, Text } from '@styli/react'
+import { styled } from '@styli/styled'
 import { StyliHTMLProps } from '@styli/types'
+
+const Image = styled('img')
+const Span = styled('span')
 
 export interface AvatarProps extends StyliHTMLProps<'span'> {
   name?: string
@@ -10,13 +13,34 @@ export interface AvatarProps extends StyliHTMLProps<'span'> {
 
 export const Avatar = forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
   const { src, size = 48, name, ...rest } = props
-  const atomicProps: any = rest // fix type warning
 
   if (!src)
     return (
-      <Text ref={ref} bgRed20 red80 center uppercase f={size * 0.4} circle={size} {...atomicProps}>
+      <Span
+        className="bone-avatar"
+        ref={ref}
+        bgRed20
+        red80
+        center
+        uppercase
+        f={size * 0.4}
+        circle={size}
+        {...rest}
+      >
         {name}
-      </Text>
+      </Span>
     )
-  return <Image {...atomicProps} circle={size} src={src}></Image>
+  return (
+    <Span
+      className="bone-avatar"
+      ref={ref}
+      center
+      circle={size}
+      overflow="hidden"
+      f={size * 0.4}
+      {...rest}
+    >
+      <Image className="bone-avatar-img" s-100p src={src}></Image>
+    </Span>
+  )
 })

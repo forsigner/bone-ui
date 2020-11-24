@@ -16,22 +16,10 @@
     "build": "tsdx build",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint",
-    "prepare": "tsdx build",
-    "size": "size-limit",
-    "analyze": "size-limit --why"
+    "prepare": "tsdx build"
   },
   "author": "forsigner",
   "module": "dist/alert.esm.js",
-  "size-limit": [
-    {
-      "path": "dist/alert.cjs.production.min.js",
-      "limit": "10 KB"
-    },
-    {
-      "path": "dist/alert.esm.js",
-      "limit": "10 KB"
-    }
-  ],
   "dependencies": {
     "@bone-ui/icons": "^0.1.0"
   },

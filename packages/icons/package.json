@@ -16,9 +16,7 @@
     "build": "tsdx build && tsc --build tsconfig.lib.json",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint",
-    "prepare": "tsdx build",
-    "size": "size-limit",
-    "analyze": "size-limit --why"
+    "prepare": "tsdx build"
   },
   "author": "forsigner",
   "dependencies": {
