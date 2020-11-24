@@ -1,15 +1,20 @@
 import React from 'react'
 import { View } from '@styli/react'
 import { Alert, AlertIcon, AlertTitle, AlertDescription } from '@bone-ui/alert'
+import { CloseButton } from '@bone-ui/close-button'
 
 export const AlertDemo = () => {
   return (
     <View w-800 spaceY-10>
       <Alert>A default alert</Alert>
 
-      <Alert type="info">A info alert</Alert>
+      <Alert type="info">
+        A info alert <CloseButton absolute T-6 R-6 />
+      </Alert>
 
-      <Alert type="warning">An warning alert</Alert>
+      <Alert type="warning">
+        An warning alert <CloseButton absolute T-6 R-6 />
+      </Alert>
 
       <Alert type="success">An success alert</Alert>
       <Alert type="error">An error alert</Alert>
