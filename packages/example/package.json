@@ -10,7 +10,9 @@
   "dependencies": {
     "@bone-ui/alert": "^0.1.0",
     "@bone-ui/button": "^0.1.0",
+    "@bone-ui/close-button": "^0.1.0",
     "@bone-ui/card": "^0.1.0",
+    "@bone-ui/spinner": "^0.1.0",
     "@bone-ui/icon": "^0.1.0",
     "@bone-ui/input": "^0.1.0",
     "@bone-ui/avatar": "^0.1.0"

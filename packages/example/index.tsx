@@ -9,10 +9,12 @@ import { CardDemo } from './components/CardDemo'
 import { AlertDemo } from './components/AlertDemo'
 import { IconDemo } from './components/IconDemo'
 import { CloseButtonDemo } from './components/CloseButtonDemo'
+import { SpinnerDemo } from './components/SpinnerDemo'
 
 const App = () => {
   return (
     <View p-100 spaceY-10>
+      <SpinnerDemo></SpinnerDemo>
       <CloseButtonDemo></CloseButtonDemo>
       <IconDemo></IconDemo>
       <AlertDemo></AlertDemo>

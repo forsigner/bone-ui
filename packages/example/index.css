@@ -10,3 +10,9 @@ textarea {
 * {
   box-sizing: border-box;
 }
+
+@keyframes spin {
+  to {
+    transform: rotate(1turn)
+  }
+}
