@@ -4,7 +4,7 @@ import { Card } from '@bone-ui/card'
 
 export const CardDemo = () => {
   return (
-    <View p9 w-400>
+    <View w-400>
       <Card variant="outline">A basic card.</Card>
       <br />
       <br />

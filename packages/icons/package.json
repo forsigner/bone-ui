@@ -2,8 +2,8 @@
   "name": "@bone-ui/icons",
   "version": "0.1.0",
   "license": "MIT",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
+  "main": "lib/index.js",
+  "module": "dist/icons.esm.js",
   "files": [
     "dist",
     "src"
@@ -13,8 +13,7 @@
   },
   "scripts": {
     "start": "tsdx watch",
-    "build:lib": "tsc --build tsconfig.lib.json",
-    "build": "npm run build:lib && tsdx build",
+    "build": "tsdx build && tsc --build tsconfig.lib.json",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
@@ -22,17 +21,6 @@
     "analyze": "size-limit --why"
   },
   "author": "forsigner",
-  "module": "dist/icons.esm.js",
-  "size-limit": [
-    {
-      "path": "dist/icons.cjs.production.min.js",
-      "limit": "10 KB"
-    },
-    {
-      "path": "dist/icons.esm.js",
-      "limit": "10 KB"
-    }
-  ],
   "dependencies": {
     "@bone-ui/icon": "^0.1.0"
   },

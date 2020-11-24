@@ -1,11 +1,8 @@
-import React, { forwardRef, HTMLAttributes } from 'react'
+import React, { forwardRef } from 'react'
 import { Svg } from '@styli/react'
-import { AtomicProps } from '@styli/types'
+import { StyliHTMLProps } from '@styli/types'
 
-type OmitHTMLAttributes = Omit<HTMLAttributes<SVGSVGElement>, 'size' | 'color'>
-export interface IconProps
-  extends React.DetailedHTMLProps<OmitHTMLAttributes, SVGSVGElement>,
-    AtomicProps {
+export interface IconProps extends StyliHTMLProps<'svg'> {
   fill?: 'none' | 'currentColor'
   strokeWidth?: number
 }
@@ -40,6 +37,7 @@ export function iconify(options: IconifyOptions) {
     const svgFill = props.fill || fill
     const isOutline = svgFill === 'none'
     const size = isOutline ? 24 : 20
+    const svgPros = isOutline ? { stroke: 'currentColor' } : {}
     const pathProps: any = isOutline
       ? {
           strokeLinecap: 'round',
@@ -58,6 +56,7 @@ export function iconify(options: IconifyOptions) {
         s6
         fill={svgFill}
         viewBox={viewBox || `0 0 ${size} ${size}`}
+        {...svgPros}
         xmlns="http://www.w3.org/2000/svg"
         {...(props as any)}
       >

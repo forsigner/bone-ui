@@ -4,7 +4,7 @@ import { Alert, AlertIcon, AlertTitle, AlertDescription } from '@bone-ui/alert'
 
 export const AlertDemo = () => {
   return (
-    <View p9 w-800 spaceY-10>
+    <View w-800 spaceY-10>
       <Alert>A default alert</Alert>
 
       <Alert type="info">A info alert</Alert>

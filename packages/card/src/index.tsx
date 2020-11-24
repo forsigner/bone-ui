@@ -1,12 +1,8 @@
-import React, { forwardRef, InputHTMLAttributes } from 'react'
+import React, { forwardRef } from 'react'
 import { View } from '@styli/react'
-import { AtomicProps } from '@styli/types'
+import { StyliHTMLProps } from '@styli/types'
 
-type OmitInputHTMLAttributes = Omit<InputHTMLAttributes<HTMLDivElement>, 'size' | 'color'>
-
-export interface CardProps
-  extends React.DetailedHTMLProps<OmitInputHTMLAttributes, HTMLDivElement>,
-    AtomicProps {
+export interface CardProps extends StyliHTMLProps<'div'> {
   variant?: 'outline' | 'unstyled' | 'shadow'
   hoverable?: boolean
 }
@@ -38,7 +34,7 @@ export const Card = forwardRef<HTMLDivElement, CardProps>((props, ref) => {
       overflow="hidden"
       css={{ transition: 'all 0.3s' }}
       {...variants[variant]}
-      {...(rest as any)}
+      {...rest}
     ></View>
   )
 })

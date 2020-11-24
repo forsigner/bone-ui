@@ -15,17 +15,18 @@ import CheckCircleSolid from '@bone-ui/icons/lib/CheckCircleSolid'
 
 export const IconDemo = () => {
   return (
-    <View p9 w-400>
-      <BookmarkOutline red40></BookmarkOutline>
+    <View spaceX-10>
+      <BookmarkOutline red30></BookmarkOutline>
+      <BookmarkSolid red40></BookmarkSolid>
       <BookmarkSolid green40></BookmarkSolid>
-      <AcademicCapOutline></AcademicCapOutline>
+      <AcademicCapOutline yellow40></AcademicCapOutline>
       <AcademicCapSolid></AcademicCapSolid>
       <KeyOutline></KeyOutline>
       <KeySolid orange40></KeySolid>
       <UserOutline s-60> </UserOutline>
       <UserAddSolid s-48 teal50></UserAddSolid>
+      <CheckCircleSolid teal40></CheckCircleSolid>
       <CakeOutline s-48 red40></CakeOutline>
-      <CheckCircleSolid></CheckCircleSolid>
     </View>
   )
 }
