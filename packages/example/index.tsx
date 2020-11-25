@@ -10,10 +10,14 @@ import { AlertDemo } from './components/AlertDemo'
 import { IconDemo } from './components/IconDemo'
 import { CloseButtonDemo } from './components/CloseButtonDemo'
 import { SpinnerDemo } from './components/SpinnerDemo'
+import { RadioDemo } from './components/RadioDemo'
+import { CheckboxDemo } from './components/CheckboxDemo'
 
 const App = () => {
   return (
     <View p-100 spaceY-10>
+      <CheckboxDemo></CheckboxDemo>
+      <RadioDemo></RadioDemo>
       <SpinnerDemo></SpinnerDemo>
       <CloseButtonDemo></CloseButtonDemo>
       <IconDemo></IconDemo>

@@ -1,5 +1,5 @@
 {
-  "name": "@bone-ui/checkbox",
+  "name": "@bone-ui/hooks",
   "version": "0.1.0",
   "license": "MIT",
   "main": "dist/index.js",
@@ -19,8 +19,11 @@
     "prepare": "tsdx build"
   },
   "author": "forsigner",
-  "module": "dist/checkbox.esm.js",
+  "module": "dist/hooks.esm.js",
+  "devDependencies": {
+    "@styli/react": "^0.15.1"
+  },
   "dependencies": {
-    "@bone-ui/hooks": "^0.1.0"
+    "react-cool-onclickoutside": "^1.5.8"
   }
 }

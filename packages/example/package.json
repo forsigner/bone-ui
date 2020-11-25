@@ -15,6 +15,8 @@
     "@bone-ui/spinner": "^0.1.0",
     "@bone-ui/icon": "^0.1.0",
     "@bone-ui/input": "^0.1.0",
+    "@bone-ui/checkbox": "^0.1.0",
+    "@bone-ui/radio": "^0.1.0",
     "@bone-ui/avatar": "^0.1.0"
   },
   "devDependencies": {
