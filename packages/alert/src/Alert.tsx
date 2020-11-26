@@ -1,5 +1,5 @@
 import React, { forwardRef, InputHTMLAttributes } from 'react'
-import { View } from '@styli/react'
+import { Box } from '@styli/react'
 import { AtomicProps } from '@styli/types'
 import { AlertType, typeStyles } from './typeStyles'
 import { AlertProvider } from './alertContext'
@@ -18,7 +18,7 @@ export const Alert = forwardRef<HTMLDivElement, AlertProps>((props, ref) => {
 
   return (
     <AlertProvider value={{ type }}>
-      <View
+      <Box
         className="bone-alert"
         ref={ref}
         p4
@@ -27,7 +27,7 @@ export const Alert = forwardRef<HTMLDivElement, AlertProps>((props, ref) => {
         relative
         {...typeStyles[type]}
         {...(rest as any)}
-      ></View>
+      ></Box>
     </AlertProvider>
   )
 })

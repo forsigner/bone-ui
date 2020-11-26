@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { View } from '@styli/react'
+import { Box } from '@styli/react'
 import { StyliHTMLProps } from '@styli/types'
 
 export interface CardProps extends StyliHTMLProps<'div'> {
@@ -23,7 +23,7 @@ export const Card = forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   const { hoverable = false, variant = 'outline', ...rest } = props
 
   return (
-    <View
+    <Box
       className="bone-card"
       ref={ref}
       p4
@@ -35,6 +35,6 @@ export const Card = forwardRef<HTMLDivElement, CardProps>((props, ref) => {
       css={{ transition: 'all 0.3s' }}
       {...variants[variant]}
       {...rest}
-    ></View>
+    ></Box>
   )
 })

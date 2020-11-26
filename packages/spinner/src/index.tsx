@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { View, Svg } from '@styli/react'
+import { Box, Svg } from '@styli/react'
 import { StyliHTMLProps, StyliColor } from '@styli/types'
 
 export interface SpinnerProps extends StyliHTMLProps<'div'> {
@@ -48,7 +48,7 @@ export const Spinner = forwardRef<HTMLDivElement, SpinnerProps>((props, ref) => 
   }
 
   return (
-    <View
+    <Box
       ref={ref}
       className="bone-spinner"
       inlineBlock
@@ -59,6 +59,6 @@ export const Spinner = forwardRef<HTMLDivElement, SpinnerProps>((props, ref) => 
       {!children && <SpinnerIcon size={size} colorScheme={colorScheme}></SpinnerIcon>}
 
       {!!children && React.cloneElement(children, { s: size, c: colorScheme })}
-    </View>
+    </Box>
   )
 })
