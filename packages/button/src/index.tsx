@@ -1,10 +1,10 @@
 import React, { forwardRef } from 'react'
-import { Button as StyleButton } from '@styli/react'
+import { Box } from '@styli/react'
 import { StyliHTMLProps } from '@styli/types'
 import { getColorValue } from '@styli/core'
 
 type ButtonSize = 'xs' | 'sm' | 'md' | 'lg'
-type ButtonVariant = 'solid' | 'outline' | 'ghost' | 'link'
+type ButtonVariant = 'solid' | 'outline' | 'ghost'
 
 export interface ButtonProps extends StyliHTMLProps<'div'> {
   text: string
@@ -21,21 +21,24 @@ export const Button = forwardRef<HTMLDivElement, ButtonProps>((props, ref) => {
   const atomicProps: any = rest
 
   return (
-    <StyleButton
+    <Box
       ref={ref}
+      as="button"
       centerY
       bg="none"
       border="0"
       outlineNone
       cursorPointer
-      appearance="none"
-      userSelect="none"
       rounded="0.375rem"
-      whiteSpace="nowrap"
-      verticalAlign="middle"
-      transition="all 250ms ease 0s"
       opacity-40={disabled}
       cursorNotAllowed={disabled}
+      style={{
+        appearance: "none",
+        userSelect: "none",
+        whiteSpace: "nowrap",
+        verticalAlign: "middle",
+        transition: "all 250ms ease 0s"
+      }}
       {...getVariantMap(colorScheme, disabled)[variant]}
       {...getSizeMap()[size]}
       {...atomicProps}
@@ -43,7 +46,7 @@ export const Button = forwardRef<HTMLDivElement, ButtonProps>((props, ref) => {
       {leftIcon}
       {text}
       {rightIcon}
-    </StyleButton>
+    </Box>
   )
 })
 
@@ -54,14 +57,14 @@ function getVariantMap(color: string, disabled = false) {
       bgColor: color,
       ...disabled ? {} : {
         'bgColor--hover': `${color}-D10`,
-        'bgColor--active': `${color}-D10`,
+        'bgColor--active': `${color}-D20`,
         'shadow--focus': `0 0 0 .2rem ${getColorValue(color + '-T50')}`,
       },
     },
     ghost: {
       color,
       ...disabled ? {} : {
-        'bgColor--hover': `${color}-T90`,
+        'bgColor--hover': `${color}-T80`,
         'bgColor--active': `${color}-T90`,
         'shadow--focus': `0 0 0 .2rem ${getColorValue(color + '-T50')}`,
       }
@@ -70,7 +73,7 @@ function getVariantMap(color: string, disabled = false) {
       color,
       border: `1px solid ${getColorValue(color)}`,
       ...disabled ? {} : {
-        'bgColor--hover': `${color}-T90`,
+        'bgColor--hover': `${color}-T80`,
         'bgColor--active': `${color}-T90`,
         'shadow--focus': `0 0 0 .2rem ${getColorValue(color + '-T50')}`,
       }
