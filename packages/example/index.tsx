@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { View } from '@styli/react'
+import { Box } from '@styli/react'
 
 import './index.css'
 import { AvatarDemo } from './components/AvatarDemo'
@@ -12,10 +12,12 @@ import { CloseButtonDemo } from './components/CloseButtonDemo'
 import { SpinnerDemo } from './components/SpinnerDemo'
 import { RadioDemo } from './components/RadioDemo'
 import { CheckboxDemo } from './components/CheckboxDemo'
+import { DotDemo } from './components/DotDemo'
 
 const App = () => {
   return (
-    <View p-100 spaceY-10>
+    <Box p-100 spaceY-10>
+      <DotDemo></DotDemo>
       <CheckboxDemo></CheckboxDemo>
       <RadioDemo></RadioDemo>
       <SpinnerDemo></SpinnerDemo>
@@ -25,7 +27,7 @@ const App = () => {
       <CardDemo></CardDemo>
       <AvatarDemo></AvatarDemo>
       <InputDemo></InputDemo>
-    </View>
+    </Box>
   )
 }
 
