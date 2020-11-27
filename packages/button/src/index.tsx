@@ -1,78 +1,64 @@
-import React, { forwardRef } from 'react'
-import { StyliColor, StyliHTMLProps } from '@styli/types'
-import { getColorValue } from '@styli/core'
+import React, { cloneElement, forwardRef } from 'react'
+import { StyliColor } from '@styli/types'
+import { BoxComponent } from '@styli/react'
 import { styled } from '@styli/styled'
+import { styli } from '@styli/core'
+import { Spinner } from '@bone-ui/spinner'
 
-const StyledButton = styled('button')
+type Size = 'xs' | 'sm' | 'md' | 'lg' | number
 
-const sizes = {
-  xs: {
-    h: 24,
-    minW: 24,
-    f0: true,
-    px: 8,
-  },
-  sm: {
-    h: 32,
-    minW: 32,
-    f1: true,
-    px: 12,
-  },
-  md: {
-    h: 40,
-    minW: 40,
-    f2: true,
-    px: 16,
-  },
-  lg: {
-    h: 48,
-    minW: 48,
-    f3: true,
-    px: 24,
-  },
-}
-
-export interface ButtonProps extends StyliHTMLProps<'button'> {
+export interface ButtonProps {
   colorScheme?: StyliColor
 
-  size?: 'xs' | 'sm' | 'md' | 'lg' | number
+  colorMode?: 'dark' | 'light'
 
-  variant?: 'solid' | 'outline' | 'ghost'
+  size?: Size
+
+  variant?: 'solid' | 'outline'
 
   leftIcon?: React.ReactElement
 
   rightIcon?: React.ReactElement
 
   disabled?: boolean
+
+  loading?: boolean
 }
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
+export const Button: BoxComponent<'button', ButtonProps> = forwardRef((props: ButtonProps, ref) => {
   const {
+    as = 'button',
     size = 'md',
     variant = 'solid',
     leftIcon,
     rightIcon,
     colorScheme = 'primary',
+    colorMode = 'dark',
     disabled,
+    loading,
     children,
     ...rest
-  } = props
+  } = props as any
 
-  const sizeStyle = typeof size === 'string' ? sizes[size] : {}
+  const sizeStyle = getSizeStyle(size)
+  const isSolid = variant === 'solid'
+  const isLight = colorMode === 'light'
+  const notAllowed = disabled || loading
+  const Comp = styled(as)
 
   return (
-    <StyledButton
+    <Comp
       ref={ref}
-      as="button"
+      className="bone-button"
       inlineFlex
       center
       bg="none"
-      border-0
+      border="none"
       outlineNone
       cursorPointer
       rounded-4
-      opacity-40={disabled}
-      cursorNotAllowed={disabled}
+      opacity-40={notAllowed}
+      cursorNotAllowed={notAllowed}
       css={{
         appearance: 'none',
         userSelect: 'none',
@@ -80,50 +66,57 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) =>
         verticalAlign: 'middle',
         transition: 'all 250ms ease 0s',
       }}
-      {...getVariantMap(colorScheme, disabled)[variant]}
+      {...getVariantStyle(colorScheme, notAllowed, colorMode)[variant]}
       {...sizeStyle}
       {...rest}
     >
-      {leftIcon}
-      {children}
-      {rightIcon}
-    </StyledButton>
-  )
-})
+      {loading && (
+        <Spinner
+          mr-8
+          c={isSolid ? (isLight ? `${colorScheme}-D30` : 'white') : colorScheme}
+          s={sizeStyle.f}
+        ></Spinner>
+      )}
 
-function getVariantMap(color: string, disabled = false) {
+      {leftIcon && cloneElement(leftIcon, { mr: 8, s: sizeStyle.f })}
+      {children}
+      {rightIcon && cloneElement(rightIcon, { ml: 8, s: sizeStyle.f })}
+    </Comp>
+  )
+}) as any
+
+function getVariantStyle(color: string, notAllowed: any = null, colorMode: string): any {
+  const isLight = colorMode === 'light'
   return {
     solid: {
-      white: true,
-      bgColor: color,
-      ...(disabled
-        ? {}
-        : {
-            'bgColor--hover': `${color}-D8`,
-            'bgColor--active': `${color}-D20`,
-            'shadow--focus': `0 0 0 2px ${getColorValue(color + '-T60')}`,
-          }),
-    },
-    ghost: {
-      color,
-      ...(disabled
-        ? {}
-        : {
-            'bgColor--hover': `${color}-T80`,
-            'bgColor--active': `${color}-T90`,
-            'shadow--focus': `0 0 0 2px ${getColorValue(color + '-T60')}`,
-          }),
+      c: isLight ? `${color}-D30` : 'white',
+      bg: isLight ? `${color}-T60` : color,
+      ...(notAllowed ?? {
+        'bg--hover': isLight ? `${color}-T30` : `${color}-D8`,
+        'bg--active': isLight ? `${color}-T10` : `${color}-D20`,
+        'shadow--focus': isLight ? 'none' : `0 0 0 2px ${styli.getColorValue(color + '-T70')}`,
+      }),
     },
     outline: {
       color,
-      border: `1px solid ${getColorValue(color)}`,
-      ...(disabled
-        ? {}
-        : {
-            'bgColor--hover': `${color}-T80`,
-            'bgColor--active': `${color}-T90`,
-            'shadow--focus': `0 0 0 2px ${getColorValue(color + '-T60')}`,
-          }),
+      border: true,
+      borderColor: styli.getColorValue(color),
+      ...(notAllowed ?? {
+        'bg--hover': `${color}-T80`,
+        'bg--active': `${color}-T90`,
+        'shadow--focus': `0 0 0 2px ${styli.getColorValue(color + '-T70')}`,
+      }),
     },
   }
+}
+
+function getSizeStyle(size: Size) {
+  const sizes = {
+    xs: { h: 24, f: 12, px: 12 },
+    sm: { h: 32, f: 14, px: 16 },
+    md: { h: 40, f: 16, px: 20 },
+    lg: { h: 48, f: 18, px: 24 },
+  }
+  if (typeof size === 'string') return sizes[size]
+  return { h: size, px: size * 0.5, f: size * 0.35 }
 }

@@ -4,6 +4,7 @@
   "license": "MIT",
   "main": "lib/index.js",
   "module": "dist/icons.esm.js",
+  "typings": "dist/index.d.ts",
   "files": [
     "dist",
     "src"
@@ -13,7 +14,8 @@
   },
   "scripts": {
     "start": "tsdx watch",
-    "build": "tsdx build && tsc --build tsconfig.lib.json",
+    "build:lib": "tsc --build tsconfig.lib.json",
+    "build": "npm run build:lib && tsdx build",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint",
     "prepare": "tsdx build"
