@@ -1,18 +1,48 @@
 import React, { forwardRef } from 'react'
-import { Box } from '@styli/react'
-import { StyliHTMLProps } from '@styli/types'
+import { StyliColor, StyliHTMLProps } from '@styli/types'
 import { getColorValue } from '@styli/core'
+import { styled } from '@styli/styled'
 
-type ButtonSize = 'xs' | 'sm' | 'md' | 'lg'
-type ButtonVariant = 'solid' | 'outline' | 'ghost'
+const StyledButton = styled('button')
+
+const sizes = {
+  xs: {
+    h: 24,
+    minW: 24,
+    f0: true,
+    px: 8,
+  },
+  sm: {
+    h: 32,
+    minW: 32,
+    f1: true,
+    px: 12,
+  },
+  md: {
+    h: 40,
+    minW: 40,
+    f2: true,
+    px: 16,
+  },
+  lg: {
+    h: 48,
+    minW: 48,
+    f3: true,
+    px: 24,
+  },
+}
 
 export interface ButtonProps extends StyliHTMLProps<'button'> {
-  text: string
-  colorScheme?: string
-  size?: ButtonSize
-  variant?: ButtonVariant
+  colorScheme?: StyliColor
+
+  size?: 'xs' | 'sm' | 'md' | 'lg' | number
+
+  variant?: 'solid' | 'outline' | 'ghost'
+
   leftIcon?: React.ReactElement
+
   rightIcon?: React.ReactElement
+
   disabled?: boolean
 }
 
@@ -20,28 +50,30 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) =>
   const {
     size = 'md',
     variant = 'solid',
-    text,
     leftIcon,
     rightIcon,
     colorScheme = 'primary',
     disabled,
+    children,
     ...rest
   } = props
-  const atomicProps: any = rest
+
+  const sizeStyle = typeof size === 'string' ? sizes[size] : {}
 
   return (
-    <Box
+    <StyledButton
       ref={ref}
       as="button"
-      centerY
+      inlineFlex
+      center
       bg="none"
-      border="0"
+      border-0
       outlineNone
       cursorPointer
-      rounded="0.375rem"
+      rounded-4
       opacity-40={disabled}
       cursorNotAllowed={disabled}
-      style={{
+      css={{
         appearance: 'none',
         userSelect: 'none',
         whiteSpace: 'nowrap',
@@ -49,13 +81,13 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) =>
         transition: 'all 250ms ease 0s',
       }}
       {...getVariantMap(colorScheme, disabled)[variant]}
-      {...getSizeMap()[size]}
-      {...atomicProps}
+      {...sizeStyle}
+      {...rest}
     >
       {leftIcon}
-      {text}
+      {children}
       {rightIcon}
-    </Box>
+    </StyledButton>
   )
 })
 
@@ -67,9 +99,9 @@ function getVariantMap(color: string, disabled = false) {
       ...(disabled
         ? {}
         : {
-            'bgColor--hover': `${color}-D10`,
+            'bgColor--hover': `${color}-D8`,
             'bgColor--active': `${color}-D20`,
-            'shadow--focus': `0 0 0 .2rem ${getColorValue(color + '-T50')}`,
+            'shadow--focus': `0 0 0 2px ${getColorValue(color + '-T60')}`,
           }),
     },
     ghost: {
@@ -79,7 +111,7 @@ function getVariantMap(color: string, disabled = false) {
         : {
             'bgColor--hover': `${color}-T80`,
             'bgColor--active': `${color}-T90`,
-            'shadow--focus': `0 0 0 .2rem ${getColorValue(color + '-T50')}`,
+            'shadow--focus': `0 0 0 2px ${getColorValue(color + '-T60')}`,
           }),
     },
     outline: {
@@ -90,37 +122,8 @@ function getVariantMap(color: string, disabled = false) {
         : {
             'bgColor--hover': `${color}-T80`,
             'bgColor--active': `${color}-T90`,
-            'shadow--focus': `0 0 0 .2rem ${getColorValue(color + '-T50')}`,
+            'shadow--focus': `0 0 0 2px ${getColorValue(color + '-T60')}`,
           }),
-    },
-  }
-}
-
-function getSizeMap() {
-  return {
-    xs: {
-      h: '1.5rem',
-      minW: '1.5rem',
-      f0: true,
-      px: '0.5rem',
-    },
-    sm: {
-      h: '2rem',
-      minW: '2rem',
-      f1: true,
-      px: '0.75rem',
-    },
-    md: {
-      h: '2.5rem',
-      minW: '2.5rem',
-      f2: true,
-      px: '1rem',
-    },
-    lg: {
-      h: '3rem',
-      minW: '3rem',
-      f3: true,
-      px: '1.25rem',
     },
   }
 }

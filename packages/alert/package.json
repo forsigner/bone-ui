@@ -24,6 +24,6 @@
     "@bone-ui/icons": "^0.1.0"
   },
   "devDependencies": {
-    "@styli/react": "^0.15.1"
+    "@styli/react": "^0.16.0"
   }
 }
