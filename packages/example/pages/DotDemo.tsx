@@ -2,7 +2,7 @@ import React from 'react'
 import { Box } from '@styli/react'
 import { Dot } from '@bone-ui/dot'
 
-export const DotDemo = () => {
+export default function DotDemo() {
   return (
     <Box spaceY-20>
       <Box spaceX-20 left>

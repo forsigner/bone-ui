@@ -3,7 +3,7 @@ import { View } from '@styli/react'
 import { Spinner } from '@bone-ui/spinner'
 import { SunOutline, CashOutline } from '@bone-ui/icons'
 
-export const SpinnerDemo = () => {
+export default function SpinnerDemo() {
   return (
     <View p6 spaceX-10 w-800 center>
       <Spinner></Spinner>

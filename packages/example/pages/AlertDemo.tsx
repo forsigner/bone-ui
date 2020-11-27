@@ -3,7 +3,7 @@ import { View } from '@styli/react'
 import { Alert, AlertIcon, AlertTitle, AlertDescription } from '@bone-ui/alert'
 import { CloseButton } from '@bone-ui/close-button'
 
-export const AlertDemo = () => {
+export default function AlertDemo() {
   return (
     <View w-800 spaceY-10>
       <Alert>A default alert</Alert>

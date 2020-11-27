@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Input } from '@bone-ui/input'
 
-export const InputDemo = () => {
+export default function InputDemo() {
   const ref = useRef<HTMLInputElement>(null)
   const [username, setUsername] = useState('')
 

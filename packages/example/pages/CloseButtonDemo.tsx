@@ -2,7 +2,7 @@ import React from 'react'
 import { View } from '@styli/react'
 import { CloseButton } from '@bone-ui/close-button'
 
-export const CloseButtonDemo = () => {
+export default function CloseButtonDemo() {
   return (
     <View left spaceX-10 w-800>
       <CloseButton size={24}></CloseButton>

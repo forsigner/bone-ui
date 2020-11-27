@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Image } from '@styli/react'
 import { Card } from '@bone-ui/card'
 
-export const CardDemo = () => {
+export default function CardDemo() {
   return (
     <View w-400>
       <Card variant="outline">A basic card.</Card>

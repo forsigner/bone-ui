@@ -4,7 +4,7 @@ import { Badge } from '@bone-ui/badge'
 import { UsersSolid } from '@bone-ui/icons'
 import { Avatar } from '@bone-ui/avatar'
 
-export const BadgeDemo = () => {
+export default function BadgeDemo() {
   return (
     <div>
       <Box pb6 spaceY-20>

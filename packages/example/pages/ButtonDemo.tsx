@@ -3,7 +3,7 @@ import { View, Heading } from '@styli/react'
 import { Button } from '@bone-ui/Button'
 import { AcademicCapOutline } from '@bone-ui/icons'
 
-export const ButtonDemo = () => {
+export default function ButtonDemo() {
   return (
     <View>
       <Heading>Size</Heading>
@@ -31,8 +31,12 @@ export const ButtonDemo = () => {
       <Heading>with icon</Heading>
       <View row spaceX-20>
         <Button text="Button" leftIcon={<AcademicCapOutline mr1 />} />
-        <Button text="Button" rightIcon={<AcademicCapOutline ml1 />}  />
-        <Button text="Button" leftIcon={<AcademicCapOutline mr1 />} rightIcon={<AcademicCapOutline ml1/>} />
+        <Button text="Button" rightIcon={<AcademicCapOutline ml1 />} />
+        <Button
+          text="Button"
+          leftIcon={<AcademicCapOutline mr1 />}
+          rightIcon={<AcademicCapOutline ml1 />}
+        />
       </View>
 
       <Heading>disable</Heading>

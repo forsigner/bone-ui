@@ -6,7 +6,7 @@ import { getColorValue } from '@styli/core'
 type ButtonSize = 'xs' | 'sm' | 'md' | 'lg'
 type ButtonVariant = 'solid' | 'outline' | 'ghost'
 
-export interface ButtonProps extends StyliHTMLProps<'div'> {
+export interface ButtonProps extends StyliHTMLProps<'button'> {
   text: string
   colorScheme?: string
   size?: ButtonSize
@@ -16,8 +16,17 @@ export interface ButtonProps extends StyliHTMLProps<'div'> {
   disabled?: boolean
 }
 
-export const Button = forwardRef<HTMLDivElement, ButtonProps>((props, ref) => {
-  const { size = 'md', variant = 'solid', text, leftIcon, rightIcon, colorScheme = 'blue50', disabled, ...rest } = props
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
+  const {
+    size = 'md',
+    variant = 'solid',
+    text,
+    leftIcon,
+    rightIcon,
+    colorScheme = 'primary',
+    disabled,
+    ...rest
+  } = props
   const atomicProps: any = rest
 
   return (
@@ -33,11 +42,11 @@ export const Button = forwardRef<HTMLDivElement, ButtonProps>((props, ref) => {
       opacity-40={disabled}
       cursorNotAllowed={disabled}
       style={{
-        appearance: "none",
-        userSelect: "none",
-        whiteSpace: "nowrap",
-        verticalAlign: "middle",
-        transition: "all 250ms ease 0s"
+        appearance: 'none',
+        userSelect: 'none',
+        whiteSpace: 'nowrap',
+        verticalAlign: 'middle',
+        transition: 'all 250ms ease 0s',
       }}
       {...getVariantMap(colorScheme, disabled)[variant]}
       {...getSizeMap()[size]}
@@ -55,28 +64,34 @@ function getVariantMap(color: string, disabled = false) {
     solid: {
       white: true,
       bgColor: color,
-      ...disabled ? {} : {
-        'bgColor--hover': `${color}-D10`,
-        'bgColor--active': `${color}-D20`,
-        'shadow--focus': `0 0 0 .2rem ${getColorValue(color + '-T50')}`,
-      },
+      ...(disabled
+        ? {}
+        : {
+            'bgColor--hover': `${color}-D10`,
+            'bgColor--active': `${color}-D20`,
+            'shadow--focus': `0 0 0 .2rem ${getColorValue(color + '-T50')}`,
+          }),
     },
     ghost: {
       color,
-      ...disabled ? {} : {
-        'bgColor--hover': `${color}-T80`,
-        'bgColor--active': `${color}-T90`,
-        'shadow--focus': `0 0 0 .2rem ${getColorValue(color + '-T50')}`,
-      }
+      ...(disabled
+        ? {}
+        : {
+            'bgColor--hover': `${color}-T80`,
+            'bgColor--active': `${color}-T90`,
+            'shadow--focus': `0 0 0 .2rem ${getColorValue(color + '-T50')}`,
+          }),
     },
     outline: {
       color,
       border: `1px solid ${getColorValue(color)}`,
-      ...disabled ? {} : {
-        'bgColor--hover': `${color}-T80`,
-        'bgColor--active': `${color}-T90`,
-        'shadow--focus': `0 0 0 .2rem ${getColorValue(color + '-T50')}`,
-      }
+      ...(disabled
+        ? {}
+        : {
+            'bgColor--hover': `${color}-T80`,
+            'bgColor--active': `${color}-T90`,
+            'shadow--focus': `0 0 0 .2rem ${getColorValue(color + '-T50')}`,
+          }),
     },
   }
 }
@@ -106,6 +121,6 @@ function getSizeMap() {
       minW: '3rem',
       f3: true,
       px: '1.25rem',
-    }
+    },
   }
 }

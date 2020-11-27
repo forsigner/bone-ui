@@ -2,7 +2,7 @@ import React from 'react'
 import { View } from '@styli/react'
 import { Checkbox } from '@bone-ui/checkbox'
 
-export const CheckboxDemo = () => {
+export default function CheckboxDemo() {
   function onChange(value: any) {
     console.log('value:', value)
   }

@@ -13,7 +13,7 @@ import UserAddSolid from '@bone-ui/icons/lib/UserAddSolid'
 import { CakeOutline } from '@bone-ui/icons/lib/CakeOutline'
 import CheckCircleSolid from '@bone-ui/icons/lib/CheckCircleSolid'
 
-export const IconDemo = () => {
+export default function IconDemo() {
   return (
     <View spaceX-10>
       <BookmarkOutline red30></BookmarkOutline>
