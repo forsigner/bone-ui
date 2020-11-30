@@ -54,6 +54,7 @@ export const Button: BoxComponent<'button', ButtonProps> = forwardRef((props: Bu
       center
       bg="none"
       border="none"
+      lh-1em
       outlineNone
       cursorPointer
       rounded-4
