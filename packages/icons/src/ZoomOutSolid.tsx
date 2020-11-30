@@ -12,9 +12,9 @@ export const ZoomOutSolid = iconify({
         clipRule="evenodd"
       ></path>
       <path
-        fill-rule="evenodd"
+        fillRule="evenodd"
         d="M5 8a1 1 0 011-1h4a1 1 0 110 2H6a1 1 0 01-1-1z"
-        clip-rule="evenodd"
+        clipRule="evenodd"
       ></path>
     </>
   ),

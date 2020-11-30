@@ -12,14 +12,14 @@ export const FingerPrintSolid = iconify({
         clipRule="evenodd"
       ></path>
       <path
-        fill-rule="evenodd"
+        fillRule="evenodd"
         d="M5 11a5 5 0 1110 0 1 1 0 11-2 0 3 3 0 10-6 0c0 1.677-.345 3.276-.968 4.729a1 1 0 11-1.838-.789A9.964 9.964 0 005 11zm8.921 2.012a1 1 0 01.831 1.145 19.86 19.86 0 01-.545 2.436 1 1 0 11-1.92-.558c.207-.713.371-1.445.49-2.192a1 1 0 011.144-.83z"
-        clip-rule="evenodd"
+        clipRule="evenodd"
       ></path>
       <path
-        fill-rule="evenodd"
+        fillRule="evenodd"
         d="M10 10a1 1 0 011 1c0 2.236-.46 4.368-1.29 6.304a1 1 0 01-1.838-.789A13.952 13.952 0 009 11a1 1 0 011-1z"
-        clip-rule="evenodd"
+        clipRule="evenodd"
       ></path>
     </>
   ),

@@ -14,9 +14,9 @@ export const VolumeOffOutline = iconify({
         clipRule="evenodd"
       ></path>
       <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
         d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"
       ></path>
     </>
