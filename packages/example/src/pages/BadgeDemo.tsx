@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box } from '@styli/react'
 import { Badge } from '@bone-ui/badge'
-import { UsersSolid } from '@bone-ui/icons'
+import UsersSolid from '@bone-ui/icons/lib/UserSolid'
 import { Avatar } from '@bone-ui/avatar'
 
 export default function BadgeDemo() {

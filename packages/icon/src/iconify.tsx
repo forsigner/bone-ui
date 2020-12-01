@@ -5,6 +5,8 @@ import { StyliHTMLProps } from '@styli/types'
 export interface IconProps extends StyliHTMLProps<'svg'> {
   fill?: 'none' | 'currentColor'
   strokeWidth?: number
+
+  size?: number
 }
 
 export interface IconifyOptions {
@@ -53,7 +55,7 @@ export function iconify(options: IconifyOptions) {
       <Svg
         ref={ref}
         className={`bone-icon bone-icon--${displayName}`}
-        s6
+        s={props.size || 24}
         fill={svgFill}
         viewBox={viewBox || `0 0 ${size} ${size}`}
         {...svgPros}

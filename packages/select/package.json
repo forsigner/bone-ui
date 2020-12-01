@@ -1,5 +1,5 @@
 {
-  "name": "@bone-ui/icon",
+  "name": "@bone-ui/select",
   "version": "0.1.0",
   "license": "MIT",
   "main": "dist/index.js",
@@ -19,8 +19,8 @@
     "prepare": "tsdx build"
   },
   "author": "forsigner",
-  "module": "dist/icon.esm.js",
-  "devDependencies": {
-    "@styli/react": "^0.16.1"
+  "module": "dist/select.esm.js",
+  "dependencies": {
+    "@bone-ui/hooks": "^0.1.0"
   }
 }
