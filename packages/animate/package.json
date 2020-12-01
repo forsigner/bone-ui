@@ -1,0 +1,13 @@
+{
+  "name": "@bone-ui/animate",
+  "version": "0.1.0",
+  "license": "MIT",
+  "main": "src/animate.css",
+  "files": [
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "author": "forsigner"
+}
