@@ -19,6 +19,10 @@ export default function Home() {
       <Link to="/InputDemo">InputDemo</Link>
       <Link to="/RadioDemo">RadioDemo</Link>
       <Link to="/SpinnerDemo">SpinnerDemo</Link>
+      <Link to="/ModalDemo">ModalDemo</Link>
+      <Link to="/DrawerDemo">DrawerDemo</Link>
+      <Link to="/ArrowDemo">ArrowDemo</Link>
+      <Link to="/TooltipDemo">TooltipDemo</Link>
     </Box>
   )
 }
