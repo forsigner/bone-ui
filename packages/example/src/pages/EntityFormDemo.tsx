@@ -33,6 +33,13 @@ export class User {
   agree = true
 
   @field({
+    label: 'Enabled?',
+    value: true,
+    component: 'Switch',
+  })
+  enabled = true
+
+  @field({
     label: 'Color',
     value: 'red',
     component: 'RadioGroup',
@@ -77,6 +84,7 @@ export default () => {
       <EntityForm entity={User}>
         <Field name="username" />
         <Field name="email" />
+        <Field name="enabled" />
         <Field name="color" />
         <Field name="colors" />
         <Field name="intro" />

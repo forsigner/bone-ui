@@ -1,9 +1,9 @@
 import React, { ChangeEvent, FC } from 'react'
 import { RegisterFieldProps } from 'entity-form'
-import { Checkbox as BoneCheckbox } from '@bone-ui/checkbox'
+import { Switch as BoneSwitch } from '@bone-ui/switch'
 import { FormField } from '@bone-ui/form-field'
 
-export const Checkbox: FC<RegisterFieldProps> = ({ field, result, name }) => {
+export const Switch: FC<RegisterFieldProps> = ({ field, result, name }) => {
   const { label } = field
   const { handlerBuilder } = result
   const error = result.helpers.getError(name)
@@ -15,7 +15,7 @@ export const Checkbox: FC<RegisterFieldProps> = ({ field, result, name }) => {
 
   return (
     <FormField error={error} label={label}>
-      <BoneCheckbox checked={value} onChange={handleChange}></BoneCheckbox>
+      <BoneSwitch checked={value} onChange={handleChange}></BoneSwitch>
     </FormField>
   )
 }

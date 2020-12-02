@@ -20,6 +20,7 @@
     "@bone-ui/input": "^0.1.0",
     "@bone-ui/textarea": "^0.1.0",
     "@bone-ui/checkbox": "^0.1.0",
+    "@bone-ui/switch": "^0.1.0",
     "@bone-ui/radio": "^0.1.0",
     "@bone-ui/form-field": "^0.1.0",
     "@bone-ui/avatar": "^0.1.0",
