@@ -1,44 +1,42 @@
-import React, { forwardRef, useContext } from 'react'
+import React, { forwardRef } from 'react'
 import { Box, Input } from '@styli/react'
 import { styled } from '@styli/styled'
-import { StyliHTMLProps } from '@styli/types'
-import { radioGroupContext } from './radioGroupContext'
+import { useRadio } from './useRadio'
+import { RadioProps, RadioStatus } from './types'
 
 const Label = styled('label')
 
-type InputProps = React.DetailedHTMLProps<
-  React.InputHTMLAttributes<HTMLInputElement>,
-  HTMLInputElement
->
-export interface RadioProps extends StyliHTMLProps<'input'> {}
+const defaultRender = ({ checked }: RadioStatus) => (
+  <Box center circle-20 border-2 borderGray40={!checked} borderPrimary={checked} overflow="hidden">
+    <Box circle-8 bgPrimary hide={!checked}></Box>
+  </Box>
+)
 
 export const Radio = forwardRef<HTMLInputElement, RadioProps>((props, ref) => {
-  const { children, onChange, value, ...rest } = props
-  const radioProps = useCheckboxProps(props)
-  const checked = radioProps.checked || props.checked
+  const { children, render = defaultRender, ...rest } = props
+  const { inputProps, state } = useRadio(props)
+  const { disabled } = state
 
   return (
-    <Label className="bone-radio" centerY left cursorPointer>
+    <Label
+      className="bone-radio"
+      centerY
+      left
+      cursorPointer={!disabled}
+      cursorNotAllowed={disabled}
+      opacity-50={disabled}
+    >
       <Input
         className="bone-radio__input"
         ref={ref}
         type="radio"
         s-0
         opacity-0
-        {...radioProps}
+        {...inputProps}
         {...rest}
       />
 
-      <Box
-        center
-        circle-20
-        border-2
-        borderGray40={!checked}
-        borderPrimary={checked}
-        overflow="hidden"
-      >
-        <Box circle-8 bgPrimary hide={!checked}></Box>
-      </Box>
+      {render({ ...state, children })}
 
       {children && (
         <Box className="bone-radio__label" ml-8>
@@ -48,27 +46,3 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>((props, ref) => {
     </Label>
   )
 })
-
-/**
- * Get checked and onChange handler
- * @param props
- */
-function useCheckboxProps(props: InputProps) {
-  let radioProps: InputProps = {}
-  const { value, onChange } = props
-  const context = useContext(radioGroupContext)
-
-  if (!context) return radioProps
-
-  const { radioGroupValue, setRadioGroupValue } = context
-  radioProps = {
-    checked: value === radioGroupValue,
-    onChange: (e) => {
-      const { checked } = e.target
-      if (checked) setRadioGroupValue(value)
-      onChange && onChange(e)
-    },
-  }
-
-  return radioProps
-}

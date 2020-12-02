@@ -4,7 +4,7 @@ import { Radio, RadioGroup } from '@bone-ui/radio'
 
 export default function RadioDemo() {
   return (
-    <View p6 spaceX-10 w-800 center>
+    <View p6 space-10 w-800>
       <RadioGroup
         value="green"
         onChange={(e) => {
