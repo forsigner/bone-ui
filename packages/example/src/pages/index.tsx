@@ -11,6 +11,7 @@ export default function Home() {
       <Link to="/BadgeDemo">BadgeDemo</Link>
       <Link to="/TagDemo">TagDemo</Link>
       <Link to="/ButtonDemo">ButtonDemo</Link>
+      <Link to="/ButtonGroupDemo">ButtonGroupDemo</Link>
       <Link to="/CardDemo">CardDemo</Link>
       <Link to="/SwitchDemo">SwitchDemo</Link>
       <Link to="/CheckboxDemo">CheckboxDemo</Link>
