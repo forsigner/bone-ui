@@ -224,6 +224,36 @@ export default function ButtonDemo() {
         <Button leftIcon={<DownloadOutline />}>With icon</Button>
         <Button rightIcon={<ArrowRightOutline />}>RightIcon</Button>
       </Box>
+
+      <Heading>Icon</Heading>
+
+      <Box row spaceX-20>
+        <Button icon={<MailSolid />} rounded-0 />
+        <Button icon={<DownloadOutline />} />
+        <Button icon={<ArrowRightOutline />} rounded-10 />
+        <Button icon={<MailSolid />} rounded-9999 />
+
+        <Button variant="outline" icon={<MailSolid />} rounded-0 />
+        <Button variant="outline" icon={<DownloadOutline />} />
+        <Button variant="outline" icon={<ArrowRightOutline />} rounded-10 borderDashed />
+        <Button variant="outline" icon={<MailSolid />} rounded-9999 />
+
+        <Button colorMode="light" variant="outline" icon={<MailSolid />} rounded-0 />
+        <Button colorMode="light" variant="outline" icon={<DownloadOutline />} />
+        <Button
+          colorMode="light"
+          variant="outline"
+          icon={<ArrowRightOutline />}
+          rounded-10
+          borderDashed
+        />
+        <Button colorMode="light" variant="outline" icon={<MailSolid />} rounded-9999 />
+
+        <Button colorMode="light" icon={<MailSolid />} rounded-0 />
+        <Button colorMode="light" icon={<DownloadOutline />} />
+        <Button colorMode="light" icon={<ArrowRightOutline />} rounded-10 />
+        <Button colorMode="light" icon={<MailSolid />} rounded-9999 />
+      </Box>
     </Box>
   )
 }

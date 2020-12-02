@@ -20,6 +20,8 @@ export interface ButtonProps {
 
   rightIcon?: React.ReactElement
 
+  icon?: React.ReactElement
+
   disabled?: boolean
 
   loading?: boolean
@@ -32,6 +34,7 @@ export const Button: BoxComponent<'button', ButtonProps> = forwardRef((props: Bu
     variant = 'solid',
     leftIcon,
     rightIcon,
+    icon,
     colorScheme = 'primary',
     colorMode = 'dark',
     disabled,
@@ -45,6 +48,8 @@ export const Button: BoxComponent<'button', ButtonProps> = forwardRef((props: Bu
   const isLight = colorMode === 'light'
   const notAllowed = disabled || loading
   const Comp = styled(as)
+
+  const iconButtonProps = icon ? { px0: !!icon, w: sizeStyle.h } : {}
 
   return (
     <Comp
@@ -69,6 +74,7 @@ export const Button: BoxComponent<'button', ButtonProps> = forwardRef((props: Bu
       }}
       {...getVariantStyle(colorScheme, notAllowed, colorMode)[variant]}
       {...sizeStyle}
+      {...iconButtonProps}
       {...rest}
     >
       {loading && (
@@ -78,6 +84,8 @@ export const Button: BoxComponent<'button', ButtonProps> = forwardRef((props: Bu
           s={sizeStyle.f}
         ></Spinner>
       )}
+
+      {icon}
 
       {leftIcon && cloneElement(leftIcon, { mr: 8, s: sizeStyle.f })}
       {children}
