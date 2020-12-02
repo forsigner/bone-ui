@@ -6,15 +6,15 @@ export default function ButtonGroupDemo() {
   return (
     <Box spaceY-20>
       <ButtonGroup>
-        <Button variant="outline" colorScheme="gray50">
-          Small
-        </Button>
-        <Button variant="outline" colorScheme="gray50">
-          Middle
-        </Button>
-        <Button variant="outline" colorScheme="gray50">
-          Large
-        </Button>
+        <Button>Small</Button>
+        <Button>Middle</Button>
+        <Button>Large</Button>
+      </ButtonGroup>
+
+      <ButtonGroup>
+        <Button colorScheme="teal40">Small</Button>
+        <Button colorScheme="teal40">Middle</Button>
+        <Button colorScheme="teal40">Large</Button>
       </ButtonGroup>
 
       <ButtonGroup>

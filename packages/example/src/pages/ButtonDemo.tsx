@@ -23,10 +23,15 @@ export default function ButtonDemo() {
         <Button leftIcon={<MailSolid />} size={100}>
           Size 100
         </Button>
+
+        <Button size="md" colorScheme="teal40">
+          Middle
+        </Button>
       </Box>
 
       <Heading>colorScheme</Heading>
       <Box row space-20 wrap>
+        <Button>Default</Button>
         <Button colorScheme="gray40">gray40</Button>
         <Button colorScheme="red40">Red40</Button>
         <Button colorScheme="yellow40">Yello40</Button>
@@ -37,6 +42,40 @@ export default function ButtonDemo() {
         <Button colorScheme="purple40">purple40</Button>
         <Button colorScheme="indigo40">indigo40</Button>
         <Button colorScheme="black">Black</Button>
+      </Box>
+
+      <Heading>Outline</Heading>
+      <Box row space-20 wrap>
+        <Button variant="solid" colorScheme="gray40">
+          gray40
+        </Button>
+        <Button variant="solid" colorScheme="red40">
+          Red40
+        </Button>
+        <Button variant="solid" colorScheme="yellow40">
+          Yello40
+        </Button>
+        <Button variant="solid" colorScheme="orange40">
+          orange40
+        </Button>
+        <Button variant="solid" colorScheme="pink40">
+          pink40
+        </Button>
+        <Button variant="solid" colorScheme="green40">
+          green40
+        </Button>
+        <Button variant="solid" colorScheme="blue40">
+          Blue40
+        </Button>
+        <Button variant="solid" colorScheme="purple40">
+          purple40
+        </Button>
+        <Button variant="solid" colorScheme="indigo40">
+          indigo40
+        </Button>
+        <Button variant="solid" colorScheme="black">
+          Black
+        </Button>
       </Box>
 
       <Heading>Outline</Heading>
@@ -106,43 +145,43 @@ export default function ButtonDemo() {
 
       <Heading>colorMode</Heading>
       <Box row space-20 wrap>
-        <Button colorMode="light" colorScheme="gray40">
+        <Button colorMode="light" variant="solid" colorScheme="gray40">
           gray40
         </Button>
-        <Button colorMode="light" colorScheme="red40">
+        <Button colorMode="light" variant="solid" colorScheme="red40">
           Red40
         </Button>
-        <Button colorMode="light" colorScheme="yellow40">
+        <Button colorMode="light" variant="solid" colorScheme="yellow40">
           Yello40
         </Button>
-        <Button colorMode="light" colorScheme="orange40">
+        <Button colorMode="light" variant="solid" colorScheme="orange40">
           orange40
         </Button>
-        <Button colorMode="light" colorScheme="pink40">
+        <Button colorMode="light" variant="solid" colorScheme="pink40">
           pink40
         </Button>
-        <Button colorMode="light" colorScheme="green40">
+        <Button colorMode="light" variant="solid" colorScheme="green40">
           green40
         </Button>
-        <Button colorMode="light" colorScheme="blue40">
+        <Button colorMode="light" variant="solid" colorScheme="blue40">
           Blue40
         </Button>
-        <Button colorMode="light" colorScheme="purple40">
+        <Button colorMode="light" variant="solid" colorScheme="purple40">
           purple40
         </Button>
-        <Button colorMode="light" colorScheme="indigo40">
+        <Button colorMode="light" variant="solid" colorScheme="indigo40">
           indigo40
         </Button>
 
-        <Button disabled colorMode="light" colorScheme="indigo40">
+        <Button disabled colorMode="light" variant="solid" colorScheme="indigo40">
           indigo40
         </Button>
 
-        <Button loading colorMode="light" colorScheme="purple40">
+        <Button loading colorMode="light" variant="solid" colorScheme="purple40">
           purple40
         </Button>
 
-        <Button loading colorMode="light" colorScheme="indigo40">
+        <Button loading colorMode="light" variant="solid" colorScheme="indigo40">
           indigo40
         </Button>
       </Box>

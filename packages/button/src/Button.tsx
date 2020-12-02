@@ -14,7 +14,7 @@ export interface ButtonProps {
 
   size?: Size
 
-  variant?: 'solid' | 'outline'
+  variant?: 'default' | 'solid' | 'outline'
 
   leftIcon?: React.ReactElement
 
@@ -31,11 +31,11 @@ export const Button: BoxComponent<'button', ButtonProps> = forwardRef((props: Bu
   const {
     as = 'button',
     size = 'md',
-    variant = 'solid',
+    variant = 'default',
     leftIcon,
     rightIcon,
     icon,
-    colorScheme = 'primary',
+    colorScheme = '#444',
     colorMode = 'dark',
     disabled,
     loading,
@@ -97,13 +97,22 @@ export const Button: BoxComponent<'button', ButtonProps> = forwardRef((props: Bu
 function getVariantStyle(color: string, notAllowed: any = null, colorMode: string): any {
   const isLight = colorMode === 'light'
   return {
+    default: {
+      border: true,
+      borderColor: 'gray30',
+      'bg--hover': `gray30-T70`,
+      'bg--active': `gray30-T40`,
+      // 'borderColor--hover': 'gray30-D10',
+      color,
+      'color--hover': `${color}-D20`,
+    },
     solid: {
       c: isLight ? `${color}-D30` : 'white',
       bg: isLight ? `${color}-T60` : color,
       ...(notAllowed ?? {
         'bg--hover': isLight ? `${color}-T30` : `${color}-D8`,
         'bg--active': isLight ? `${color}-T10` : `${color}-D20`,
-        'shadow--focus': isLight ? 'none' : `0 0 0 2px ${styli.getColorValue(color + '-T70')}`,
+        // 'shadow--focus': isLight ? 'none' : `0 0 0 2px ${styli.getColorValue(color + '-T70')}`,
       }),
     },
     outline: {
@@ -113,7 +122,7 @@ function getVariantStyle(color: string, notAllowed: any = null, colorMode: strin
       ...(notAllowed ?? {
         'bg--hover': `${color}-T80`,
         'bg--active': `${color}-T90`,
-        'shadow--focus': `0 0 0 2px ${styli.getColorValue(color + '-T70')}`,
+        // 'shadow--focus': `0 0 0 2px ${styli.getColorValue(color + '-T70')}`,
       }),
     },
   }
