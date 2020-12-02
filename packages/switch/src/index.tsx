@@ -1,88 +1,65 @@
-import React, { forwardRef, useEffect, useState } from 'react'
-import { Box, Input } from '@styli/react'
-import { styled } from '@styli/styled'
-import { StyliHTMLProps } from '@styli/types'
+import React, { forwardRef, memo } from 'react'
+import { Box } from '@styli/react'
+import { StyliColor, StyliHTMLProps } from '@styli/types'
+import { Checkbox } from '@bone-ui/checkbox'
 
-const Label = styled('label')
+export interface SwitchProps extends StyliHTMLProps<'input'> {
+  colorScheme?: StyliColor
 
-type InputProps = React.DetailedHTMLProps<
-  React.InputHTMLAttributes<HTMLInputElement>,
-  HTMLInputElement
->
-export interface SwitchProps extends StyliHTMLProps<'input'> {}
+  offColorScheme?: StyliColor
 
-function useCheckbox(props: InputProps) {
-  /** hooks */
-  const [disabled, setDisabled] = useState(props.disabled ?? false)
-  const [checked, setChecked] = useState(props.checked || props.defaultChecked || false)
+  /**
+   * Switch size, you can set any size
+   */
+  size?: number
 
-  useEffect(() => {
-    if (typeof props.checked !== 'boolean') return
-    setChecked(!!props.checked)
-  }, [props.checked])
-
-  useEffect(() => {
-    if (typeof props.disabled !== 'boolean') return
-    setDisabled(!!props.disabled)
-  }, [props.disabled])
-
-  let inputProps: InputProps = {
-    onChange(e) {
-      const { checked } = e.target
-      setChecked(checked)
-    },
-  }
-  return { inputProps, checked, disabled }
+  /**
+   * Aspect ratio for siwtch
+   */
+  aspectRatio?: number
 }
 
-export const Switch = forwardRef<HTMLInputElement, SwitchProps>((props, ref) => {
-  const { children, ...rest } = props
+export const Switch = memo(
+  forwardRef<HTMLInputElement, SwitchProps>((props, ref) => {
+    const {
+      colorScheme = 'primary',
+      offColorScheme = 'gray40',
+      size = 20,
+      aspectRatio = 1.8,
+      ...rest
+    } = props
+    const width = size * aspectRatio
+    const borderWidth = Math.ceil(size / 10)
 
-  const { inputProps, checked, disabled } = useCheckbox(props)
-
-  console.log('checked:', checked)
-
-  const width = 40
-  const height = 20
-  const x = checked ? `${width - height}px` : '0px'
-
-  return (
-    <Label className="bone-switch" centerY left cursorPointer>
-      <Input
-        className="bone-switch__input"
-        ref={ref}
-        type="checkbox"
-        s-0
-        reset // TODO: 不应该在这里 reset
-        opacity-0
-        {...inputProps}
+    return (
+      <Checkbox
         {...rest}
-      />
-      <Box
-        h-20
-        w={width}
-        rounded-9999
-        border-2
-        borderColor={checked ? 'primary' : 'gray40'}
-        bg={checked ? 'primary' : 'gray40'}
-        cursorNotAllowed={disabled}
-        opacity-40={disabled}
-        css={{ boxSizing: 'content-box' }}
-      >
-        <Box
-          circle={height}
-          bgWhite
-          css={{
-            transform: `translateX(${x})`,
-            transition: 'transform 250ms ease 0s',
-          }}
-        ></Box>
-      </Box>
-      {children && (
-        <Box className="bone-switch__label" lh-1em>
-          {children}
-        </Box>
-      )}
-    </Label>
-  )
-})
+        ref={ref}
+        render={({ checked }) => {
+          const x = checked ? `${width - size}px` : '0px'
+          const currentColor = checked ? colorScheme : offColorScheme
+          return (
+            <Box
+              h={size}
+              w={width}
+              rounded-9999
+              borderWidth={borderWidth}
+              borderColor={currentColor}
+              bg={currentColor}
+              css={{ boxSizing: 'content-box' }}
+            >
+              <Box
+                circle={size}
+                bgWhite
+                css={{
+                  transform: `translateX(${x})`,
+                  transition: 'transform 250ms ease 0s',
+                }}
+              ></Box>
+            </Box>
+          )
+        }}
+      ></Checkbox>
+    )
+  }),
+)

@@ -21,6 +21,6 @@
   "author": "forsigner",
   "module": "dist/switch.esm.js",
   "dependencies": {
-    "@bone-ui/hooks": "^0.1.0"
+    "@bone-ui/checkbox": "^0.1.0"
   }
 }

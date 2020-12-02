@@ -1,7 +1,7 @@
 import React, { forwardRef, useState } from 'react'
 import { Box } from '@styli/react'
 import { StyliHTMLProps } from '@styli/types'
-import { CheckboxGroupProvider } from './context'
+import { CheckboxGroupProvider } from './checkboxGroupContext'
 
 type StringOrNumber = string | number
 
