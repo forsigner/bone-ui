@@ -1,5 +1,7 @@
 import { StyliHTMLProps } from '@styli/types'
-import { ReactNode, ReactElement } from 'react'
+import { ReactNode } from 'react'
+
+type StringOrNumber = string | number
 
 export type InputProps = React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,
@@ -7,10 +9,10 @@ export type InputProps = React.DetailedHTMLProps<
 >
 
 export interface RadioProps extends Omit<StyliHTMLProps<'input'>, 'ref'> {
-  render?: (status: RadioStatus) => ReactElement
+  render?: (props: RadioRenderProps) => ReactNode
 }
 
-export interface RadioStatus {
+export interface RadioRenderProps {
   checked?: boolean
 
   disabled?: boolean
@@ -20,6 +22,11 @@ export interface RadioStatus {
   children?: ReactNode
 }
 
+export interface RadioRenderItemProps extends RadioRenderProps {
+  item: RadioOption
+  defaultRadio: ReactNode
+}
+
 export interface RadioHooksResult {
   inputProps: InputProps
 
@@ -27,4 +34,27 @@ export interface RadioHooksResult {
     checked?: boolean
     disabled?: boolean
   }
+}
+
+export interface RadioOption {
+  label: React.ReactNode
+  value: any
+  disabled?: boolean
+  [key: string]: any
+}
+
+export type DefaultRender = (props: RadioRenderProps) => ReactNode
+
+export interface RadioGroupProps extends Omit<StyliHTMLProps<'div'>, 'onChange'> {
+  value?: StringOrNumber
+
+  defaultValue?: StringOrNumber
+
+  options?: RadioOption[]
+
+  name?: string
+
+  onChange?(nextValue: StringOrNumber): void
+
+  renderItem?(props: RadioRenderItemProps): ReactNode
 }

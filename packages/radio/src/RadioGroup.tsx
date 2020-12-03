@@ -1,21 +1,12 @@
 import React, { forwardRef, useState } from 'react'
 import { Box } from '@styli/react'
-import { StyliHTMLProps } from '@styli/types'
 import { RadioGroupProvider } from './radioGroupContext'
+import { Radio } from './Radio'
+import { defaultRender } from './defaultRender'
+import { RadioGroupProps, RadioProps } from './types'
 
-type StringOrNumber = string | number
-
-export interface RadioGroupProps extends Omit<StyliHTMLProps<'div'>, 'onChange'> {
-  value?: StringOrNumber
-
-  defaultValue?: StringOrNumber
-
-  onChange?(nextValue: StringOrNumber): void
-
-  name?: string
-}
-export const RadioGroup = forwardRef<HTMLInputElement, RadioGroupProps>((props, ref) => {
-  const { children, onChange, value, ...rest } = props
+export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>((props, ref) => {
+  const { children, onChange, value, options = [], renderItem, ...rest } = props
   const [radioGroupValue, setRadioGroupValue] = useState<any>(value)
 
   function setValue(value: any) {
@@ -26,7 +17,21 @@ export const RadioGroup = forwardRef<HTMLInputElement, RadioGroupProps>((props, 
   return (
     <RadioGroupProvider value={{ radioGroupValue, setRadioGroupValue: setValue }}>
       <Box ref={ref} left spaceX-8 {...rest}>
-        {children}
+        {options.map((item, i) => {
+          const radioProps: RadioProps = { disabled: item.disabled, value: item.value }
+
+          if (renderItem) {
+            radioProps.render = (state) => {
+              const defaultRadio = defaultRender(state)
+              return renderItem({ ...state, defaultRadio, item })
+            }
+          } else {
+            radioProps.children = item.label
+          }
+
+          return <Radio key={i} {...radioProps}></Radio>
+        })}
+        {!options.length && children}
       </Box>
     </RadioGroupProvider>
   )
