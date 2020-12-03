@@ -2,12 +2,26 @@
   "name": "@bone-ui/animate",
   "version": "0.1.0",
   "license": "MIT",
-  "main": "src/animate.css",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
   "files": [
+    "dist",
     "src"
   ],
   "engines": {
     "node": ">=10"
   },
-  "author": "forsigner"
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test --passWithNoTests",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build"
+  },
+  "author": "forsigner",
+  "module": "dist/animate.esm.js",
+  "devDependencies": {
+    "@styli/react": "^0.16.0",
+    "react-spring": "^8.0.1"
+  }
 }

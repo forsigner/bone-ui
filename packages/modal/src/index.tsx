@@ -1,10 +1,9 @@
-import React, { forwardRef } from 'react'
-import { Box } from '@styli/react'
+import React, { CSSProperties, forwardRef } from 'react'
 import { StyliHTMLProps } from '@styli/types'
-import { CloseButton } from '@bone-ui/close-button'
-import { ModalHeader } from './Header'
-import { ModalContent } from './Content'
-import { ModalFooter } from './Footer'
+import { Mask } from '@bone-ui/mask'
+import { ModalBody } from './ModalBody'
+import { StyledAnimate } from './Animate'
+import { Portal } from './Portal'
 
 export interface ModalProps extends StyliHTMLProps<'div'> {
   isOpened: boolean
@@ -13,56 +12,46 @@ export interface ModalProps extends StyliHTMLProps<'div'> {
   header?: React.ReactNode
   content?: React.ReactNode
   footer?: React.ReactNode
-  className?: string
+  style?: CSSProperties
+  children?: any
 }
 
-export const Modal = forwardRef<HTMLInputElement, ModalProps>((props, ref) => {
-  const {
-    isOpened,
-    onOpen,
-    onClose,
-    header,
-    content,
-    footer,
-    className = "",
-    ...rest
-  } = props
+export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
+  const { isOpened, onClose, onOpen, header, content, footer, children } = props
 
   return (
-    <Box
-      ref={ref}
-      fixed
-      T-0
-      L-0
-      B-0
-      R-0
-      oHidden
-      bgBlack-T50
-      w-0={!isOpened}
-      h-0={!isOpened}
-      w-100p={isOpened}
-      h-100p={isOpened}
-      onClick={onClose}
-    >
-      <Box
+    <Portal ref={ref}>
+      {/* modal */}
+      <StyledAnimate
+        isOpened={isOpened}
+        L-50p
+        T-50p
+        fixed
+        w-50p
+        h-auto
+        maxW-630
+        minW-320
         center
-        w-100p
-        h-100p
-        onClick={e => e.stopPropagation()}
+        oHidden
+        rounded-10
+        zIndex-101
+        // https://developer.mozilla.org/zh-CN/docs/Web/CSS/backface-visibility
+        style={{ backfaceVisibility: 'hidden', visibility: isOpened ? 'visible' : 'hidden'}}
+      >
+        <ModalBody
+          isOpened={isOpened}
+          onClose={onClose}
+          onOpen={onOpen}
+          header={header}
+          content={content}
+          footer={footer}
         >
-        <Box
-          bgWhite
-          relative
-          maxW-30p
-          rounded-5
-          className={`animated zoomIn ${className}`}
-          {...rest}>
-          <ModalHeader header={header} />
-          <ModalContent content={content} />
-          <ModalFooter footer={footer} />
-          <CloseButton absolute s-30 R-12 T-8 onClick={onClose} />
-        </Box>        
-      </Box>
-    </Box>
+          {children}
+        </ModalBody>
+      </StyledAnimate>
+
+      {/* mask */}
+      <Mask isOpened={isOpened} />
+    </Portal>
   )
 })

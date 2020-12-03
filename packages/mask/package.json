@@ -1,5 +1,5 @@
 {
-  "name": "@bone-ui/modal",
+  "name": "@bone-ui/mask",
   "version": "0.1.0",
   "license": "MIT",
   "main": "dist/index.js",
@@ -19,11 +19,9 @@
     "prepare": "tsdx build"
   },
   "author": "forsigner",
-  "module": "dist/modal.esm.js",
+  "module": "dist/mask.esm.js",
   "devDependencies": {
     "@styli/react": "^0.16.0",
-    "@bone-ui/close-button": "^0.1.0",
-    "@bone-ui/mask": "^0.1.0",
-    "react-spring": "^8.0.1"
+    "@bone-ui/animate": "^0.1.0"
   }
 }
