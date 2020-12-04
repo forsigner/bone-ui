@@ -10,20 +10,12 @@ interface ArrowProps {
 }
 
 export const Arrow = (props: ArrowProps) => {
-  const {
-    direction,
-    color = 'red',
-    width = 5,
-    ...rest
-  } = props
+  const { direction, color = 'red', width = 5, ...rest } = props
 
-  return (
-    <Box absolute {...getStyle(direction, width, color)} {...rest} />
-  )
+  return <Box absolute {...getStyle(direction, width, color)} {...rest} />
 }
 
 function getStyle(direction: Direction, width: number, color: string) {
-
   const cssAfter = {
     display: 'block',
     content: '""',
@@ -42,8 +34,8 @@ function getStyle(direction: Direction, width: number, color: string) {
           '::after': {
             ...cssAfter,
             borderBottom: `${width}px solid ${color}`,
-          }
-        }
+          },
+        },
       }
     case 'bottom':
       return {
@@ -54,8 +46,8 @@ function getStyle(direction: Direction, width: number, color: string) {
           '::after': {
             ...cssAfter,
             borderTop: `${width}px solid ${color}`,
-          }
-        }
+          },
+        },
       }
     case 'left':
       return {
@@ -66,8 +58,8 @@ function getStyle(direction: Direction, width: number, color: string) {
           '::after': {
             ...cssAfter,
             borderRight: `${width}px solid ${color}`,
-          }
-        }
+          },
+        },
       }
     case 'right':
       return {
@@ -78,8 +70,8 @@ function getStyle(direction: Direction, width: number, color: string) {
           '::after': {
             ...cssAfter,
             borderLeft: `${width}px solid ${color}`,
-          }
-        }
+          },
+        },
       }
     default: {
       return {
@@ -90,8 +82,8 @@ function getStyle(direction: Direction, width: number, color: string) {
           '::after': {
             ...cssAfter,
             borderTop: `${width}px solid ${color}`,
-          }
-        }
+          },
+        },
       }
     }
   }
