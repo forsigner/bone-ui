@@ -6,11 +6,12 @@ export default function SwitchDemo() {
   const [checked, setCheked] = useState(false)
   const ref = useRef<HTMLInputElement>(null)
   useEffect(() => {
-    console.log('ref:', ref.current)
+    // console.log('ref:', ref.current)
   }, [])
   return (
-    <View p6 spaceX-32 w-800 left reset>
-      <Switch checked={checked} onChange={(e) => setCheked(e.target.checked)} />
+    <View p6 spaceX-32 w-800 left reset wrap>
+      <Switch defaultChecked />
+      <Switch checked={checked} />
       <Switch ref={ref}>Switch</Switch>
       <Switch defaultChecked />
       <Switch disabled />

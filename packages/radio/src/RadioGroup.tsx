@@ -14,8 +14,12 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>((props, re
     onChange && onChange(value)
   }
 
+  const initialValue = { radioGroupValue, setRadioGroupValue: setValue, renderItem }
+
+  if (renderItem) initialValue.renderItem = renderItem
+
   return (
-    <RadioGroupProvider value={{ radioGroupValue, setRadioGroupValue: setValue }}>
+    <RadioGroupProvider value={initialValue}>
       <Box ref={ref} left spaceX-8 {...rest}>
         {options.map((item, i) => {
           const radioProps: RadioProps = { disabled: item.disabled, value: item.value }

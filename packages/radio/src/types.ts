@@ -3,6 +3,8 @@ import { ReactNode } from 'react'
 
 type StringOrNumber = string | number
 
+export type RenderItem = (props: RadioRenderItemProps) => ReactNode
+
 export type InputProps = React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,
   HTMLInputElement
@@ -10,6 +12,11 @@ export type InputProps = React.DetailedHTMLProps<
 
 export interface RadioProps extends Omit<StyliHTMLProps<'input'>, 'ref'> {
   render?: (props: RadioRenderProps) => ReactNode
+
+  /**
+   * Render children or not
+   */
+  shouldRenderChildren?: boolean
 }
 
 export interface RadioRenderProps {
@@ -29,6 +36,8 @@ export interface RadioRenderItemProps extends RadioRenderProps {
 
 export interface RadioHooksResult {
   inputProps: InputProps
+
+  renderItem?: RenderItem
 
   state: {
     checked?: boolean
@@ -54,7 +63,7 @@ export interface RadioGroupProps extends Omit<StyliHTMLProps<'div'>, 'onChange'>
 
   name?: string
 
-  onChange?(nextValue: StringOrNumber): void
+  renderItem?: RenderItem
 
-  renderItem?(props: RadioRenderItemProps): ReactNode
+  onChange?(nextValue: StringOrNumber): void
 }

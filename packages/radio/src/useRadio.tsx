@@ -1,9 +1,10 @@
 import { useContext, useState, useEffect } from 'react'
 import { radioGroupContext } from './radioGroupContext'
-import { InputProps, RadioHooksResult } from './types'
+import { InputProps, RadioHooksResult, RenderItem } from './types'
 
 export function useRadio(props: InputProps): RadioHooksResult {
   let inputProps: InputProps = {}
+  let renderItem: RenderItem | undefined = undefined
   const { value, onChange } = props
 
   /** hooks */
@@ -24,11 +25,14 @@ export function useRadio(props: InputProps): RadioHooksResult {
   /** For radio group */
   if (context) {
     const { radioGroupValue, setRadioGroupValue } = context
+    console.log('radioGroupValue:', radioGroupValue)
     inputProps.checked = value === radioGroupValue
     inputProps.onChange = (e) => {
       setRadioGroupValue(value)
       onChange && onChange(e)
     }
+
+    renderItem = context.renderItem
   } else {
     inputProps.onChange = (e) => {
       const { checked } = e.target
@@ -38,6 +42,7 @@ export function useRadio(props: InputProps): RadioHooksResult {
 
   return {
     inputProps,
+    renderItem,
     state: { disabled, checked: context ? inputProps.checked : checked },
   }
 }

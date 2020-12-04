@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { View, Box } from '@styli/react'
 import { Radio, RadioGroup, RadioProps } from '@bone-ui/radio'
 
@@ -6,7 +6,7 @@ const ColorRadio = (props: RadioProps) => (
   <Radio
     {...props}
     render={({ checked }) => (
-      <Box center circle-48 bg={checked ? 'gray20' : false}>
+      <Box center s-48 rounded-8 bg={checked ? 'gray20' : false}>
         <Box bg={props.value as string} circle-32></Box>
       </Box>
     )}
@@ -26,6 +26,13 @@ export default function RadioDemo() {
     { label: 'Pro', value: 'pro', desc: 'This is Pro version' },
   ]
 
+  const [color, setColor] = useState('blue')
+  useEffect(() => {
+    setTimeout(() => {
+      setColor('red')
+    }, 2000)
+  }, [])
+
   return (
     <View p6 space-10 w-800>
       <h2>Single radio</h2>
@@ -33,9 +40,9 @@ export default function RadioDemo() {
 
       <h2>RadioGroup</h2>
       <RadioGroup
-        value="green"
+        value={color}
         onChange={(e) => {
-          console.log('ee----:', e)
+          console.log('object:', e)
         }}
       >
         <Radio value="red">Red</Radio>

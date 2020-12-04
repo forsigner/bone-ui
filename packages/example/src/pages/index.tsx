@@ -10,6 +10,7 @@ export default function Home() {
       <Link to="/AvatarDemo">AvatarDemo</Link>
       <Link to="/BadgeDemo">BadgeDemo</Link>
       <Link to="/TagDemo">TagDemo</Link>
+      <Link to="/TabsDemo">TabsDemo</Link>
       <Link to="/ButtonDemo">ButtonDemo</Link>
       <Link to="/ButtonGroupDemo">ButtonGroupDemo</Link>
       <Link to="/CardDemo">CardDemo</Link>
