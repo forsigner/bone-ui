@@ -24,11 +24,11 @@
     "@bone-ui/radio": "^0.1.0",
     "@bone-ui/form-field": "^0.1.0",
     "@bone-ui/avatar": "^0.1.0",
-    "@bone-ui/animate": "^0.1.0",
     "@bone-ui/modal": "^0.1.0",
     "@bone-ui/drawer": "^0.1.0",
-    "@bone-ui/arrow": "^0.1.0",
+    "@bone-ui/common": "^0.1.0",
     "@bone-ui/tooltip": "^0.1.0",
+    "@bone-ui/animate": "^0.1.0",
     "entity-form-bone-ui": "^0.1.0",
     "@umijs/preset-react": "1.x",
     "umi": "^3.2.28"

@@ -24,7 +24,6 @@ export default function Home() {
       <Link to="/SpinnerDemo">SpinnerDemo</Link>
       <Link to="/ModalDemo">ModalDemo</Link>
       <Link to="/DrawerDemo">DrawerDemo</Link>
-      <Link to="/ArrowDemo">ArrowDemo</Link>
       <Link to="/TooltipDemo">TooltipDemo</Link>
       <Link to="/EntityFormDemo">EntityFormDemo</Link>
     </Box>

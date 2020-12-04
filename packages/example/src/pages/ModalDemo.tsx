@@ -2,17 +2,17 @@ import React, { useState } from 'react'
 import { Modal } from '@bone-ui/modal'
 
 export default function InputDemo() {
-  const [state, setState] = useState(true)
+  const [state, setState] = useState(false)
 
   return (
-    <div>
+    <>
       <Modal
         header="提示"
         content="
-          哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
-          哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
-          哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
-        "
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+          "
         footer={
           <>
             <div>关闭</div>
@@ -21,9 +21,11 @@ export default function InputDemo() {
         }
         isOpened={state}
         onOpen={() => setState(true)}
-        onClose={() => { setState(false) }}
-        />
+        onClose={() => {
+          setState(false)
+        }}
+      />
       <div onClick={() => setState(!state)}>{state ? '关闭' : '打开'}</div>
-    </div>
+    </>
   )
 }
