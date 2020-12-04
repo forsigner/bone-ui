@@ -1,26 +1,26 @@
 import React, { CSSProperties, forwardRef } from 'react'
 import { StyliHTMLProps } from '@styli/types'
-import { Mask } from '@bone-ui/mask'
+import { Mask, Portal } from '@bone-ui/common'
 import { ModalBody } from './ModalBody'
 import { StyledAnimate } from './Animate'
-import { Portal } from './Portal'
+import { Box } from '@styli/react'
 
 export interface ModalProps extends StyliHTMLProps<'div'> {
   isOpened: boolean
   onOpen(): void
   onClose(): void
   header?: React.ReactNode
-  content?: React.ReactNode
   footer?: React.ReactNode
   style?: CSSProperties
   children?: any
 }
 
 export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
-  const { isOpened, onClose, onOpen, header, content, footer, children } = props
+  const { isOpened, onClose, onOpen, header, footer, children } = props
 
   return (
     <Portal ref={ref}>
+    <Box ref={ref}>
       {/* modal */}
       <StyledAnimate
         isOpened={isOpened}
@@ -35,15 +35,16 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
         oHidden
         rounded-10
         zIndex-101
+        cursorPointer={isOpened}
+        cursorNone={!isOpened}
         // https://developer.mozilla.org/zh-CN/docs/Web/CSS/backface-visibility
-        style={{ backfaceVisibility: 'hidden', visibility: isOpened ? 'visible' : 'hidden'}}
+        style={{ backfaceVisibility: 'hidden', visibility: isOpened ? 'visible' : 'hidden' }}
       >
         <ModalBody
           isOpened={isOpened}
           onClose={onClose}
           onOpen={onOpen}
           header={header}
-          content={content}
           footer={footer}
         >
           {children}
@@ -52,6 +53,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
 
       {/* mask */}
       <Mask isOpened={isOpened} />
+    </Box>
     </Portal>
   )
 })
