@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "@styli/react": "^0.16.0",
-    "@bone-ui/arrow": "^0.1.0"
+    "@bone-ui/common": "^0.1.0"
   },
   "author": "forsigner",
   "module": "dist/tooltip.esm.js"

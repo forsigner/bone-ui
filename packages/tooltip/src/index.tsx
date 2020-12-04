@@ -1,7 +1,8 @@
 import React, { forwardRef } from 'react'
 import { Box } from '@styli/react'
 import { StyliHTMLProps } from '@styli/types'
-import { Arrow } from '@bone-ui/arrow'
+import { Arrow } from '@bone-ui/common'
+import { StyledFade } from '@bone-ui/animate'
 
 export interface TooltipProps extends StyliHTMLProps<'div'> {
   isOpened: boolean
@@ -14,25 +15,18 @@ export interface TooltipProps extends StyliHTMLProps<'div'> {
 export const Tooltip = forwardRef<HTMLInputElement, TooltipProps>((props, ref) => {
   const {
     label,
-    className = "",
     isOpened = false,
     children,
     bg = 'rgba(0,0,0,0.5)',
-    ...rest
   } = props
 
   if (!isOpened) return <>{children}</>
 
   return (
-    <Box
-      ref={ref}
-      relative
-      inlineBlock
-    >
-      {
-        children
-      }
-      <Box
+    <Box ref={ref} relative inlineBlock>
+      {children}
+      <StyledFade
+        isOpened={isOpened}
         T--10px
         L-50p
         absolute
@@ -41,11 +35,10 @@ export const Tooltip = forwardRef<HTMLInputElement, TooltipProps>((props, ref) =
         css={{
           transform: 'translate(-50%, -100%)',
         }}
-        {...rest}
       >
         {label}
         <Arrow direction="bottom" color={bg} />
-      </Box>
+      </StyledFade>
     </Box>
   )
 })
