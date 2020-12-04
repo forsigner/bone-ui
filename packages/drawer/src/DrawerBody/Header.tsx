@@ -1,14 +1,9 @@
 import React from 'react'
-import { Box } from "@styli/react"
+import { Box } from '@styli/react'
 
 export const DrawerHeader = ({ header }: any) => {
-
   if (typeof header !== 'string') {
-    return (
-      <>
-        {header}
-      </>
-    )
+    return <>{header}</>
   }
 
   return (
