@@ -21,7 +21,7 @@
   "author": "forsigner",
   "module": "dist/animate.esm.js",
   "devDependencies": {
-    "@styli/react": "^0.16.0",
+    "@styli/react": "^0.16.2",
     "react-spring": "^8.0.1"
   }
 }

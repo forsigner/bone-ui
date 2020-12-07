@@ -8,6 +8,8 @@ export type InputProps = React.DetailedHTMLProps<
 
 type StringOrNumber = string | number
 
+export type CheckboxGroupValue = StringOrNumber[]
+
 export interface CheckboxProps extends Omit<StyliHTMLProps<'input'>, 'ref'> {
   render?: (status: CheckboxStatus) => ReactNode
 }
@@ -22,7 +24,7 @@ export interface CheckboxStatus {
   children?: ReactNode
 }
 
-export interface CheckboxHooksResult {
+export interface UseCheckboxReturn {
   inputProps: InputProps
 
   state: {
@@ -31,20 +33,41 @@ export interface CheckboxHooksResult {
   }
 }
 
+export interface UseCheckboxGroupReturn {
+  controlled: boolean
+  value?: CheckboxGroupValue
+  onChange: any
+  setValue: any
+  // inputProps: InputProps
+  // state: {
+  //   checked?: boolean
+  //   disabled?: boolean
+  // }
+  [key: string]: any
+}
+
 export interface CheckboxOption {
   label: React.ReactNode
   value: any
   disabled?: boolean
 }
 
-export interface CheckboxGroupProps extends Omit<StyliHTMLProps<'div'>, 'onChange'> {
-  value?: StringOrNumber
+export interface CheckboxGroupProps
+  extends Omit<StyliHTMLProps<'div'>, 'onChange' | 'value' | 'defaultValue'> {
+  value?: CheckboxGroupValue
 
-  defaultValue?: StringOrNumber
+  defaultValue?: CheckboxGroupValue
 
-  onChange?(nextValue: StringOrNumber): void
+  onChange?(value: CheckboxGroupValue): void
 
   options?: CheckboxOption[]
 
   name?: string
+}
+
+export interface CheckboxGroupContext extends Pick<UseCheckboxGroupReturn, 'onChange' | 'value'> {
+  // TODO: handle any
+  setValue: any
+
+  controlled: boolean
 }

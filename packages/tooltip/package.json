@@ -19,7 +19,7 @@
     "prepare": "tsdx build"
   },
   "devDependencies": {
-    "@styli/react": "^0.16.0",
+    "@styli/react": "^0.16.2",
     "@bone-ui/common": "^0.1.0"
   },
   "author": "forsigner",

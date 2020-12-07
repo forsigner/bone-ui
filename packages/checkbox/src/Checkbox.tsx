@@ -1,9 +1,10 @@
-import React, { forwardRef } from 'react'
+import React, { ChangeEvent, forwardRef } from 'react'
 import { Box, Input } from '@styli/react'
 import { styled } from '@styli/styled'
 import { CheckOutline } from '@bone-ui/icons/lib/CheckOutline'
 import { useCheckbox } from './useCheckbox'
 import { CheckboxStatus, CheckboxProps } from './types'
+import { useCheckboxGroupContext } from './checkboxGroupContext'
 
 const Label = styled('label')
 
@@ -23,7 +24,14 @@ const defaultRender = ({ checked }: CheckboxStatus) => (
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>((props, ref) => {
   const { children, render = defaultRender, ...rest } = props
-  const { inputProps, state } = useCheckbox(props)
+  const context = useCheckboxGroupContext()
+
+  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+    context?.onChange(e)
+    return props?.onChange?.(e)
+  }
+
+  const { inputProps, state } = useCheckbox({ ...props, onChange })
   const { disabled } = state
 
   return (
@@ -43,8 +51,9 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>((props, ref)
         s-0
         reset
         opacity-0
-        {...inputProps}
+        // TODO: need imporve
         {...rest}
+        {...inputProps}
       />
 
       {render({ ...state, children })}

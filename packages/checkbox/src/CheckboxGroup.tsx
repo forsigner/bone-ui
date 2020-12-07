@@ -1,25 +1,28 @@
-import React, { forwardRef, useState } from 'react'
+import React, { forwardRef, useMemo } from 'react'
 import { Box } from '@styli/react'
 import { CheckboxGroupProvider } from './checkboxGroupContext'
-import { CheckboxGroupProps } from './types'
+import { useCheckboxGroup } from './useCheckboxGroup'
+import { CheckboxGroupProps, CheckboxGroupContext } from './types'
 
 export const CheckboxGroup = forwardRef<HTMLInputElement, CheckboxGroupProps>((props, ref) => {
-  const { children, onChange, value, ...rest } = props
-  const [radioGroupValue, setRadioGroupValue] = useState<any>(value)
+  const {
+    value: prpoValue,
+    onChange: onChangeProp,
+    defaultValue,
+    options,
+    name,
+    children,
+    ...rest
+  } = props
+  const { value, onChange, setValue, controlled } = useCheckboxGroup(props)
 
-  function setValue(value: any) {
-    setRadioGroupValue(value)
-    onChange && onChange(value)
-  }
-
-  if (value && !Array.isArray(value)) {
-    console.warn('required an array value')
-  }
+  const contextValue: CheckboxGroupContext = useMemo(
+    () => ({ controlled, onChange, value, setValue }),
+    [controlled, value, onChange, setValue],
+  )
 
   return (
-    <CheckboxGroupProvider
-      value={{ checkboxGroupValue: radioGroupValue, setCheckboxGroupValue: setValue }}
-    >
+    <CheckboxGroupProvider value={contextValue}>
       <Box ref={ref} left spaceX-8 {...(rest as any)}>
         {children}
       </Box>

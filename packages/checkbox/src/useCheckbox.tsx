@@ -1,48 +1,64 @@
-import { useContext, useState, useEffect } from 'react'
-import { checkboxGroupContext } from './checkboxGroupContext'
-import { InputProps, CheckboxHooksResult } from './types'
+import { useState, useEffect, useLayoutEffect } from 'react'
+import { isBrowser } from '@styli/utils'
+import { useControlledInfo } from '@bone-ui/hooks'
+import { useCheckboxGroupContext } from './checkboxGroupContext'
+import { CheckboxProps, InputProps, UseCheckboxReturn } from './types'
+import { getNextCheckboxGroupValue } from './utils'
 
-export function useCheckbox(props: InputProps): CheckboxHooksResult {
+const useIsomorphicLayoutEffect = isBrowser ? useLayoutEffect : useEffect
+
+export function useCheckbox(props: CheckboxProps): UseCheckboxReturn {
   let inputProps: InputProps = {}
-  const { value, onChange } = props
-
-  /** hooks */
-  const context = useContext(checkboxGroupContext)
   const [disabled, setDisabled] = useState(props.disabled ?? false)
-  const [checked, setChecked] = useState(props.checked || props.defaultChecked || false)
+  const context = useCheckboxGroupContext()
 
-  useEffect(() => {
-    if (typeof props.checked !== 'boolean') return
-    setChecked(!!props.checked)
-  }, [props.checked])
+  /**
+   * If <CheckboxGroup/> is controlled, set <Checkbox/> to be controlled too
+   */
+  if (context?.controlled) {
+    props.checked = context.value?.includes(props.value as any)
+  }
 
-  useEffect(() => {
+  const [checkedState, setCheckedState] = useState(() => {
+    if (!context) return props.defaultChecked
+
+    const { value: groupvalue } = context
+    return groupvalue?.includes(props.value as any)
+  })
+
+  const { controlled, value: checked } = useControlledInfo(props.checked, checkedState)
+
+  useIsomorphicLayoutEffect(() => {
     if (typeof props.disabled !== 'boolean') return
     setDisabled(!!props.disabled)
   }, [props.disabled])
 
-  /** For checkbox group */
-  if (context) {
-    const { checkboxGroupValue, setCheckboxGroupValue } = context
-    inputProps.checked = checkboxGroupValue.includes(value)
-    inputProps.onChange = (e) => {
-      const { checked } = e.target
-      const newValue = checked
-        ? [...checkboxGroupValue, value]
-        : checkboxGroupValue.filter((i) => i !== value)
+  inputProps.onChange = (e) => {
+    /** no context */
+    if (!context) {
+      if (!controlled) setCheckedState(e.target.checked)
+      props?.onChange?.(e)
+      return
+    }
 
-      setCheckboxGroupValue(newValue)
-      onChange && onChange(e)
+    /** has context */
+    const { value: groupValue = [] } = context
+    const { checked: targetChecked, value: targetValue } = e.target
+    if (controlled) {
+      setCheckedState(targetChecked)
+    } else {
+      const nextValue = getNextCheckboxGroupValue(e, groupValue)
+      setCheckedState(nextValue.includes(targetValue))
     }
-  } else {
-    inputProps.onChange = (e) => {
-      const { checked } = e.target
-      setChecked(checked)
-    }
+
+    props.onChange?.(e)
   }
+
+  inputProps.disabled = disabled
+  if (controlled) inputProps.checked = checked
 
   return {
     inputProps,
-    state: { disabled, checked: context ? inputProps.checked : checked },
+    state: { disabled, checked },
   }
 }

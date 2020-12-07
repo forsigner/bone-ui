@@ -21,6 +21,6 @@
   "author": "forsigner",
   "module": "dist/badge.esm.js",
   "devDependencies": {
-    "@styli/react": "^0.16.1"
+    "@styli/react": "^0.16.2"
   }
 }

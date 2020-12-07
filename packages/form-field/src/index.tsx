@@ -16,18 +16,20 @@ export const FormField = forwardRef<HTMLDivElement, FormFieldProps>((props, ref)
 
   return (
     <Box className="bone-form-field " ref={ref} relative column={!isHorizontal} {...rest}>
-      <Box
-        className="bone-form-field-label"
-        f-16
-        right={isHorizontal}
-        left={!isHorizontal}
-        centerY
-        h-40
-        w-80={isHorizontal}
-        pr-8
-      >
-        {label}
-      </Box>
+      {label && (
+        <Box
+          className="bone-form-field-label"
+          f-16
+          right={isHorizontal}
+          left={!isHorizontal}
+          centerY
+          h-40
+          w-80={isHorizontal}
+          pr-8
+        >
+          {label}
+        </Box>
+      )}
       <Box className="bone-form-field-control" column flex-1 mb-32={!error}>
         <Box minH-40 centerY left>
           {children}

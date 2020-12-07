@@ -1,7 +1,8 @@
 .DS_Store
 *.swp
 .cache
-.umi
+.umi/
+.umi*
 
 node_modules/
 dist/

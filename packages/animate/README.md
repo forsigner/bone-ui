@@ -1,1 +1,1 @@
-# @bone-ui/arrow
+# @bone-ui/animate

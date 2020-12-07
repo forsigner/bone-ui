@@ -21,7 +21,7 @@
   "author": "forsigner",
   "module": "dist/drawer.esm.js",
   "devDependencies": {
-    "@styli/react": "^0.16.0",
+    "@styli/react": "^0.16.2",
     "@bone-ui/close-button": "^0.1.0"
   }
 }
