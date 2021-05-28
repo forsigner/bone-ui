@@ -1,0 +1,35 @@
+{
+  "name": "example",
+  "version": "0.1.0",
+  "scripts": {
+    "start": "umi dev",
+    "build": "umi build",
+    "postinstall": "umi generate tmp"
+  },
+  "dependencies": {
+    "@bone-ui/alert": "^0.0.1",
+    "@bone-ui/badge": "^0.0.1",
+    "@bone-ui/dot": "^0.0.1",
+    "@bone-ui/tag": "^0.0.1",
+    "@bone-ui/button": "^0.0.1",
+    "@bone-ui/close-button": "^0.0.1",
+    "@bone-ui/card": "^0.0.1",
+    "@bone-ui/spinner": "^0.0.1",
+    "@bone-ui/icon": "^0.0.1",
+    "@bone-ui/icons": "^0.0.1",
+    "@bone-ui/input": "^0.0.1",
+    "@bone-ui/textarea": "^0.0.1",
+    "@bone-ui/checkbox": "^0.0.1",
+    "@bone-ui/switch": "^0.0.1",
+    "@bone-ui/radio": "^0.0.1",
+    "@bone-ui/form-field": "^0.0.1",
+    "@bone-ui/avatar": "^0.0.1",
+    "@bone-ui/modal": "^0.0.1",
+    "@bone-ui/drawer": "^0.0.1",
+    "@bone-ui/common": "^0.0.1",
+    "@bone-ui/tooltip": "^0.0.1",
+    "@bone-ui/animate": "^0.0.1",
+    "@umijs/preset-react": "1.x",
+    "umi": "^3.2.28"
+  }
+}
