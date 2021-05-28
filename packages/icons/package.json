@@ -1,6 +1,6 @@
 {
   "name": "@bone-ui/icons",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "license": "MIT",
   "main": "lib/index.js",
   "module": "dist/icons.esm.js",
@@ -22,9 +22,9 @@
   },
   "author": "forsigner",
   "dependencies": {
-    "@bone-ui/icon": "^0.1.0"
+    "@bone-ui/icon": "^0.0.1"
   },
   "devDependencies": {
-    "@styli/react": "^0.16.2"
+    "@styli/react": "^0.22.0"
   }
 }

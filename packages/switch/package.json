@@ -1,6 +1,6 @@
 {
   "name": "@bone-ui/switch",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -21,6 +21,6 @@
   "author": "forsigner",
   "module": "dist/switch.esm.js",
   "dependencies": {
-    "@bone-ui/checkbox": "^0.1.0"
+    "@bone-ui/checkbox": "^0.0.1"
   }
 }

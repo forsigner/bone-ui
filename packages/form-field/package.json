@@ -1,6 +1,6 @@
 {
   "name": "@bone-ui/form-field",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -21,6 +21,6 @@
   "author": "forsigner",
   "module": "dist/badge.esm.js",
   "devDependencies": {
-    "@styli/react": "^0.16.2"
+    "@styli/react": "^0.22.0"
   }
 }

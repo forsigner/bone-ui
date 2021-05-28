@@ -1,6 +1,6 @@
 {
   "name": "@bone-ui/animate",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -21,7 +21,7 @@
   "author": "forsigner",
   "module": "dist/animate.esm.js",
   "devDependencies": {
-    "@styli/react": "^0.16.2",
+    "@styli/react": "^0.22.0",
     "react-spring": "^8.0.1"
   }
 }

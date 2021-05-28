@@ -1,5 +1,5 @@
 import React, { forwardRef, memo } from 'react'
-import { Box, Input } from '@styli/react'
+import { Box } from '@styli/react'
 import { styled } from '@styli/styled'
 import { useRadio } from './useRadio'
 import { defaultRender } from './defaultRender'
@@ -22,7 +22,8 @@ export const Radio = memo(
         cursorNotAllowed={disabled}
         opacity-50={disabled}
       >
-        <Input
+        <Box
+          as="input"
           className="bone-radio__input"
           ref={ref}
           type="radio"

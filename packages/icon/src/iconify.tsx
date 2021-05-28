@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { Svg } from '@styli/react'
+import { Box } from '@styli/react'
 import { StyliHTMLProps } from '@styli/types'
 
 export interface IconProps extends StyliHTMLProps<'svg'> {
@@ -52,7 +52,8 @@ export function iconify(options: IconifyOptions) {
         }
 
     return (
-      <Svg
+      <Box
+        as="svg"
         ref={ref}
         className={`bone-icon bone-icon--${displayName}`}
         s={props.size || 24}
@@ -63,7 +64,7 @@ export function iconify(options: IconifyOptions) {
         {...(props as any)}
       >
         {path ?? <path {...pathProps} d={d} />}
-      </Svg>
+      </Box>
     )
   })
 

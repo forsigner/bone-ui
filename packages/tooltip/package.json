@@ -1,6 +1,6 @@
 {
   "name": "@bone-ui/tooltip",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -19,8 +19,8 @@
     "prepare": "tsdx build"
   },
   "devDependencies": {
-    "@styli/react": "^0.16.2",
-    "@bone-ui/common": "^0.1.0"
+    "@styli/react": "^0.22.0",
+    "@bone-ui/common": "^0.0.1"
   },
   "author": "forsigner",
   "module": "dist/tooltip.esm.js"

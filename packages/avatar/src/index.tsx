@@ -1,9 +1,6 @@
 import React, { forwardRef } from 'react'
-import { styled } from '@styli/styled'
+import { Box } from '@styli/react'
 import { StyliHTMLProps } from '@styli/types'
-
-const Image = styled('img')
-const Span = styled('span')
 
 export interface AvatarProps extends StyliHTMLProps<'span'> {
   name?: string
@@ -11,27 +8,29 @@ export interface AvatarProps extends StyliHTMLProps<'span'> {
   size?: number
 }
 
-export const Avatar = forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
+export const Avatar = forwardRef<HTMLSpanElement, AvatarProps>((props, ref: any) => {
   const { src, size = 48, name, ...rest } = props
 
-  if (!src)
-    return (
-      <Span
-        className="bone-avatar"
-        ref={ref}
-        bgRed20
-        red80
-        center
-        uppercase
-        f={size * 0.4}
-        circle={size}
-        {...rest}
-      >
-        {name}
-      </Span>
-    )
+  // if (!src)
   return (
-    <Span
+    <Box
+      as="span"
+      className="bone-avatar"
+      ref={ref}
+      bgRed20
+      red80
+      center
+      uppercase
+      f={size * 0.4}
+      circle={size}
+      {...rest}
+    >
+      {name}
+    </Box>
+  )
+  return (
+    <Box
+      as="span"
       className="bone-avatar"
       ref={ref}
       center
@@ -40,7 +39,7 @@ export const Avatar = forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
       f={size * 0.4}
       {...rest}
     >
-      <Image className="bone-avatar-img" s-100p src={src}></Image>
-    </Span>
+      <Box as="img" className="bone-avatar-img" s-100p src={src}></Box>
+    </Box>
   )
 })

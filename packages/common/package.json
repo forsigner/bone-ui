@@ -1,6 +1,6 @@
 {
   "name": "@bone-ui/common",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -21,8 +21,8 @@
   "author": "forsigner",
   "module": "dist/common.esm.js",
   "devDependencies": {
-    "@styli/react": "^0.16.2",
-    "@bone-ui/animate": "^0.1.0",
+    "@styli/react": "^0.22.0",
+    "@bone-ui/animate": "^0.0.1",
     "react-dom":"^17.0.1"
   }
 }
