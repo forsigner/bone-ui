@@ -15,6 +15,7 @@
   "scripts": {
     "start": "tsdx watch",
     "build:lib": "tsc --build tsconfig.lib.json",
+    "build:tsdx": "tsdx build",
     "build": "npm run build:lib && tsdx build",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint",
@@ -22,9 +23,7 @@
   },
   "author": "forsigner",
   "dependencies": {
-    "@bone-ui/icon": "^0.0.1"
-  },
-  "devDependencies": {
-    "@styli/react": "^0.22.0"
+    "@bone-ui/iconify": "^0.0.1",
+    "@fower/react": "^1.15.0"
   }
 }

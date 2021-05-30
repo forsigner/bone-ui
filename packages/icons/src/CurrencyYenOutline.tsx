@@ -1,4 +1,4 @@
-import { iconify } from '@bone-ui/icon'
+import { iconify } from '@bone-ui/iconify'
 
 export const CurrencyYenOutline = iconify({
   displayName: 'CurrencyYenOutline',

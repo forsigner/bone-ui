@@ -1,5 +1,5 @@
 import React from 'react'
-import { iconify } from '@bone-ui/icon'
+import { iconify } from '@bone-ui/iconify'
 
 export const ClipboardListSolid = iconify({
   displayName: 'ClipboardListSolid',

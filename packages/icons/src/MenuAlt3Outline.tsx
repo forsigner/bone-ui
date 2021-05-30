@@ -1,4 +1,4 @@
-import { iconify } from '@bone-ui/icon'
+import { iconify } from '@bone-ui/iconify'
 
 export const MenuAlt3Outline = iconify({
   displayName: 'MenuAlt3Outline',
