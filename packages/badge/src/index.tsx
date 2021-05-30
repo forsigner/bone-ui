@@ -1,8 +1,8 @@
 import React, { forwardRef } from 'react'
-import { Box } from '@styli/react'
-import { StyliHTMLProps } from '@styli/types'
+import { Box } from '@fower/react'
+import { FowerHTMLProps } from '@fower/types'
 
-export interface BadgeProps extends StyliHTMLProps<'div'> {
+export interface BadgeProps extends FowerHTMLProps<'div'> {
   variant?: 'standard' | 'dot'
 
   content?: string | number
@@ -25,16 +25,16 @@ export const Badge = forwardRef<HTMLDivElement, BadgeProps>((props, ref) => {
       <Box
         className="bone-badge-content"
         absolute={hasChildren}
-        T={hasChildren ? 0 : false}
-        R={hasChildren ? 0 : false}
+        top={hasChildren ? 0 : false}
+        right={hasChildren ? 0 : false}
         h={isStandard ? 20 : 8}
         minW={isStandard ? 20 : 8}
         px-6={isStandard}
-        lh-20px={isStandard}
-        center
-        f-12
+        leading-20px={isStandard}
+        toCenter
+        text-12
         white
-        bgRed50
+        bgRed500
         rounded-9999
         zIndex-1
         css={hasChildren ? offsetStyle : {}}
