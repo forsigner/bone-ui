@@ -1,15 +1,17 @@
 import React, { forwardRef } from 'react'
-import { Box } from '@styli/react'
-import { StyliHTMLProps } from '@styli/types'
+import { Box } from '@fower/react'
+import { FowerHTMLProps } from '@fower/types'
 
-export interface CardProps extends StyliHTMLProps<'div'> {
+export interface CardProps extends FowerHTMLProps<'div'> {
   variant?: 'outline' | 'unstyled' | 'shadow'
+
   hoverable?: boolean
 }
 
 const variants = {
   outline: {
-    border: '1px solid gray20',
+    border: true,
+    borderGray200: true,
   },
   shadow: {
     shadowMD: true,
@@ -32,7 +34,7 @@ export const Card = forwardRef<HTMLDivElement, CardProps>((props, ref) => {
       minW-256
       shadowLG--hover={hoverable}
       overflow="hidden"
-      css={{ transition: 'all 0.3s' }}
+      css={{ transition: 'box-shadow all 0.3s' }}
       {...variants[variant]}
       {...rest}
     ></Box>
