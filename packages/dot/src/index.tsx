@@ -1,28 +1,27 @@
 import React, { forwardRef } from 'react'
-import { Box } from '@styli/react'
-import { StyliHTMLProps } from '@styli/types'
+import { Box } from '@fower/react'
+import { FowerHTMLProps } from '@fower/types'
 
 export const typeStyles = {
-  default: { bgGray40: true },
-  info: { bgBlue40: true },
-  warning: { bgOrange40: true },
-  success: { bgGreen40: true },
-  error: { bgRed40: true },
+  default: { bgGray500: true },
+  info: { bgBlue500: true },
+  warning: { bgOrange500: true },
+  success: { bgGreen500: true },
+  error: { bgRed500: true },
 }
 
 export type DotType = keyof typeof typeStyles
 
-export interface DotProps extends StyliHTMLProps<'div'> {
-  variant?: 'outline' | 'unstyled' | 'shadow'
+export interface DotProps extends FowerHTMLProps<'div'> {
   type?: DotType
 }
 
 export const Dot = forwardRef<HTMLDivElement, DotProps>((props, ref) => {
-  const { variant = 'outline', type = 'default', children, ...rest } = props
+  const { type = 'default', children, ...rest } = props
 
   return (
-    <Box className="bone-dot" ref={ref} inlineFlex centerY>
-      <Box className="bone-dot-color" s-8 rounded-9999 {...typeStyles[type]} {...rest}></Box>
+    <Box className="bone-dot" ref={ref} inlineFlex toCenterY>
+      <Box className="bone-dot-color" square-8 roundedFull {...typeStyles[type]} {...rest}></Box>
       {children && (
         <Box as="span" className="bone-dot-text" ml-8>
           {children}
