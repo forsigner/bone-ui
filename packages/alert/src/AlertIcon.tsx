@@ -1,13 +1,13 @@
 import React, { forwardRef, useContext } from 'react'
-import { StyliHTMLProps } from '@styli/types'
+import { FowerHTMLProps } from '@fower/types'
 import { CheckCircleSolid } from '@bone-ui/icons/lib/CheckCircleSolid'
 import { InformationCircleSolid } from '@bone-ui/icons/lib/InformationCircleSolid'
 import { ExclamationCircleSolid } from '@bone-ui/icons/lib/ExclamationCircleSolid'
 import { alertContext } from './alertContext'
 
-export interface AlertIconProps extends StyliHTMLProps<'svg'> {}
+export interface AlertIconProps extends FowerHTMLProps<'svg'> {}
 
-const IconComponents = {
+const IconComponents: any = {
   default: InformationCircleSolid,
   info: InformationCircleSolid,
   warning: ExclamationCircleSolid,
@@ -18,5 +18,5 @@ const IconComponents = {
 export const AlertIcon = forwardRef<SVGSVGElement, AlertIconProps>((props, ref) => {
   const { type = 'default' } = useContext(alertContext)
   const Icon = IconComponents[type]
-  return <Icon className="bone-alert-icon" mr2 minW-24 s6 ref={ref} {...(props as any)}></Icon>
+  return <Icon className="bone-alert-icon" mr2 minW-24 square6 ref={ref} {...(props as any)}></Icon>
 })

@@ -1,14 +1,10 @@
-import React, { forwardRef, InputHTMLAttributes } from 'react'
-import { Box } from '@styli/react'
-import { AtomicProps } from '@styli/types'
-import { AlertType, typeStyles } from './typeStyles'
+import React, { forwardRef } from 'react'
+import { Box } from '@fower/react'
+import { FowerHTMLProps } from '@fower/types'
+import { AlertType, getTypeStyles } from './typeStyles'
 import { AlertProvider } from './alertContext'
 
-type OmitInputHTMLAttributes = Omit<InputHTMLAttributes<HTMLDivElement>, 'size' | 'color'>
-
-export interface AlertProps
-  extends React.DetailedHTMLProps<OmitInputHTMLAttributes, HTMLDivElement>,
-    AtomicProps {
+export interface AlertProps extends Omit<FowerHTMLProps<'div'>, 'type'> {
   variant?: 'outline' | 'filled'
   type?: AlertType
 }
@@ -17,16 +13,18 @@ export const Alert = forwardRef<HTMLDivElement, AlertProps>((props, ref) => {
   const { type = 'default', ...rest } = props
 
   return (
-    <AlertProvider value={{ type }}>
+    <AlertProvider value={{ type } as any}>
       <Box
+        as="div"
         className="bone-alert"
         ref={ref}
         p4
         rounded-4
-        centerY
+        toCenter
         relative
-        {...typeStyles[type]}
-        {...(rest as any)}
+        border
+        {...getTypeStyles(type)}
+        {...rest}
       ></Box>
     </AlertProvider>
   )

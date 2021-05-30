@@ -21,9 +21,7 @@
   "author": "forsigner",
   "module": "dist/alert.esm.js",
   "dependencies": {
-    "@bone-ui/icons": "^0.0.1"
-  },
-  "devDependencies": {
-    "@styli/react": "^0.22.0"
+    "@bone-ui/iconify": "^0.0.1",
+    "@fower/react": "^1.15.0"
   }
 }

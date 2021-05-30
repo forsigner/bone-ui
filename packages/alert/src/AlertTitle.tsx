@@ -1,9 +1,9 @@
 import React, { forwardRef } from 'react'
-import { Box } from '@styli/react'
-import { StyliHTMLProps } from '@styli/types'
+import { Box } from '@fower/react'
+import { FowerHTMLProps } from '@fower/types'
 
-export interface AlertTitleProps extends StyliHTMLProps<'div'> {}
+export interface AlertTitleProps extends FowerHTMLProps<'div'> {}
 
 export const AlertTitle = forwardRef<HTMLDivElement, AlertTitleProps>((props, ref) => {
-  return <Box className="bone-alert-title" ref={ref} fontBold lhNormal {...props}></Box>
+  return <Box className="bone-alert-title" ref={ref} fontBold leadingNormal {...props}></Box>
 })

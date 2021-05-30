@@ -1,43 +1,36 @@
-export const typeStyles = {
-  default: {
-    bgGray20: true,
-    gray70: true,
-    border: (_: any, { variant }: any) => {
-      return variant ? '1px solid gray30' : false
+export const getTypeStyles = (type: string) => {
+  const maps: any = {
+    default: {
+      bgGray200: true,
+      gray700: true,
+      borderGray300: true,
     },
-  },
 
-  info: {
-    bgBlue20: true,
-    blue70: true,
-    border: (_: any, { variant }: any) => {
-      return variant ? '1px solid blue30' : false
+    info: {
+      bgBlue200: true,
+      blue700: true,
+      borderBlue300: true,
     },
-  },
 
-  warning: {
-    bgOrange20: true,
-    orange70: true,
-    border: (_: any, { variant }: any) => {
-      return variant ? '1px solid orange30' : false
+    warning: {
+      bgOrange200: true,
+      orange700: true,
+      borderOrange300: true,
     },
-  },
 
-  success: {
-    bgGreen20: true,
-    green70: true,
-    border: (_: any, { variant }: any) => {
-      return variant ? '1px solid green30' : false
+    success: {
+      bgGreen200: true,
+      green700: true,
+      borderGreen300: true,
     },
-  },
 
-  error: {
-    bgRed20: true,
-    red70: true,
-    border: (_: any, { variant }: any) => {
-      return variant ? '1px solid red30' : false
+    error: {
+      bgRed200: true,
+      red700: true,
+      borderRed300: true,
     },
-  },
+  }
+  return maps[type]
 }
 
-export type AlertType = keyof typeof typeStyles
+export type AlertType = 'defaut' | 'info' | 'warning' | 'success' | 'error'
