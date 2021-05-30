@@ -1,43 +1,35 @@
 import React, { forwardRef } from 'react'
-import { Input as StyliInput } from '@styli/react'
-import { styli } from '@styli/core'
-import { StyliHTMLProps } from '@styli/types'
+import { Box } from '@fower/react'
+import { store } from '@fower/store'
+import { FowerHTMLProps } from '@fower/types'
 
-export interface InputProps extends Omit<StyliHTMLProps<'input'>, 'size'> {
-  colorScheme?: string
+export interface InputProps extends Omit<FowerHTMLProps<'input'>, 'size'> {
+  colorScheme?: keyof FowerTypes.Colors
   size?: 'small' | 'medium' | 'large'
   variant?: 'outline' | 'unstyled' | 'filled'
 }
 
 const sizes = {
-  small: { px: 12, h: 32, f: 14 },
-  medium: { px: 16, h: 40, f: 16 },
-  large: { px: 16, h: 48, f: 18 },
+  small: { px: 12, h: 32, text: 14 },
+  medium: { px: 16, h: 40, text: 16 },
+  large: { px: 16, h: 48, text: 18 },
 }
 
-export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
-  const {
-    colorScheme: colorSchema = 'primary',
-    size = 'medium',
-    variant = 'outline',
-    ...rest
-  } = props
+export const Input = forwardRef<HTMLInputElement, Partial<InputProps>>((props, ref) => {
+  const { colorScheme = 'brand500', size = 'medium', variant = 'outline', ...rest } = props
   const { disabled } = props
-  const colors = styli.getColors()
-  const shadowColor = colors[colorSchema] || 'primay'
+  const shadowColor = store.theme.colors[colorScheme]
 
   const variants = {
     outline: {
       border: true,
-      borderColor: 'gray40',
-      'borderColor--hover': disabled ? false : `gray50`,
+      borderColor: 'gray300',
     },
     filled: {
-      bgGray20: true,
+      bgGray100: true,
       border: true,
       borderColor: 'transparent',
-      'bgGray30--hover': !disabled,
-      'bgGray30-T100--focus': true,
+      'bgGray200--hover': !disabled,
     },
     unstyled: {
       border: 'none',
@@ -48,22 +40,24 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   }
 
   return (
-    <StyliInput
+    <Box
+      as="input"
       className="bone-input"
       ref={ref}
       rounded-6
       w-100p
-      gray60
+      gray600
+      bgTransparent--focus
       bgWhite
       outlineNone
-      opacity-40={disabled}
-      cursorNotAllowed={disabled}
-      borderColor--focus={`${styli.getColorValue(colorSchema)} !important`}
+      opacity-40={!!disabled}
+      cursorNotAllowed={!!disabled}
       shadow--focus={`0 0 0 1px ${shadowColor}`}
-      css={{ transition: 'all 0.2s' }}
+      borderColor--focus={`${shadowColor}`}
+      css={{ transition: 'box-shadow 0.4s, border 0.1s' }}
       {...sizes[size]}
       {...variants[variant]}
       {...rest}
-    ></StyliInput>
+    ></Box>
   )
 })
