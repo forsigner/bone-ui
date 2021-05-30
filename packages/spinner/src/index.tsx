@@ -1,8 +1,9 @@
 import React, { forwardRef } from 'react'
-import { Box } from '@styli/react'
-import { StyliHTMLProps } from '@styli/types'
+import { Box } from '@fower/react'
+import { keyframes } from '@fower/core'
+import { FowerHTMLProps } from '@fower/types'
 
-export interface SpinnerProps extends StyliHTMLProps<'div'> {
+export interface SpinnerProps extends FowerHTMLProps<'div'> {
   /**
    * animation speed
    * @example 0.8s
@@ -13,6 +14,16 @@ export interface SpinnerProps extends StyliHTMLProps<'div'> {
   children?: React.ReactElement
 }
 
+const spin = keyframes({
+  from: {
+    transform: 'rotate(0deg)',
+  },
+
+  to: {
+    transform: 'rotate(360deg)',
+  },
+})
+
 export const Spinner = forwardRef<HTMLDivElement, SpinnerProps>((props, ref) => {
   const { speed = '1s', children, ...rest } = props
 
@@ -22,10 +33,10 @@ export const Spinner = forwardRef<HTMLDivElement, SpinnerProps>((props, ref) => 
 
   const spinnerProps: any = {
     ref,
-    s: 24,
+    square: 24,
     className: 'bone-spinner',
-    c: 'primary',
-    css: { animation: `spin ${speed} linear infinite` },
+    color: 'brand500',
+    css: { animation: `${spin} ${speed} linear infinite` },
     ...rest,
   }
 
