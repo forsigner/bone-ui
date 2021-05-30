@@ -1,5 +1,5 @@
 {
-  "name": "root",
+  "name": "bone-ui-root",
   "private": true,
   "workspaces": {
     "packages": [
@@ -15,41 +15,23 @@
     "publish": "lerna publish --force-publish=*",
     "format": "prettier --write ."
   },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
-  },
   "eslintConfig": {
     "extends": "tie-app"
   },
-  "peerDependencies": {
-    "react": ">=16"
-  },
   "author": "@forsigner",
   "devDependencies": {
-    "@commitlint/cli": "^11.0.0",
-    "@commitlint/config-conventional": "^11.0.0",
-    "@size-limit/preset-small-lib": "^4.7.0",
-    "@styli/react": "^0.22.0",
-    "@types/react": "^16.9.56",
-    "@types/prettier": "^2.1.5",
-    "@types/react-dom": "^16.9.9",
+    "@types/react": "^17.0.8",
+    "@types/prettier": "^2.2.3",
+    "@types/react-dom": "^17.0.5",
     "coveralls": "^3.1.0",
     "eslint-config-tie-app": "0.0.5",
-    "husky": "^4.3.0",
+    "husky": "^6.0.0",
     "lerna": "^3.22.1",
-    "prettier": "^2.1.2",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "size-limit": "^4.7.0",
+    "prettier": "^2.3.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "tsdx": "^0.14.1",
-    "tslib": "^2.0.3",
-    "typescript": "^4.0.5"
+    "tslib": "^2.2.0",
+    "typescript": "^4.3.2"
   }
 }
