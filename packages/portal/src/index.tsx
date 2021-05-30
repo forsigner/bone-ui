@@ -1,4 +1,5 @@
-import React, { Box } from '@fower/react'
+import React from 'react'
+import { Box } from '@fower/react'
 import { FowerHTMLProps } from '@fower/types'
 import { FC, useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'

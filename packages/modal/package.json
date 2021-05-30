@@ -20,9 +20,12 @@
   },
   "author": "forsigner",
   "module": "dist/modal.esm.js",
+  "dependencies": {
+    "@bone-ui/motion-configs": "^0.0.1",
+    "@bone-ui/portal": "^0.0.1",
+    "@fower/react": "^1.15.0"
+  },
   "devDependencies": {
-    "@styli/react": "^0.22.0",
-    "@bone-ui/close-button": "^0.0.1",
-    "@bone-ui/common": "^0.0.1"
+    "framer-motion": "^4.1.17"
   }
 }
