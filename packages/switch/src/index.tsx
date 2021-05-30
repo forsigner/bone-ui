@@ -1,12 +1,12 @@
 import React, { forwardRef, memo } from 'react'
-import { Box } from '@styli/react'
-import { StyliColor, StyliHTMLProps } from '@styli/types'
+import { Box } from '@fower/react'
+import { FowerColor, FowerHTMLProps } from '@fower/types'
 import { Checkbox } from '@bone-ui/checkbox'
 
-export interface SwitchProps extends StyliHTMLProps<'input'> {
-  colorScheme?: StyliColor
+export interface SwitchProps extends FowerHTMLProps<'input'> {
+  colorScheme?: FowerColor
 
-  offColorScheme?: StyliColor
+  offColorScheme?: FowerColor
 
   /**
    * Switch size, you can set any size
@@ -20,10 +20,10 @@ export interface SwitchProps extends StyliHTMLProps<'input'> {
 }
 
 export const Switch = memo(
-  forwardRef<HTMLInputElement, SwitchProps>((props, ref) => {
+  forwardRef<HTMLInputElement, Partial<SwitchProps>>((props, ref) => {
     const {
-      colorScheme = 'primary',
-      offColorScheme = 'gray40',
+      colorScheme = 'brand500',
+      offColorScheme = 'gray400',
       size = 20,
       aspectRatio = 1.8,
       ...rest
@@ -43,7 +43,7 @@ export const Switch = memo(
               h={size}
               w={width}
               rounded-9999
-              borderWidth={borderWidth}
+              border={borderWidth}
               borderColor={currentColor}
               bg={currentColor}
               css={{ boxSizing: 'content-box' }}
@@ -53,7 +53,7 @@ export const Switch = memo(
                 bgWhite
                 css={{
                   transform: `translateX(${x})`,
-                  transition: 'transform 250ms ease 0s',
+                  transition: 'transform ease 250ms',
                 }}
               ></Box>
             </Box>
