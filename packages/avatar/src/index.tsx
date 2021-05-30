@@ -1,45 +1,35 @@
 import React, { forwardRef } from 'react'
-import { Box } from '@styli/react'
-import { StyliHTMLProps } from '@styli/types'
+import { styled } from '@fower/styled'
+import { FowerHTMLProps } from '@fower/types'
+import { Box } from '@fower/react'
 
-export interface AvatarProps extends StyliHTMLProps<'span'> {
+const Image = styled('img')
+export interface AvatarProps extends FowerHTMLProps<'div'> {
   name?: string
   src?: string
   size?: number
 }
 
-export const Avatar = forwardRef<HTMLSpanElement, AvatarProps>((props, ref: any) => {
+export const Avatar = forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
   const { src, size = 48, name, ...rest } = props
 
-  // if (!src)
   return (
     <Box
-      as="span"
+      ref={ref as any}
       className="bone-avatar"
-      ref={ref}
-      bgRed20
-      red80
-      center
-      uppercase
-      f={size * 0.4}
-      circle={size}
-      {...rest}
-    >
-      {name}
-    </Box>
-  )
-  return (
-    <Box
-      as="span"
-      className="bone-avatar"
-      ref={ref}
-      center
+      toCenter
       circle={size}
       overflow="hidden"
-      f={size * 0.4}
+      bgBrand500={!!name && !src}
+      text={size * 0.6}
       {...rest}
     >
-      <Box as="img" className="bone-avatar-img" s-100p src={src}></Box>
+      {src && <Image className="bone-avatar-img" square-100p src={src} />}
+      {!src && !!name && (
+        <Box as="span" inlineFlex>
+          {name.charAt(0)}
+        </Box>
+      )}
     </Box>
   )
 })
