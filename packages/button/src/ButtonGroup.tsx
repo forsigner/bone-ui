@@ -1,8 +1,8 @@
 import React, { forwardRef } from 'react'
-import { Box } from '@styli/react'
-import { StyliHTMLProps } from '@styli/types'
+import { Box } from '@fower/react'
+import { FowerHTMLProps } from '@fower/types'
 
-export interface ButtonGroupProps extends StyliHTMLProps<'div'> {}
+export interface ButtonGroupProps extends FowerHTMLProps<'div'> {}
 
 export const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>((props, ref) => {
   return (

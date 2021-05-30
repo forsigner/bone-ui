@@ -1,20 +1,17 @@
 import React, { cloneElement, forwardRef } from 'react'
-import { StyliColor } from '@styli/types'
-import { BoxComponent } from '@styli/react'
-import { styled } from '@styli/styled'
-import { styli } from '@styli/core'
+import { FowerColor } from '@fower/types'
+import { BoxComponent } from '@fower/react'
+import { styled } from '@fower/styled'
 import { Spinner } from '@bone-ui/spinner'
 
 type Size = 'xs' | 'sm' | 'md' | 'lg' | number
 
 export interface ButtonProps {
-  colorScheme?: StyliColor
-
-  colorMode?: 'dark' | 'light'
+  colorScheme?: FowerColor
 
   size?: Size
 
-  variant?: 'default' | 'solid' | 'outline'
+  variant?: 'outline' | 'filled' | 'ghost' | 'light'
 
   leftIcon?: React.ReactElement
 
@@ -31,12 +28,11 @@ export const Button: BoxComponent<'button', ButtonProps> = forwardRef((props: Bu
   const {
     as = 'button',
     size = 'md',
-    variant = 'default',
+    variant = 'filled',
     leftIcon,
     rightIcon,
     icon,
-    colorScheme = '#444',
-    colorMode = 'dark',
+    colorScheme = 'brand',
     disabled,
     loading,
     children,
@@ -44,25 +40,24 @@ export const Button: BoxComponent<'button', ButtonProps> = forwardRef((props: Bu
   } = props as any
 
   const sizeStyle = getSizeStyle(size)
-  const isSolid = variant === 'solid'
-  const isLight = colorMode === 'light'
-  const notAllowed = disabled || loading
+
+  if (icon) delete sizeStyle?.px // icon button 不要 padding
+
+  const isFilled = variant === 'filled'
+  const notAllowed = !!(disabled || loading)
   const Comp = styled(as)
 
-  const iconButtonProps = icon ? { px0: !!icon, w: sizeStyle.h } : {}
+  const iconButtonProps = icon ? { w: sizeStyle.h } : {}
 
   return (
     <Comp
       ref={ref}
       className="bone-button"
       inlineFlex
-      center
-      bg="none"
-      border="none"
-      lh-1em
+      toCenter
       outlineNone
       cursorPointer
-      rounded-4
+      rounded
       opacity-40={notAllowed}
       cursorNotAllowed={notAllowed}
       css={{
@@ -72,69 +67,87 @@ export const Button: BoxComponent<'button', ButtonProps> = forwardRef((props: Bu
         verticalAlign: 'middle',
         transition: 'all 250ms ease 0s',
       }}
-      {...getVariantStyle(colorScheme, notAllowed, colorMode)[variant]}
+      {...getVariantStyle(colorScheme, notAllowed)[variant]}
       {...sizeStyle}
       {...iconButtonProps}
       {...rest}
     >
       {loading && (
-        <Spinner
-          mr-8
-          c={isSolid ? (isLight ? `${colorScheme}-D30` : 'white') : colorScheme}
-          s={sizeStyle.f}
-        ></Spinner>
+        <Spinner mr-8 color={isFilled ? 'white' : colorScheme} square={sizeStyle.text}></Spinner>
       )}
 
-      {icon}
+      {icon && cloneElement(icon, { square: sizeStyle.text * 1.2 })}
 
-      {leftIcon && cloneElement(leftIcon, { mr: 8, s: sizeStyle.f })}
+      {leftIcon && cloneElement(leftIcon, { mr: 8, square: sizeStyle.text })}
       {children}
-      {rightIcon && cloneElement(rightIcon, { ml: 8, s: sizeStyle.f })}
+      {rightIcon && cloneElement(rightIcon, { ml: 8, square: sizeStyle.text })}
     </Comp>
   )
 }) as any
 
-function getVariantStyle(color: string, notAllowed: any = null, colorMode: string): any {
-  const isLight = colorMode === 'light'
-  return {
-    default: {
-      border: true,
-      borderColor: 'gray30',
-      'bg--hover': `gray30-T70`,
-      'bg--active': `gray30-T40`,
-      // 'borderColor--hover': 'gray30-D10',
+function getVariantStyle(color: string, notAllowed: any = null): any {
+  const styles = {
+    light: {
       color,
-      'color--hover': `${color}-D20`,
+      'bg--T90': color,
+      borderColor: color,
+      ...(notAllowed
+        ? {}
+        : {
+            'bg--hover': `${color}--T80`,
+            'bg--active': `${color}--T90`,
+          }),
     },
-    solid: {
-      c: isLight ? `${color}-D30` : 'white',
-      bg: isLight ? `${color}-T60` : color,
-      ...(notAllowed ?? {
-        'bg--hover': isLight ? `${color}-T30` : `${color}-D8`,
-        'bg--active': isLight ? `${color}-T10` : `${color}-D20`,
-        // 'shadow--focus': isLight ? 'none' : `0 0 0 2px ${styli.getColorValue(color + '-T70')}`,
-      }),
+    filled: {
+      white: true,
+      'white--dark': true,
+      bg: color,
+      ...(notAllowed
+        ? {}
+        : {
+            'bg--hover': `${color}--D8`,
+            'bg--active': `${color}--D20`,
+          }),
+    },
+    ghost: {
+      color,
+      ...(notAllowed
+        ? {}
+        : {
+            'bg--hover': `${color}--T80`,
+            'bg--active': `${color}--T90`,
+          }),
     },
     outline: {
-      color,
       border: true,
-      borderColor: styli.getColorValue(color),
-      ...(notAllowed ?? {
-        'bg--hover': `${color}-T80`,
-        'bg--active': `${color}-T90`,
-        // 'shadow--focus': `0 0 0 2px ${styli.getColorValue(color + '-T70')}`,
-      }),
+      borderColor: color,
+      color: color,
+      ...(notAllowed
+        ? {}
+        : {
+            'bg--hover': color,
+            'color--hover': 'white',
+            'bg--active': `${color}--D8`,
+          }),
     },
   }
+  return styles
 }
 
+interface Sizes {
+  [key: string]: {
+    h: number
+    text: number
+    px?: number
+  }
+}
 function getSizeStyle(size: Size) {
-  const sizes = {
-    xs: { h: 24, f: 12, px: 12 },
-    sm: { h: 32, f: 14, px: 16 },
-    md: { h: 40, f: 16, px: 20 },
-    lg: { h: 48, f: 18, px: 24 },
+  const sizes: Sizes = {
+    xs: { h: 24, text: 12, px: 8 },
+    sm: { h: 32, text: 14, px: 12 },
+    md: { h: 40, text: 16, px: 15 },
+    lg: { h: 48, text: 18, px: 18 },
   }
   if (typeof size === 'string') return sizes[size]
-  return { h: size, px: size * 0.5, f: size * 0.35 }
+  return { h: size, px: size * 0.375, text: size * 0.35 }
 }

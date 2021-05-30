@@ -19,5 +19,9 @@
     "prepare": "tsdx build"
   },
   "author": "forsigner",
-  "module": "dist/button.esm.js"
+  "module": "dist/button.esm.js",
+  "dependencies": {
+    "@bone-ui/spinner": "^0.0.1",
+    "@fower/react": "^1.15.0"
+  }
 }
