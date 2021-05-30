@@ -1,4 +1,4 @@
-import { StyliHTMLProps } from '@styli/types'
+import { FowerColor, FowerHTMLProps } from '@fower/types'
 import { ReactNode } from 'react'
 
 type StringOrNumber = string | number
@@ -10,8 +10,10 @@ export type InputProps = React.DetailedHTMLProps<
   HTMLInputElement
 >
 
-export interface RadioProps extends Omit<StyliHTMLProps<'input'>, 'ref'> {
+export interface RadioProps extends Omit<FowerHTMLProps<'input'>, 'ref'> {
   render?: (props: RadioRenderProps) => ReactNode
+
+  colorScheme?: FowerColor
 
   /**
    * Render children or not
@@ -26,10 +28,13 @@ export interface RadioRenderProps {
 
   focused?: boolean
 
+  item?: RadioOption
+
   children?: ReactNode
 }
 
 export interface RadioRenderItemProps extends RadioRenderProps {
+  i?: number
   item: RadioOption
   defaultRadio: ReactNode
 }
@@ -54,7 +59,7 @@ export interface RadioOption {
 
 export type DefaultRender = (props: RadioRenderProps) => ReactNode
 
-export interface RadioGroupProps extends Omit<StyliHTMLProps<'div'>, 'onChange'> {
+export interface RadioGroupProps extends Omit<FowerHTMLProps<'div'>, 'onChange'> {
   value?: StringOrNumber
 
   defaultValue?: StringOrNumber

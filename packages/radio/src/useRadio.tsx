@@ -25,7 +25,6 @@ export function useRadio(props: InputProps): RadioHooksResult {
   /** For radio group */
   if (context) {
     const { radioGroupValue, setRadioGroupValue } = context
-    console.log('radioGroupValue:', radioGroupValue)
     inputProps.checked = value === radioGroupValue
     inputProps.onChange = (e) => {
       setRadioGroupValue(value)

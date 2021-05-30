@@ -1,7 +1,15 @@
 import { createContext, ReactNode } from 'react'
 import { RadioRenderItemProps } from './types'
 
-interface RadioGroupContext {
+export interface RadioGroupContext {
+  /**
+   * radio group unique name
+   */
+  name?: string
+
+  /**
+   * radio group name, string or number
+   */
   radioGroupValue: any
 
   setRadioGroupValue: any

@@ -1,38 +1,40 @@
 import React, { forwardRef, memo } from 'react'
-import { Box } from '@styli/react'
-import { styled } from '@styli/styled'
+import { Box } from '@fower/react'
 import { useRadio } from './useRadio'
 import { defaultRender } from './defaultRender'
 import { RadioProps } from './types'
-
-const Label = styled('label')
+import { cx } from '@bone-ui/utils'
+import { css } from '@fower/core'
 
 export const Radio = memo(
   forwardRef<HTMLInputElement, RadioProps>((props, ref) => {
-    const { children, shouldRenderChildren = true, render = defaultRender, ...rest } = props
+    const {
+      children,
+      shouldRenderChildren = true,
+      render = defaultRender,
+      colorScheme = 'brand500',
+      ...rest
+    } = props
     const { inputProps, state } = useRadio(props)
     const { disabled } = state
 
     return (
-      <Label
+      <Box
+        as="label"
         className="bone-radio"
-        centerY
-        left
+        toCenterY
+        toLeft
         cursorPointer={!disabled}
         cursorNotAllowed={disabled}
         opacity-50={disabled}
       >
-        <Box
-          as="input"
-          className="bone-radio__input"
+        <input
+          className={cx('bone-radio__input', css('square0', 'opacity-0', 'hidden'))}
           ref={ref}
           type="radio"
-          s-0
-          opacity-0
           {...inputProps}
           {...rest}
         />
-
         {render({ ...state, children })}
 
         {shouldRenderChildren && children && (
@@ -40,7 +42,7 @@ export const Radio = memo(
             {children}
           </Box>
         )}
-      </Label>
+      </Box>
     )
   }),
 )
