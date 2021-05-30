@@ -1,29 +1,24 @@
 import React, { ChangeEvent, forwardRef } from 'react'
-import { Box, Input } from '@styli/react'
-import { styled } from '@styli/styled'
-import { CheckOutline } from '@bone-ui/icons/lib/CheckOutline'
+import { cx } from '@bone-ui/utils'
+import { css } from '@fower/core'
+import { Box } from '@fower/react'
+import { styled } from '@fower/styled'
 import { useCheckbox } from './useCheckbox'
-import { CheckboxStatus, CheckboxProps } from './types'
+import { CheckboxProps } from './types'
 import { useCheckboxGroupContext } from './checkboxGroupContext'
+import { checkboxDefaultRender } from './checkboxDefaultRender'
 
 const Label = styled('label')
 
-const defaultRender = ({ checked }: CheckboxStatus) => (
-  <Box
-    center
-    s-20
-    border-2
-    rounded-4
-    borderGray40={!checked}
-    borderPrimary={checked}
-    bgPrimary={checked}
-  >
-    <CheckOutline white s-20 strokeWidth={4} hide={!checked}></CheckOutline>
-  </Box>
-)
-
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>((props, ref) => {
-  const { children, render = defaultRender, ...rest } = props
+  const {
+    children,
+    render = checkboxDefaultRender,
+    value,
+    disabled: propDisabled,
+    onChange: propOnChnage,
+    ...rest
+  } = props
   const context = useCheckboxGroupContext()
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -36,30 +31,28 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>((props, ref)
 
   return (
     <Label
-      inlineFlex
       className="bone-checkbox"
-      centerY
-      left
+      inlineFlex
+      toCenterY
+      toLeft
       cursorPointer={!disabled}
       cursorNotAllowed={disabled}
       opacity-50={disabled}
+      // TODO: 属性多余
+      {...(rest as any)}
     >
-      <Input
-        className="bone-checkbox__input"
+      <input
         ref={ref}
+        className={cx('bone-radio__input', css('square0', 'opacity-0', 'hidden'))}
         type="checkbox"
-        s-0
-        reset
-        opacity-0
-        // TODO: need imporve
-        {...rest}
+        value={value}
         {...inputProps}
       />
 
       {render({ ...state, children })}
 
       {children && (
-        <Box className="bone-checkbox__label" ml-8 lh-1em>
+        <Box className="bone-checkbox__label" ml-8 leading-1em>
           {children}
         </Box>
       )}

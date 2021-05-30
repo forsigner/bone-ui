@@ -1,11 +1,8 @@
-import { useState, useEffect, useLayoutEffect } from 'react'
-import { isBrowser } from '@styli/utils'
-import { useControlledInfo } from '@bone-ui/hooks'
+import { useState } from 'react'
+import { useControlledInfo, useSafeLayoutEffect } from '@bone-ui/hooks'
 import { useCheckboxGroupContext } from './checkboxGroupContext'
 import { CheckboxProps, InputProps, UseCheckboxReturn } from './types'
 import { getNextCheckboxGroupValue } from './utils'
-
-const useIsomorphicLayoutEffect = isBrowser ? useLayoutEffect : useEffect
 
 export function useCheckbox(props: CheckboxProps): UseCheckboxReturn {
   let inputProps: InputProps = {}
@@ -28,7 +25,7 @@ export function useCheckbox(props: CheckboxProps): UseCheckboxReturn {
 
   const { controlled, value: checked } = useControlledInfo(props.checked, checkedState)
 
-  useIsomorphicLayoutEffect(() => {
+  useSafeLayoutEffect(() => {
     if (typeof props.disabled !== 'boolean') return
     setDisabled(!!props.disabled)
   }, [props.disabled])

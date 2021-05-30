@@ -1,4 +1,4 @@
-import { StyliHTMLProps } from '@styli/types'
+import { FowerHTMLProps } from '@fower/types'
 import { ReactNode } from 'react'
 
 export type InputProps = React.DetailedHTMLProps<
@@ -10,7 +10,7 @@ type StringOrNumber = string | number
 
 export type CheckboxGroupValue = StringOrNumber[]
 
-export interface CheckboxProps extends Omit<StyliHTMLProps<'input'>, 'ref'> {
+export interface CheckboxProps extends Omit<FowerHTMLProps<'input'>, 'ref'> {
   render?: (status: CheckboxStatus) => ReactNode
 }
 
@@ -53,7 +53,7 @@ export interface CheckboxOption {
 }
 
 export interface CheckboxGroupProps
-  extends Omit<StyliHTMLProps<'div'>, 'onChange' | 'value' | 'defaultValue'> {
+  extends Omit<FowerHTMLProps<'div'>, 'onChange' | 'value' | 'defaultValue'> {
   value?: CheckboxGroupValue
 
   defaultValue?: CheckboxGroupValue
