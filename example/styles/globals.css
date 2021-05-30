@@ -6,7 +6,6 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-
 a {
   color: inherit;
   text-decoration: none;
@@ -14,11 +13,4 @@ a {
 
 * {
   box-sizing: border-box;
-}
-
-
-@keyframes spin {
-  to {
-    transform: rotate(1turn)
-  }
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box } from '@styli/react'
+import { Box } from '@fower/react'
 import { Button, ButtonGroup } from '@bone-ui/button'
 
 export default function ButtonGroupDemo() {
@@ -12,9 +12,9 @@ export default function ButtonGroupDemo() {
       </ButtonGroup>
 
       <ButtonGroup>
-        <Button colorScheme="teal40">Small</Button>
-        <Button colorScheme="teal40">Middle</Button>
-        <Button colorScheme="teal40">Large</Button>
+        <Button colorScheme="teal400">Small</Button>
+        <Button colorScheme="teal400">Middle</Button>
+        <Button colorScheme="teal400">Large</Button>
       </ButtonGroup>
 
       <ButtonGroup>

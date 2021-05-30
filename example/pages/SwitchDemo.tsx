@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { View } from '@styli/react'
+import { View } from '@fower/react'
 import { Switch } from '@bone-ui/switch'
 
 export default function SwitchDemo() {
@@ -9,7 +9,7 @@ export default function SwitchDemo() {
     // console.log('ref:', ref.current)
   }, [])
   return (
-    <View p6 spaceX-32 w-800 left reset wrap>
+    <View p6 spaceX-32 w-800 toLeft flexWrap="wrap">
       <Switch defaultChecked />
       <Switch checked={checked} />
       <Switch ref={ref}>Switch</Switch>
@@ -17,9 +17,9 @@ export default function SwitchDemo() {
       <Switch disabled />
       <Switch checked disabled />
 
-      <Switch colorScheme="orange40" defaultChecked />
-      <Switch colorScheme="purple40" defaultChecked />
-      <Switch colorScheme="purple40" offColorScheme="black" />
+      <Switch colorScheme="orange400" defaultChecked />
+      <Switch colorScheme="purple400" defaultChecked />
+      <Switch colorScheme="purple400" offColorScheme="black" />
 
       <Switch size={16} />
       <Switch size={20} />

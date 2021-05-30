@@ -13,7 +13,7 @@ export default function InputDemo() {
   return (
     <div>
       <Input
-        onChange={(e) => setUsername(e.target.targeValue)}
+        onChange={(e) => setUsername(e.target.value)}
         value={username}
         name="username"
         ref={ref}

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Tooltip } from '@bone-ui/tooltip'
 import { Button, ButtonGroup } from '@bone-ui/button'
-import { Box, Heading } from '@styli/react'
+import { Box, Heading } from '@fower/react'
 import { CloseButton } from '@bone-ui/close-button'
 
 export default function TooltipDemo() {
@@ -44,7 +44,7 @@ export default function TooltipDemo() {
       <Tooltip
         label={
           <Box>
-            <Heading row centerY justifyBetween>
+            <Heading row toCenterY justifyBetween>
               <Box>This.is.title </Box>
               <CloseButton onClick={() => setIsOpened5(false)} />
             </Heading>

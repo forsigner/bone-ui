@@ -1,13 +1,13 @@
 import React from 'react'
-import { View } from '@styli/react'
+import { View } from '@fower/react'
 import { CloseButton } from '@bone-ui/close-button'
 
 export default function CloseButtonDemo() {
   return (
-    <View left spaceX-10 w-800>
+    <View toLeft spaceX-10 w-800>
       <CloseButton size={24}></CloseButton>
       <CloseButton size={32}></CloseButton>
-      <CloseButton size={40}></CloseButton>
+      <CloseButton size={40} rounded-40></CloseButton>
     </View>
   )
 }

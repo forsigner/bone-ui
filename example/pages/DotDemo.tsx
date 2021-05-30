@@ -1,11 +1,11 @@
 import React from 'react'
-import { Box } from '@styli/react'
+import { Box } from '@fower/react'
 import { Dot } from '@bone-ui/dot'
 
 export default function DotDemo() {
   return (
     <Box spaceY-20>
-      <Box spaceX-20 left>
+      <Box spaceX-20 toLeft>
         <Dot></Dot>
         <Dot type="error"></Dot>
         <Dot type="info"></Dot>
@@ -22,16 +22,16 @@ export default function DotDemo() {
       </Box>
 
       <Box spaceY-10 column>
-        <Dot bgTeal40>Custom Background Color</Dot>
-        <Dot bgPink40>Custom Background Color</Dot>
-        <Dot bgPurple40 s-10>
+        <Dot bgTeal400>Custom Background Color</Dot>
+        <Dot bgPink400>Custom Background Color</Dot>
+        <Dot bgPurple400 square-10>
           Custom Size
         </Dot>
-        <Dot bgPurple40 s-12>
+        <Dot bgPurple400 square-12>
           Custom Size
         </Dot>
 
-        <Dot bgYellow40 s-16 border borderYellow80>
+        <Dot bgYellow400square-16 border borderYellow800>
           with border
         </Dot>
       </Box>

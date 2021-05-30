@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { Box } from '@styli/react'
+import { Box } from '@fower/react'
 import { Checkbox, CheckboxGroup, CheckboxProps } from '@bone-ui/checkbox'
 
 const ColorCheckbox = (props: CheckboxProps) => (
   <Checkbox
     {...props}
     render={({ checked }) => (
-      <Box center circle-48 bg={checked ? 'gray20' : false}>
+      <Box toCenter circle-48 bg={checked ? 'gray20' : false}>
         <Box bg={props.value as string} circle-32></Box>
       </Box>
     )}
@@ -88,7 +88,7 @@ export default function CheckboxDemo() {
         <h2>Select your colors</h2>
         <CheckboxGroup defaultValue={['green']}>
           <ColorCheckbox value="red30"></ColorCheckbox>
-          <ColorCheckbox value="green30"></ColorCheckbox>
+          <ColorCheckbox value="green"></ColorCheckbox>
           <ColorCheckbox value="blue30"></ColorCheckbox>
           <ColorCheckbox value="orange30"></ColorCheckbox>
           <ColorCheckbox value="purple30"></ColorCheckbox>

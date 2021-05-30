@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { View, Box } from '@styli/react'
+import { View, Box } from '@fower/react'
 import { Radio, RadioGroup, RadioProps } from '@bone-ui/radio'
 
 const ColorRadio = (props: RadioProps) => (
   <Radio
     {...props}
     render={({ checked }) => (
-      <Box center s-48 rounded-8 bg={checked ? 'gray20' : false}>
+      <Box toCenter square-48 rounded-8 bg={checked ? 'gray200' : false}>
         <Box bg={props.value as string} circle-32></Box>
       </Box>
     )}
@@ -21,12 +21,14 @@ export default function RadioDemo() {
   ]
 
   const optionsCustomRender = [
-    { label: 'Free', value: 'free', desc: 'This is Free version' },
+    // { label: 'Free', value: 'free', desc: 'This is Free version' },
     { label: 'Member', value: 'member', desc: 'This is Member version' },
     { label: 'Pro', value: 'pro', desc: 'This is Pro version' },
   ]
 
   const [color, setColor] = useState('blue')
+  const [type, setType] = useState('member')
+
   useEffect(() => {
     setTimeout(() => {
       setColor('red')
@@ -65,30 +67,33 @@ export default function RadioDemo() {
         <h2>Custom RadioGroup render</h2>
         <RadioGroup
           options={optionsCustomRender}
-          value="member"
+          value={type}
           column
           spaceY-8
           flex
+          onChange={(e: any) => {
+            setType(e)
+          }}
           renderItem={({ item, defaultRadio, checked }) => (
-            <Box p4 left border borderColor={checked ? 'gray60' : 'gray40'} rounded-8 w-400>
+            <Box p4 toLeft border borderColor={checked ? 'gray600' : 'gray400'} rounded-8 w-400>
               {defaultRadio}
               <Box ml-16>
                 <Box>{item.label}</Box>
-                <Box gray40>{item.desc}</Box>
+                <Box gray400>{item.desc}</Box>
               </Box>
             </Box>
           )}
-        ></RadioGroup>
+        />
       </Box>
 
       <Box>
         <h2>Custom Radio render</h2>
-        <RadioGroup value="green30">
-          <ColorRadio value="red30"></ColorRadio>
-          <ColorRadio value="green30"></ColorRadio>
-          <ColorRadio value="blue30"></ColorRadio>
-          <ColorRadio value="orange30"></ColorRadio>
-          <ColorRadio value="purple30"></ColorRadio>
+        <RadioGroup value="green300">
+          <ColorRadio value="red300"></ColorRadio>
+          <ColorRadio value="green300"></ColorRadio>
+          <ColorRadio value="blue300"></ColorRadio>
+          <ColorRadio value="orange300"></ColorRadio>
+          <ColorRadio value="purple300"></ColorRadio>
         </RadioGroup>
       </Box>
     </View>

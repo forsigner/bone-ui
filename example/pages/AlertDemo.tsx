@@ -1,19 +1,19 @@
 import React from 'react'
-import { View } from '@styli/react'
+import { Box } from '@fower/react'
 import { Alert, AlertIcon, AlertTitle, AlertDescription } from '@bone-ui/alert'
 import { CloseButton } from '@bone-ui/close-button'
 
 export default function AlertDemo() {
   return (
-    <View w-800 spaceY-10>
+    <Box w-800 spaceY-10>
       <Alert>A default alert</Alert>
 
       <Alert type="info">
-        A info alert <CloseButton absolute T-6 R-6 />
+        A info alert <CloseButton size={20} absolute top-6 right-6 />
       </Alert>
 
       <Alert type="warning">
-        An warning alert <CloseButton absolute T-6 R-6 />
+        An warning alert <CloseButton absolute top-6 right-6 />
       </Alert>
 
       <Alert type="success">An success alert</Alert>
@@ -47,19 +47,19 @@ export default function AlertDemo() {
 
       <Alert type="info">
         <AlertIcon />
-        <View>
+        <Box>
           <AlertTitle>Info</AlertTitle>
           <AlertDescription>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quia temporibus
             eveniet a libero incidunt suscipit laborum, rerum accusantium modi quidem, ipsam illum
             quis sed voluptatum quae eum fugit earum.
           </AlertDescription>
-        </View>
+        </Box>
       </Alert>
 
-      <Alert type="success" column centerX textCenter>
-        <AlertIcon s-48 />
-        <AlertTitle f4>Success</AlertTitle>
+      <Alert type="success" column toCenterX textCenter>
+        <AlertIcon square-48 />
+        <AlertTitle textLG>Success</AlertTitle>
         <AlertDescription>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quia temporibus
           eveniet a libero incidunt suscipit laborum, rerum accusantium modi quidem, ipsam illum
@@ -70,6 +70,6 @@ export default function AlertDemo() {
       <Alert type="warning">
         <AlertIcon></AlertIcon> A default alert
       </Alert>
-    </View>
+    </Box>
   )
 }

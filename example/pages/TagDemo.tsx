@@ -1,13 +1,13 @@
 import React from 'react'
 import { Tag } from '@bone-ui/tag'
-import { Box } from '@styli/react'
-import MailOutline from '@bone-ui/icons'
-import LocationMarkerOutline from '@bone-ui/icons'
+import { Box } from '@fower/react'
+import MailOutline from '@bone-ui/icons/lib/MailOutline'
+import LocationMarkerOutline from '@bone-ui/icons/lib/LocationMarkerOutline'
 
 export default function TagDemo() {
   return (
     <Box>
-      <Box spaceX-10 left>
+      <Box spaceX-10 toLeft>
         <Tag>Red</Tag>
         <Tag icon={<MailOutline></MailOutline>}>Red</Tag>
         <Tag icon={<LocationMarkerOutline></LocationMarkerOutline>}>Red</Tag>
@@ -18,16 +18,16 @@ export default function TagDemo() {
           Red
         </Tag>
 
-        <Tag colorScheme="orange40">Red</Tag>
+        <Tag colorScheme="orange400">Red</Tag>
 
-        <Tag colorScheme="red40">Red</Tag>
+        <Tag colorScheme="red400">Red</Tag>
 
-        <Tag colorScheme="red40">Red</Tag>
+        <Tag colorScheme="red400">Red</Tag>
       </Box>
 
       <h1>Size</h1>
 
-      <Box spaceX-10 left>
+      <Box spaceX-10 toLeft>
         <Tag direction="row-reverse" icon={<LocationMarkerOutline></LocationMarkerOutline>}>
           Red
         </Tag>
