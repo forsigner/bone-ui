@@ -20,10 +20,7 @@
   },
   "author": "forsigner",
   "module": "dist/hooks.esm.js",
-  "devDependencies": {
-    "@styli/react": "^0.22.0"
-  },
   "dependencies": {
-    "react-cool-onclickoutside": "^1.5.8"
+    "@fower/react": "^1.15.0"
   }
 }
