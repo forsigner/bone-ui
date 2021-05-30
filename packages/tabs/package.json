@@ -21,6 +21,7 @@
   "author": "forsigner",
   "module": "dist/tabs.esm.js",
   "dependencies": {
-    "@bone-ui/radio": "^0.0.1"
+    "@bone-ui/radio": "^0.0.1",
+    "@fower/react": "^1.15.0"
   }
 }

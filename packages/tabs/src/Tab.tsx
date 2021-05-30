@@ -1,12 +1,10 @@
 import React, { forwardRef, ReactNode, useContext } from 'react'
-import { Box } from '@styli/react'
-import { StyliColor } from '@styli/types'
+import { Box } from '@fower/react'
+import { FowerColor } from '@fower/types'
 import { Radio, RadioProps, radioGroupContext } from '@bone-ui/radio'
 
 export interface TabProps extends RadioProps {
-  colorScheme?: StyliColor
-
-  offColorScheme?: StyliColor
+  colorScheme?: FowerColor
 
   /**
    * Switch size, you can set any size
@@ -15,7 +13,7 @@ export interface TabProps extends RadioProps {
 }
 
 export const Tab = forwardRef<HTMLInputElement, TabProps>((props, ref) => {
-  const { colorScheme = 'primary', offColorScheme = 'gray40', label, ...rest } = props
+  const { colorScheme = 'brand500', label, ...rest } = props
 
   const context = useContext(radioGroupContext)
   return (
@@ -33,7 +31,7 @@ export const Tab = forwardRef<HTMLInputElement, TabProps>((props, ref) => {
           } as any)
         }
         return (
-          <Box borderColor={checked ? 'primary' : 'transparent'} borderB-2 py2 px1 mb--1 f-16>
+          <Box borderColor={checked ? 'brand500' : 'transparent'} borderB-2 py2 px1 mb--1 text-16>
             {label}
           </Box>
         )

@@ -1,5 +1,5 @@
 import React, { forwardRef, ReactNode, useState } from 'react'
-import { Box } from '@styli/react'
+import { Box } from '@fower/react'
 import { RadioGroup, RadioGroupProps } from '@bone-ui/radio'
 
 export interface TabsProps extends RadioGroupProps {
@@ -19,11 +19,11 @@ function getRadio({ children }: TabsProps, value: any): ReactNode | undefined {
 }
 
 export const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
-  const { onChange, hideDivider } = props
+  const { onChange, hideDivider, ...rest } = props
   const [node, setNode] = useState<any>(getRadio(props, props.value))
   return (
     <RadioGroup
-      {...props}
+      {...rest}
       ref={ref}
       column
       value={props.value || node?.props?.value || node?.props?.label}
@@ -36,9 +36,9 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
         className="bone-tab-header"
         spaceX-12
         w-100p
-        left
+        toLeft
         borderB-1
-        borderBottomColor={hideDivider ? 'transparent' : '#f0f0f0'}
+        borderColor={hideDivider ? 'transparent' : '#f0f0f0'}
         mb-16
       >
         {props.children}
