@@ -19,5 +19,8 @@
     "prepare": "tsdx build"
   },
   "author": "forsigner",
-  "module": "dist/tag.esm.js"
+  "module": "dist/tag.esm.js",
+  "dependencies": {
+    "@fower/react": "^1.15.0"
+  }
 }

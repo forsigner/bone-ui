@@ -1,1 +1,1 @@
-# @bone-ui/tabs
+# @bone-ui/tag
