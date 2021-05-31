@@ -1,6 +1,6 @@
 {
   "name": "@bone-ui/icons",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "license": "MIT",
   "main": "lib/index.js",
   "module": "dist/icons.esm.js",
@@ -22,7 +22,7 @@
   },
   "author": "forsigner",
   "dependencies": {
-    "@bone-ui/iconify": "^0.0.1",
+    "@bone-ui/iconify": "^0.1.0",
     "@fower/react": "^1.15.0"
   }
 }

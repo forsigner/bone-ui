@@ -1,6 +1,6 @@
 {
   "name": "@bone-ui/tabs",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -20,7 +20,7 @@
   "author": "forsigner",
   "module": "dist/tabs.esm.js",
   "dependencies": {
-    "@bone-ui/radio": "^0.0.1",
+    "@bone-ui/radio": "^0.1.0",
     "@fower/react": "^1.15.0"
   }
 }
