@@ -1,45 +1,49 @@
-import React, { forwardRef } from 'react'
-import { Box } from '@styli/react'
-import { StyliHTMLProps } from '@styli/types'
+import React, { FC, ReactNode } from 'react'
+import { Box } from '@fower/react'
+import { FowerHTMLProps } from '@fower/types'
 
-export interface FormFieldProps extends StyliHTMLProps<'div'> {
+function forwardRef(component: React.ForwardRefRenderFunction<any, any>) {
+  return React.forwardRef(component) as any
+}
+
+export interface FormFieldProps extends FowerHTMLProps<'div'> {
   orientation?: 'horizontal' | 'vertical'
 
-  label?: string
+  label?: ReactNode
 
   error?: string
 }
 
-export const FormField = forwardRef<HTMLDivElement, FormFieldProps>((props, ref) => {
+export const FormField: FC<FormFieldProps> = forwardRef((props: FormFieldProps, ref) => {
   const { orientation = 'vertical', children, error, label, ...rest } = props
   const isHorizontal = orientation === 'horizontal'
 
   return (
-    <Box className="bone-form-field " ref={ref} relative column={!isHorizontal} {...rest}>
+    <Box className="bone-form-field" ref={ref} relative column={!isHorizontal} {...rest}>
       {label && (
         <Box
           className="bone-form-field-label"
-          f-16
-          right={isHorizontal}
-          left={!isHorizontal}
-          centerY
-          h-40
+          text-16
+          toRight={isHorizontal}
+          toLeft={!isHorizontal}
+          toCenterY
           w-80={isHorizontal}
           pr-8
+          py2
         >
           {label}
         </Box>
       )}
-      <Box className="bone-form-field-control" column flex-1 mb-32={!error}>
-        <Box minH-40 centerY left>
+      <Box className="bone-form-field-control" column flex-1 mb-28={!error}>
+        <Box toCenterY toLeft>
           {children}
         </Box>
         {error && (
-          <Box h-32 red40>
+          <Box h-28 red400>
             {error}
           </Box>
         )}
       </Box>
     </Box>
   )
-})
+}) as any

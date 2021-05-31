@@ -19,8 +19,8 @@
     "prepare": "tsdx build"
   },
   "author": "forsigner",
-  "module": "dist/badge.esm.js",
-  "devDependencies": {
-    "@styli/react": "^0.22.0"
+  "module": "dist/form-field.esm.js",
+  "dependencies": {
+    "@fower/react": "^1.15.0"
   }
 }
