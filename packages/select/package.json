@@ -21,6 +21,10 @@
   "author": "forsigner",
   "module": "dist/select.esm.js",
   "dependencies": {
-    "@bone-ui/hooks": "^0.0.1"
+    "@bone-ui/dropdown": "^0.0.1",
+    "@bone-ui/icons": "^0.0.1",
+    "@bone-ui/menu": "^0.0.1",
+    "@bone-ui/radio": "^0.0.1",
+    "@fower/react": "^1.15.0"
   }
 }
