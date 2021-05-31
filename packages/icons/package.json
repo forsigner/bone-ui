@@ -18,8 +18,7 @@
     "build:tsdx": "tsdx build",
     "build": "npm run build:lib && tsdx build",
     "test": "tsdx test --passWithNoTests",
-    "lint": "tsdx lint",
-    "prepare": "tsdx build"
+    "lint": "tsdx lint"
   },
   "author": "forsigner",
   "dependencies": {
