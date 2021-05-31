@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box } from '@styli/react'
+import { Box } from '@fower/react'
 
 export const DrawerFooter = ({ footer }: any) => {
   if (typeof footer !== 'string') {
@@ -7,7 +7,7 @@ export const DrawerFooter = ({ footer }: any) => {
   }
 
   return (
-    <Box fixed B-0 w-100p p-20>
+    <Box fixed bottom0 w-100p p-20>
       {footer}
     </Box>
   )

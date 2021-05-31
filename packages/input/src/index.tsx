@@ -46,7 +46,7 @@ export const Input = forwardRef<HTMLInputElement, Partial<InputProps>>((props, r
       ref={ref}
       rounded-6
       w-100p
-      gray600
+      gray800
       bgTransparent--focus
       bgWhite
       outlineNone

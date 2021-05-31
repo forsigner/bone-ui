@@ -1,5 +1,5 @@
 {
-  "name": "@bone-ui/drawer",
+  "name": "@bone-ui/toast",
   "version": "0.0.1",
   "license": "MIT",
   "main": "dist/index.js",
@@ -19,8 +19,13 @@
     "prepare": "tsdx build"
   },
   "author": "forsigner",
-  "module": "dist/drawer.esm.js",
+  "module": "dist/toast.esm.js",
   "dependencies": {
-    "@fower/react": "^1.15.0"
+    "@bone-ui/portal": "^0.0.1",
+    "@fower/react": "^1.15.0",
+    "stook": "^1.1.1"
+  },
+  "devDependencies": {
+    "framer-motion": "4.1.17"
   }
 }

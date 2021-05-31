@@ -1,5 +1,5 @@
 {
-  "name": "@bone-ui/drawer",
+  "name": "@bone-ui/dialog",
   "version": "0.0.1",
   "license": "MIT",
   "main": "dist/index.js",
@@ -19,8 +19,13 @@
     "prepare": "tsdx build"
   },
   "author": "forsigner",
-  "module": "dist/drawer.esm.js",
+  "module": "dist/dialog.esm.js",
   "dependencies": {
+    "@bone-ui/hooks": "^0.0.1",
+    "@bone-ui/popper": "^0.0.1",
     "@fower/react": "^1.15.0"
+  },
+  "devDependencies": {
+    "framer-motion": "^4.1.17"
   }
 }

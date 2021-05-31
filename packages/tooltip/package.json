@@ -18,10 +18,9 @@
     "lint": "tsdx lint",
     "prepare": "tsdx build"
   },
-  "devDependencies": {
-    "@styli/react": "^0.22.0",
-    "@bone-ui/common": "^0.0.1"
-  },
   "author": "forsigner",
-  "module": "dist/tooltip.esm.js"
+  "module": "dist/tooltip.esm.js",
+  "dependencies": {
+    "@fower/react": "^1.15.0"
+  }
 }

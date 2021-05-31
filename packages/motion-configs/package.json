@@ -1,5 +1,5 @@
 {
-  "name": "@bone-ui/drawer",
+  "name": "@bone-ui/motion-configs",
   "version": "0.0.1",
   "license": "MIT",
   "main": "dist/index.js",
@@ -19,7 +19,7 @@
     "prepare": "tsdx build"
   },
   "author": "forsigner",
-  "module": "dist/drawer.esm.js",
+  "module": "dist/motion-configs.esm.js",
   "dependencies": {
     "@fower/react": "^1.15.0"
   }
