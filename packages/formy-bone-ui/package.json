@@ -21,8 +21,8 @@
   "author": "forsigner",
   "module": "dist/formy-bone-ui.esm.js",
   "dependencies": {
-    "@bone-ui/form-field": "^0.0.1",
     "@bone-ui/checkbox": "^0.0.1",
+    "@bone-ui/form-field": "^0.0.1",
     "@bone-ui/input": "^0.0.1",
     "@bone-ui/radio": "^0.0.1",
     "@bone-ui/select": "^0.0.1",
