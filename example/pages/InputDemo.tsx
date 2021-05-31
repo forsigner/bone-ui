@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Input } from '@bone-ui/input'
+import { Box } from '@fower/react'
 
 export default function InputDemo() {
   const ref = useRef<HTMLInputElement>(null)
@@ -11,7 +12,7 @@ export default function InputDemo() {
   }, [])
 
   return (
-    <div>
+    <Box p20>
       <Input
         onChange={(e) => setUsername(e.target.value)}
         value={username}
@@ -19,14 +20,14 @@ export default function InputDemo() {
         ref={ref}
         placeholder="user name"
         size="small"
-      ></Input>
+      />
       <br />
       <br />
-      <Input rounded-40 placeholder="medium input" size="medium" colorScheme="red50"></Input>
+      <Input rounded-40 placeholder="medium input" size="medium" colorScheme="red500"></Input>
 
       <br />
       <br />
-      <Input size="large" colorScheme="green50"></Input>
+      <Input size="large" colorScheme="green500"></Input>
 
       <br />
       <br />
@@ -51,6 +52,6 @@ export default function InputDemo() {
       <br />
       <br />
       <Input disabled variant="unstyled" placeholder="unstyled disabled"></Input>
-    </div>
+    </Box>
   )
 }

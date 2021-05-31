@@ -4,7 +4,7 @@ import { Dot } from '@bone-ui/dot'
 
 export default function DotDemo() {
   return (
-    <Box spaceY-20>
+    <Box spaceY-20 p10>
       <Box spaceX-20 toLeft>
         <Dot></Dot>
         <Dot type="error"></Dot>

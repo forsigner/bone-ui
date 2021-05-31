@@ -7,7 +7,7 @@ export default function TabsDemo() {
   const [color, setColor] = useState<any>('green')
 
   return (
-    <Box>
+    <Box p10>
       <h1>Simple</h1>
       <Tabs>
         <Tab label="Red">
@@ -15,7 +15,6 @@ export default function TabsDemo() {
         </Tab>
         <Tab label="Green">
           <Box green500>
-            <Box green500>Green</Box>
             <Box green500>Green</Box>
           </Box>
         </Tab>
