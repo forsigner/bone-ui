@@ -1,7 +1,9 @@
 import React, { FC } from 'react'
 import { FieldRegisterProps } from '@formy/react'
-import { Textarea as BoneTextarea } from '@bone-ui/textarea'
+import { Textarea as T } from '@bone-ui/textarea'
 import { FormField } from '@bone-ui/form-field'
+
+const BoneTextarea: any = T
 
 export const Textarea: FC<FieldRegisterProps> = (props) => {
   const { value, error, label, componentProps } = props
