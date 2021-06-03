@@ -8,9 +8,9 @@
     ]
   },
   "scripts": {
-    "dev": "lerna run --parallel --stream start",
-    "build": "lerna run --stream build",
-    "test": "lerna run --parallel --stream test",
+    "dev": "lerna run --stream start",
+    "build": "lerna run build",
+    "test": "lerna run --stream test",
     "coveralls": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
     "publish": "lerna publish --force-publish=*",
     "format": "prettier --write ."
@@ -20,13 +20,13 @@
   },
   "author": "@forsigner",
   "devDependencies": {
-    "@types/react": "^17.0.8",
+    "@types/react": "^17.0.9",
     "@types/prettier": "^2.2.3",
-    "@types/react-dom": "^17.0.5",
+    "@types/react-dom": "^17.0.6",
     "coveralls": "^3.1.0",
     "eslint-config-tie-app": "0.0.5",
     "husky": "^6.0.0",
-    "lerna": "^3.22.1",
+    "lerna": "^4.0.0",
     "prettier": "^2.3.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
