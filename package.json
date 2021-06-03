@@ -4,7 +4,12 @@
   "workspaces": {
     "packages": [
       "packages/*",
-      "example"
+      "example",
+      "website"
+    ],
+    "nohoist": [
+      "**/html-minifier-terser",
+      "**/@docusaurus/**"
     ]
   },
   "scripts": {

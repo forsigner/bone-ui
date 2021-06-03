@@ -1,0 +1,63 @@
+{
+  "name": "bone-ui-website",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "docusaurus": "docusaurus",
+    "start": "docusaurus start",
+    "build": "docusaurus build",
+    "swizzle": "docusaurus swizzle",
+    "deploy": "docusaurus deploy",
+    "clear": "docusaurus clear",
+    "serve": "docusaurus serve",
+    "write-translations": "docusaurus write-translations",
+    "write-heading-ids": "docusaurus write-heading-ids"
+  },
+  "dependencies": {
+    "@bone-ui/alert": "^0.1.0",
+    "@bone-ui/badge": "^0.1.0",
+    "@bone-ui/dot": "^0.1.0",
+    "@bone-ui/tag": "^0.1.0",
+    "@bone-ui/button": "^0.1.0",
+    "@bone-ui/close-button": "^0.1.0",
+    "@bone-ui/card": "^0.1.0",
+    "@bone-ui/spinner": "^0.1.0",
+    "@bone-ui/iconify": "^0.1.0",
+    "@bone-ui/icons": "^0.1.0",
+    "@bone-ui/input": "^0.1.0",
+    "@bone-ui/textarea": "^0.1.0",
+    "@bone-ui/checkbox": "^0.1.0",
+    "@bone-ui/switch": "^0.1.0",
+    "@bone-ui/radio": "^0.1.0",
+    "@bone-ui/form-field": "^0.1.0",
+    "@bone-ui/avatar": "^0.1.0",
+    "@bone-ui/modal": "^0.1.0",
+    "@bone-ui/drawer": "^0.1.0",
+    "@bone-ui/tooltip": "^0.1.0",
+    "@docusaurus/core": "2.0.0-beta.0",
+    "@docusaurus/preset-classic": "2.0.0-beta.0",
+    "@docusaurus/module-type-aliases ": "2.0.0-beta.0",
+    "@docusaurus/theme-live-codeblock": "2.0.0-beta.0",
+    "@types/react-helmet ": "*",
+    "@tsconfig/docusaurus": "*",
+    "@mdx-js/react": "^1.6.21",
+    "@svgr/webpack": "^5.5.0",
+    "clsx": "^1.1.1",
+    "file-loader": "^6.2.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "url-loader": "^4.1.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
