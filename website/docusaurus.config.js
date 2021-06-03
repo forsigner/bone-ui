@@ -11,13 +11,6 @@ module.exports = {
   projectName: 'bone-ui', // Usually your repo name.
   plugins: ['@docusaurus/theme-live-codeblock'],
   themeConfig: {
-    liveCodeBlock: {
-      /**
-       * The position of the live playground, above or under the editor
-       * Possible values: "top" | "bottom"
-       */
-      playgroundPosition: 'bottom',
-    },
     navbar: {
       title: 'My Site',
       logo: {

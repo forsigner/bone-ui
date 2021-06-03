@@ -1,3 +1,4 @@
+import React from 'react'
 export * from './array'
 
 export const __DEV__ = process.env.NODE_ENV !== 'production'
@@ -16,4 +17,8 @@ export const guid = () => {
     Math.random().toString(16).slice(2) +
     Date.now().toString(16).slice(4)
   )
+}
+
+export function forwardRef(component: React.ForwardRefRenderFunction<any, any>) {
+  return React.forwardRef(component) as any
 }

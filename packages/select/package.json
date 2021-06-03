@@ -24,6 +24,6 @@
     "@bone-ui/icons": "^0.1.0",
     "@bone-ui/menu": "^0.1.0",
     "@bone-ui/radio": "^0.1.0",
-    "@fower/react": "^1.15.0"
+    "@fower/react": "^1.16.0"
   }
 }

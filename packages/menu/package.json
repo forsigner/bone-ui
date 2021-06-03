@@ -20,6 +20,6 @@
   "author": "forsigner",
   "module": "dist/menu.esm.js",
   "dependencies": {
-    "@fower/react": "^1.15.0"
+    "@fower/react": "^1.16.0"
   }
 }

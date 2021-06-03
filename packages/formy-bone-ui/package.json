@@ -29,6 +29,6 @@
     "@bone-ui/textarea": "^0.1.0",
     "@formy/core": "^1.0.2",
     "@formy/react": "^1.0.2",
-    "@fower/react": "^1.15.0"
+    "@fower/react": "^1.16.0"
   }
 }

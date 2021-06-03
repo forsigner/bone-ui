@@ -23,6 +23,6 @@
   "author": "forsigner",
   "dependencies": {
     "@bone-ui/iconify": "^0.1.0",
-    "@fower/react": "^1.15.0"
+    "@fower/react": "^1.16.0"
   }
 }

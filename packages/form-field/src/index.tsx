@@ -1,10 +1,7 @@
 import React, { FC, ReactNode } from 'react'
 import { Box } from '@fower/react'
 import { FowerHTMLProps } from '@fower/types'
-
-function forwardRef(component: React.ForwardRefRenderFunction<any, any>) {
-  return React.forwardRef(component) as any
-}
+import { forwardRef } from '@bone-ui/utils'
 
 export interface FormFieldProps extends FowerHTMLProps<'div'> {
   orientation?: 'horizontal' | 'vertical'
