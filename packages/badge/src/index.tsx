@@ -1,4 +1,5 @@
-import React, { forwardRef } from 'react'
+import React, { FC } from 'react'
+import { forwardRef } from '@bone-ui/utils'
 import { Box } from '@fower/react'
 import { FowerHTMLProps } from '@fower/types'
 
@@ -10,7 +11,7 @@ export interface BadgeProps extends FowerHTMLProps<'div'> {
   max?: number
 }
 
-export const Badge = forwardRef<HTMLDivElement, BadgeProps>((props, ref) => {
+export const Badge: FC<BadgeProps> = forwardRef((props: BadgeProps, ref) => {
   const { variant = 'standard', children, content, max, ...rest } = props
   const hasChildren = !!children
   const isStandard = variant === 'standard'
@@ -30,13 +31,14 @@ export const Badge = forwardRef<HTMLDivElement, BadgeProps>((props, ref) => {
         h={isStandard ? 20 : 8}
         minW={isStandard ? 20 : 8}
         px-6={isStandard}
-        leading-20px={isStandard}
+        leading-20={isStandard}
         toCenter
         text-12
         white
         bgRed500
         rounded-9999
         zIndex-1
+        shadow={isStandard ? false : '0 0 0 1px #fff'}
         css={hasChildren ? offsetStyle : {}}
         {...rest}
       >
