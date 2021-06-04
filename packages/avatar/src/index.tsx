@@ -1,7 +1,10 @@
-import React, { forwardRef } from 'react'
+import React, { FC } from 'react'
 import { styled } from '@fower/styled'
 import { FowerHTMLProps } from '@fower/types'
+import { store } from '@fower/store'
 import { Box } from '@fower/react'
+import { forwardRef } from '@bone-ui/utils'
+import { useId } from '@bone-ui/hooks'
 
 const Image = styled('img')
 export interface AvatarProps extends FowerHTMLProps<'div'> {
@@ -16,21 +19,35 @@ const sizes: any = {
   lg: 48,
 }
 
-export const Avatar = forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
+export const Avatar: FC<AvatarProps> = forwardRef((props: AvatarProps, ref) => {
   const { src, size = 'md', name, ...rest } = props
+  const s = sizes[size] || size
 
-  const s = sizes[size]
+  const id = useId(undefined, '')
+  const isName = !!name && !src
+  let restProps: any = rest
+
+  // fake random bg color
+  if (isName) {
+    const { colors } = store.theme
+    const keys = Object.keys(colors)
+      .filter((i) => i.endsWith('600'))
+      .sort()
+    const colorName = keys[Number(id || 0) % keys.length]
+    restProps = { bg: colorName, ...rest }
+  }
 
   return (
     <Box
       ref={ref as any}
       className="bone-avatar"
       toCenter
-      circle={s}
-      overflow="hidden"
-      bgBrand500={!!name && !src}
-      text={s * 0.6}
-      {...rest}
+      square={s}
+      rounded={s}
+      white
+      overflowHidden
+      text={s * 0.5}
+      {...restProps}
     >
       {src && <Image className="bone-avatar-img" square-100p src={src} />}
       {!src && !!name && (
