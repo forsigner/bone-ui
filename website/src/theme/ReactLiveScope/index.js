@@ -7,10 +7,14 @@
 
 import React from 'react';
 import { Box } from '@fower/react';
+import { DownloadOutline } from '@bone-ui/icons/lib/DownloadOutline'
+import { ArrowRightOutline } from '@bone-ui/icons/lib/ArrowRightOutline'
+import { MailSolid } from '@bone-ui/icons/lib/MailSolid'
 import { Avatar } from '@bone-ui/avatar';
 import { Alert, AlertIcon, AlertTitle, AlertDescription } from '@bone-ui/alert'
 import { CloseButton } from '@bone-ui/close-button'
 import { Badge } from '@bone-ui/badge'
+import { Button } from '@bone-ui/button'
 
 
 const ButtonExample = (props) => (
@@ -32,11 +36,15 @@ const ReactLiveScope = {
   React,
   ...React,
   ButtonExample,
+  DownloadOutline,
+  ArrowRightOutline,
+  MailSolid,
   Box,
   Avatar,
   Alert, AlertIcon, AlertTitle, AlertDescription,
   CloseButton,
   Badge,
+  Button,
 };
 
 export default ReactLiveScope;
