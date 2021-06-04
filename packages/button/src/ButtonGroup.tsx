@@ -1,10 +1,11 @@
-import React, { forwardRef } from 'react'
+import React, { FC } from 'react'
+import { forwardRef } from '@bone-ui/utils'
 import { Box } from '@fower/react'
 import { FowerHTMLProps } from '@fower/types'
 
 export interface ButtonGroupProps extends FowerHTMLProps<'div'> {}
 
-export const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>((props, ref) => {
+export const ButtonGroup: FC<ButtonGroupProps> = forwardRef((props, ref) => {
   return (
     <Box
       {...props}
@@ -25,6 +26,6 @@ export const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>((props, 
           borderBottomLeftRadius: 0,
         },
       }}
-    ></Box>
+    />
   )
 })
