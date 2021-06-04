@@ -28,9 +28,7 @@
     "@bone-ui/modal": "^0.1.0",
     "@bone-ui/drawer": "^0.1.0",
     "@bone-ui/tooltip": "^0.1.0",
-    "next": "^10.2.3",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "next": "^10.2.3"
   },
   "devDependencies": {
     "@types/react": "^17.0.8",

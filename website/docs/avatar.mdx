@@ -2,18 +2,93 @@
 sidebar_position: 1
 ---
 
-j# Avatar
+# Avatar
 
 Avatars represent a user or a team. it supports image, name.
 
 ## import
 
+```jsx
+import { Avatar } from '@bone-ui/avatar'
+```
+
+## Default
+
 ```jsx live
-function MyPlayground(props) {
-  return (
-    <div>
-      <Avatar src="https://avatars2.githubusercontent.com/u/2668081?s=460&u=6e7f6312c57a4b4f23cc4504ff3f62d4e42f9259&v=4"></Avatar>
-    </div>
-  )
-}
+<Box toCenter spaceX2>
+  <Avatar src="https://avatars.githubusercontent.com/u/25254?v=4" />
+  <Avatar src="https://avatars.githubusercontent.com/u/810438?v=4" />
+  <Avatar src="https://avatars2.githubusercontent.com/u/2668081" />
+</Box>
+```
+
+## Preset Sizes
+
+You can specify different sizes for `Avatar`.
+
+```jsx live
+<Box toCenter spaceX2>
+  <Avatar size="sm" src="https://avatars.githubusercontent.com/u/25254?v=4" />
+  <Avatar size="md" src="https://avatars.githubusercontent.com/u/810438?v=4" />
+  <Avatar size="lg" src="https://avatars2.githubusercontent.com/u/2668081" />
+</Box>
+```
+
+## Any Sizes
+
+You can specify any sizes by setting `size` props.
+
+```jsx live
+<Box toCenter spaceX2>
+  <Avatar size={24} src="https://avatars.githubusercontent.com/u/25254?v=4" />
+  <Avatar size={48} src="https://avatars.githubusercontent.com/u/810438?v=4" />
+  <Avatar size={72} src="https://avatars2.githubusercontent.com/u/2668081" />
+  <Avatar size={108} src="https://avatars.githubusercontent.com/u/25254?v=4" />
+</Box>
+```
+
+## Corner
+
+Use Fower's rounded props to controll corner.
+
+```jsx live
+<Box toCenter spaceX2>
+  <Avatar rounded-0 size="lg" src="https://avatars.githubusercontent.com/u/25254?v=4" />
+  <Avatar rounded size="lg" src="https://avatars.githubusercontent.com/u/810438?v=4" />
+  <Avatar roundedXL size="lg" src="https://avatars2.githubusercontent.com/u/2668081" />
+</Box>
+```
+
+## Name
+
+Display name text in the avatar box.
+
+```jsx live
+<Box toCenter spaceX2>
+  <Avatar name="A" />
+  <Avatar size="sm" name="B" />
+  <Avatar name="M" size={56} />
+  <Avatar size="lg" name="OS" />
+  <Avatar name="U" />
+  <Avatar name="K" />
+</Box>
+```
+
+## Customize style
+
+Display name text in the avatar box.
+
+```jsx live
+<Box toCenter spaceX2>
+  <Avatar
+    border-3
+    borderOrange500
+    size="lg"
+    src="https://avatars.githubusercontent.com/u/25254?v=4"
+  />
+  <Avatar name="A" bgRed200 red800 />
+  <Avatar name="U" bgTeal200 teal800 />
+  <Avatar name="U" bgTeal200 teal800 />
+  <Avatar name="S" bgGray200 gray800 shadow />
+</Box>
 ```

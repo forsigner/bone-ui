@@ -6,6 +6,7 @@
  */
 
 import React from 'react';
+import { Box } from '@fower/react';
 import { Avatar } from '@bone-ui/avatar';
 
 const ButtonExample = (props) => (
@@ -27,6 +28,7 @@ const ReactLiveScope = {
   React,
   ...React,
   ButtonExample,
+  Box,
   Avatar,
 };
 

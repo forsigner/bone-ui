@@ -8,8 +8,7 @@
       "website"
     ],
     "nohoist": [
-      "**/html-minifier-terser",
-      "**/@docusaurus/**"
+      "**/html-minifier-terser"
     ]
   },
   "scripts": {

@@ -11,6 +11,15 @@ module.exports = {
   projectName: 'bone-ui', // Usually your repo name.
   plugins: ['@docusaurus/theme-live-codeblock'],
   themeConfig: {
+    prism: {
+      theme: require('./theme'),
+      darkTheme: require('prism-react-renderer/themes/dracula'),
+    },
+    liveCodeBlock: {
+      playgroundPosition: 'top',
+    },
+
+    sidebarCollapsible: false,
     navbar: {
       title: 'My Site',
       logo: {
