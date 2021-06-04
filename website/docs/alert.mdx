@@ -1,0 +1,107 @@
+---
+sidebar_position: 2
+---
+
+# Alert
+
+## import
+
+```jsx
+import { Alert, AlertIcon, AlertTitle, AlertDescription } from '@bone-ui/alert'
+```
+
+## Default
+
+```jsx live
+<Alert>A default alert</Alert>
+```
+
+## Types
+
+```jsx live
+<Box spaceY3>
+  <Alert type="info">A info alert</Alert>
+  <Alert type="warning">An warning alert</Alert>
+  <Alert type="success">An success alert</Alert>
+  <Alert type="error">An error alert</Alert>
+</Box>
+```
+
+## With Close Button
+
+```jsx live
+<Box spaceY3>
+  <Alert type="info">
+    A info alert <CloseButton size={20} absolute top-6 right-6 />
+  </Alert>
+
+  <Alert type="warning">
+    An warning alert <CloseButton absolute top-6 right-6 />
+  </Alert>
+</Box>
+```
+
+## With Icon
+
+```jsx live
+<Box spaceY3>
+  <Alert>
+    <AlertIcon /> A default alert
+  </Alert>
+
+  <Alert type="warning">
+    <AlertIcon></AlertIcon> A default alert
+  </Alert>
+
+  <Alert type="error">
+    <AlertIcon />A default alert
+  </Alert>
+</Box>
+```
+
+## Title and Description
+
+```jsx live
+<Box spaceY3>
+  <Alert type="info">
+    <AlertIcon />
+    <Box>
+      <AlertTitle>Info</AlertTitle>
+      <AlertDescription>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quia temporibus eveniet
+        a libero incidunt suscipit laborum, rerum accusantium modi quidem, ipsam illum quis sed
+        voluptatum quae eum fugit earum.
+      </AlertDescription>
+    </Box>
+  </Alert>
+
+  <Alert type="success" column toCenterX textCenter>
+    <AlertIcon square-48 />
+    <AlertTitle textLG>Success</AlertTitle>
+    <AlertDescription>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quia temporibus eveniet a
+      libero incidunt suscipit laborum, rerum accusantium modi quidem, ipsam illum quis sed
+      voluptatum quae eum fugit earum.
+    </AlertDescription>
+  </Alert>
+</Box>
+```
+
+## Outline
+
+```jsx live
+<Box spaceY3>
+  <Alert type="info" variant="outline">
+    A info alert
+  </Alert>
+  <Alert type="warning" variant="outline">
+    An warning alert
+  </Alert>
+  <Alert type="success" variant="outline">
+    An success alert
+  </Alert>
+  <Alert type="error" variant="outline">
+    An error alert
+  </Alert>
+</Box>
+```

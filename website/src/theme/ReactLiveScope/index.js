@@ -8,6 +8,9 @@
 import React from 'react';
 import { Box } from '@fower/react';
 import { Avatar } from '@bone-ui/avatar';
+import { Alert, AlertIcon, AlertTitle, AlertDescription } from '@bone-ui/alert'
+
+import { CloseButton } from '@bone-ui/close-button'
 
 const ButtonExample = (props) => (
   <button
@@ -30,6 +33,8 @@ const ReactLiveScope = {
   ButtonExample,
   Box,
   Avatar,
+  Alert, AlertIcon, AlertTitle, AlertDescription,
+  CloseButton,
 };
 
 export default ReactLiveScope;

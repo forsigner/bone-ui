@@ -1,9 +1,9 @@
 import React, { FC } from 'react'
+import { forwardRef } from '@bone-ui/utils'
 import { styled } from '@fower/styled'
 import { FowerHTMLProps } from '@fower/types'
 import { store } from '@fower/store'
 import { Box } from '@fower/react'
-import { forwardRef } from '@bone-ui/utils'
 import { useId } from '@bone-ui/hooks'
 
 const Image = styled('img')
