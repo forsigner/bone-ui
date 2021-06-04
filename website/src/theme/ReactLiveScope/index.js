@@ -9,8 +9,9 @@ import React from 'react';
 import { Box } from '@fower/react';
 import { Avatar } from '@bone-ui/avatar';
 import { Alert, AlertIcon, AlertTitle, AlertDescription } from '@bone-ui/alert'
-
 import { CloseButton } from '@bone-ui/close-button'
+import { Badge } from '@bone-ui/badge'
+
 
 const ButtonExample = (props) => (
   <button
@@ -35,6 +36,7 @@ const ReactLiveScope = {
   Avatar,
   Alert, AlertIcon, AlertTitle, AlertDescription,
   CloseButton,
+  Badge,
 };
 
 export default ReactLiveScope;
