@@ -21,6 +21,7 @@
   "module": "dist/alert.esm.js",
   "dependencies": {
     "@bone-ui/iconify": "^0.1.0",
+    "@bone-ui/utils": "^0.1.0",
     "@fower/react": "^1.16.0"
   }
 }

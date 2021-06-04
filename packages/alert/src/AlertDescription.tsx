@@ -1,9 +1,10 @@
-import React, { forwardRef } from 'react'
+import React, { FC } from 'react'
+import { forwardRef } from '@bone-ui/utils'
 import { Box } from '@fower/react'
 import { FowerHTMLProps } from '@fower/types'
 
 export interface AlertDescriptionProps extends FowerHTMLProps<'div'> {}
 
-export const AlertDescription = forwardRef<HTMLDivElement, AlertDescriptionProps>((props, ref) => {
+export const AlertDescription: FC<AlertDescriptionProps> = forwardRef((props, ref) => {
   return <Box className="bone-alert-description" leadingNormal ref={ref} {...props}></Box>
 })

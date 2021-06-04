@@ -1,33 +1,33 @@
-export const getTypeStyles = (type: string) => {
+export const getTypeStyles = (type: string, isOutline: boolean) => {
   const maps: any = {
     default: {
-      bgGray200: true,
+      bgGray100: true,
       gray700: true,
-      borderGray300: true,
+      borderGray200: isOutline,
     },
 
     info: {
-      bgBlue200: true,
+      bgBlue100: true,
       blue700: true,
-      borderBlue300: true,
+      borderBlue200: isOutline,
     },
 
     warning: {
-      bgOrange200: true,
+      bgOrange100: true,
       orange700: true,
-      borderOrange300: true,
+      borderOrange200: isOutline,
     },
 
     success: {
-      bgGreen200: true,
+      bgGreen100: true,
       green700: true,
-      borderGreen300: true,
+      borderGreen200: isOutline,
     },
 
     error: {
-      bgRed200: true,
+      bgRed100: true,
       red700: true,
-      borderRed300: true,
+      borderRed200: isOutline,
     },
   }
   return maps[type]

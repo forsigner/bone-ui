@@ -1,4 +1,5 @@
-import React, { forwardRef } from 'react'
+import React, { FC } from 'react'
+import { forwardRef } from '@bone-ui/utils'
 import { Box } from '@fower/react'
 import { FowerHTMLProps } from '@fower/types'
 import { AlertType, getTypeStyles } from './typeStyles'
@@ -9,21 +10,21 @@ export interface AlertProps extends Omit<FowerHTMLProps<'div'>, 'type'> {
   type?: AlertType
 }
 
-export const Alert = forwardRef<HTMLDivElement, AlertProps>((props, ref) => {
-  const { type = 'default', ...rest } = props
+export const Alert: FC<AlertProps> = forwardRef((props: AlertProps, ref) => {
+  const { type = 'default', variant = 'filled', ...rest } = props
 
+  const isOutline = variant === 'outline'
   return (
     <AlertProvider value={{ type } as any}>
       <Box
-        as="div"
         className="bone-alert"
         ref={ref}
         p4
         rounded-4
         toCenter
         relative
-        border
-        {...getTypeStyles(type)}
+        border={isOutline}
+        {...getTypeStyles(type, isOutline)}
         {...rest}
       ></Box>
     </AlertProvider>
