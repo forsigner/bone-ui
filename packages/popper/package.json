@@ -1,6 +1,6 @@
 {
   "name": "@bone-ui/popper",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -21,8 +21,8 @@
   "author": "forsigner",
   "module": "dist/popper.esm.js",
   "dependencies": {
-    "@bone-ui/hooks": "^0.3.0",
-    "@bone-ui/utils": "^0.3.0",
+    "@bone-ui/hooks": "^0.4.0",
+    "@bone-ui/utils": "^0.4.0",
     "@fower/react": "^1.16.0",
     "@popperjs/core": "^2.9.2",
     "react-fast-compare": "^3.2.0"

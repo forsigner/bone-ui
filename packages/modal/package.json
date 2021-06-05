@@ -1,6 +1,6 @@
 {
   "name": "@bone-ui/modal",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -20,8 +20,8 @@
   "author": "forsigner",
   "module": "dist/modal.esm.js",
   "dependencies": {
-    "@bone-ui/motion-configs": "^0.3.0",
-    "@bone-ui/portal": "^0.3.0",
+    "@bone-ui/motion-configs": "^0.4.0",
+    "@bone-ui/portal": "^0.4.0",
     "@fower/react": "^1.16.0"
   },
   "devDependencies": {
