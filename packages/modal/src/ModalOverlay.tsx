@@ -17,7 +17,7 @@ export const ModalOverlay = forwardRef<HTMLDivElement, Partial<ModalOverlayProps
       onClick={() => {
         close()
       }}
-      className="bone-ui-modal-overlay"
+      className="bone-modal-overlay"
       fixed
       w-100p
       h-100p

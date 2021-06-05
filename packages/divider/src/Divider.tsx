@@ -15,7 +15,7 @@ export const Divider: FC<DividerProps> = forwardRef((props: DividerProps, ref) =
     <DividerProvider value={{ orientation }}>
       <Box
         ref={ref}
-        className="bone-ui-divider"
+        className="bone-divider"
         relative
         bgGray200
         w-1={isVertical}

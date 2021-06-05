@@ -15,7 +15,7 @@ export default function DividerDemo() {
         <Divider orientation="vertical"></Divider>
       </Box>
 
-      <Box as="h2">With Text</Box>
+      <Box as="h2">With Title</Box>
       <Box>
         <Divider>
           <DividerTitle>INTRO</DividerTitle>

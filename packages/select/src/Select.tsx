@@ -32,7 +32,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>((props, ref) => {
 
   return (
     <RadioGroupProvider value={initialValue}>
-      <Dropdown ref={ref} placement="bottom" className="bone-ui-select" {...(rest as any)}>
+      <Dropdown ref={ref} placement="bottom" className="bone-select" {...(rest as any)}>
         <DropdownTrigger h-100p>
           {({ isOpen }: any) => {
             if (renderTrigger) return renderTrigger({ isOpen, item: option })

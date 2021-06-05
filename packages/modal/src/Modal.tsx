@@ -50,7 +50,7 @@ export const Modal = forwardRef<HTMLDivElement, Partial<ModalProps>>((props, ref
       <AnimatePresence>
         {state.isOpen && (
           <Portal>
-            <Box ref={ref} className="bone-ui-modal" {...rest}>
+            <Box ref={ref} className="bone-modal" {...rest}>
               {children}
             </Box>
           </Portal>

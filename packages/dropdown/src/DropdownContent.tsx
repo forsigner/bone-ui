@@ -92,7 +92,7 @@ export const DropdownContent = forwardRef<HTMLDivElement, DropdownContentProps>(
             e.stopPropagation()
             if (isOpen) close()
           }}
-          className="bone-ui-dropdown-mask"
+          className="bone-dropdown-mask"
           display={isOpen ? 'block' : 'none'}
           bg="transparent"
           fixed

@@ -28,7 +28,7 @@ export const DropdownTrigger = forwardRef<HTMLDivElement, DropdownTriggerProps>(
   return (
     <Box
       ref={refCallback}
-      className="bone-ui-dropdown-trigger"
+      className="bone-dropdown-trigger"
       inlineBlock
       onClick={() => {
         // e.stopPropagation() // TODO: 需要？

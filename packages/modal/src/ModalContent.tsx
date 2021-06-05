@@ -32,7 +32,7 @@ export const ModalContent = forwardRef<HTMLDivElement, Partial<ModalContentProps
           onClick={(e) => {
             e.stopPropagation()
           }}
-          className="bone-ui-modal-content"
+          className="bone-modal-content"
           bgWhite
           rounded-4
           shadow

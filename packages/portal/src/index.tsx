@@ -18,7 +18,7 @@ export const Portal: FC<PortalProps> = (props) => {
 
   return mounted
     ? createPortal(
-        <Box className="bone-ui-portal" {...rest}>
+        <Box className="bone-portal" {...rest}>
           {children}
         </Box>,
         document.body,
