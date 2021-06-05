@@ -15,6 +15,7 @@ import { Alert, AlertIcon, AlertTitle, AlertDescription } from '@bone-ui/alert'
 import { CloseButton } from '@bone-ui/close-button'
 import { Badge } from '@bone-ui/badge'
 import { Button } from '@bone-ui/button'
+import { Card } from '@bone-ui/card'
 
 
 const ButtonExample = (props) => (
@@ -45,6 +46,7 @@ const ReactLiveScope = {
   CloseButton,
   Badge,
   Button,
+  Card,
 };
 
 export default ReactLiveScope;

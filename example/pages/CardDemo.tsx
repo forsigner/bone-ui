@@ -4,7 +4,7 @@ import { Card } from '@bone-ui/card'
 
 export default function CardDemo() {
   return (
-    <View w-400>
+    <View w-400 p10>
       <Card variant="outline">A basic card.</Card>
       <br />
       <br />

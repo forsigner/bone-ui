@@ -1,4 +1,5 @@
-import React, { forwardRef } from 'react'
+import React, { FC } from 'react'
+import { forwardRef } from '@bone-ui/utils'
 import { Box } from '@fower/react'
 import { FowerHTMLProps } from '@fower/types'
 
@@ -21,7 +22,7 @@ const variants = {
   },
 }
 
-export const Card = forwardRef<HTMLDivElement, CardProps>((props, ref) => {
+export const Card: FC<CardProps> = forwardRef((props: CardProps, ref) => {
   const { hoverable = false, variant = 'outline', ...rest } = props
 
   return (
@@ -30,10 +31,10 @@ export const Card = forwardRef<HTMLDivElement, CardProps>((props, ref) => {
       ref={ref}
       p4
       bgWhite
-      rounded-6
+      rounded
       minW-256
       shadowLG--hover={hoverable}
-      overflow="hidden"
+      overflowHidden
       css={{ transition: 'box-shadow all 0.3s' }}
       {...variants[variant]}
       {...rest}
