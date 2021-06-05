@@ -3,28 +3,9 @@ import { forwardRef } from '@bone-ui/utils'
 import { Box } from '@fower/react'
 import { FowerHTMLProps } from '@fower/types'
 
-export interface CardProps extends FowerHTMLProps<'div'> {
-  variant?: 'outline' | 'unstyled' | 'shadow'
-
-  hoverable?: boolean
-}
-
-const variants = {
-  outline: {
-    border: true,
-    borderGray200: true,
-  },
-  shadow: {
-    shadowMD: true,
-  },
-  unstyled: {
-    border: 'none',
-  },
-}
+export interface CardProps extends FowerHTMLProps<'div'> {}
 
 export const Card: FC<CardProps> = forwardRef((props: CardProps, ref) => {
-  const { hoverable = false, variant = 'outline', ...rest } = props
-
   return (
     <Box
       className="bone-card"
@@ -33,11 +14,11 @@ export const Card: FC<CardProps> = forwardRef((props: CardProps, ref) => {
       bgWhite
       rounded
       minW-256
-      shadowLG--hover={hoverable}
       overflowHidden
-      css={{ transition: 'box-shadow all 0.3s' }}
-      {...variants[variant]}
-      {...rest}
-    ></Box>
+      border
+      borderGray200
+      css={{ transition: 'box-shadow 0.3s ease' }}
+      {...props}
+    />
   )
 })
