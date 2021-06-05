@@ -1,6 +1,6 @@
 {
   "name": "@bone-ui/dialog",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -20,8 +20,8 @@
   "author": "forsigner",
   "module": "dist/dialog.esm.js",
   "dependencies": {
-    "@bone-ui/hooks": "^0.2.0",
-    "@bone-ui/popper": "^0.2.0",
+    "@bone-ui/hooks": "^0.3.0",
+    "@bone-ui/popper": "^0.3.0",
     "@fower/react": "^1.16.0"
   },
   "devDependencies": {
