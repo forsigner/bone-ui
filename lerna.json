@@ -1,12 +1,9 @@
 {
   "npmClient": "yarn",
+  "packages": ["packages/*", "example", "website"],
   "command": {
     "publish": {
-      "ignoreChanges": [
-        "ignored-file",
-        "*.md",
-        "*.tsconfg.json"
-      ],
+      "ignoreChanges": ["ignored-file", "*.md", "*.tsconfg.json"],
       "message": "chore(release): publish",
       "registry": "http://registry.npmjs.org"
     }
