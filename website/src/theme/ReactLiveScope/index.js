@@ -16,6 +16,7 @@ import { CloseButton } from '@bone-ui/close-button'
 import { Badge } from '@bone-ui/badge'
 import { Button } from '@bone-ui/button'
 import { Card } from '@bone-ui/card'
+import { Divider, DividerTitle } from '@bone-ui/divider'
 
 
 const ButtonExample = (props) => (
@@ -47,6 +48,8 @@ const ReactLiveScope = {
   Badge,
   Button,
   Card,
+  Divider,
+  DividerTitle,
 };
 
 export default ReactLiveScope;

@@ -1,0 +1,86 @@
+---
+sidebar_position: 3
+---
+
+# Divider
+
+## import
+
+```jsx
+import { Divider, DividerTitle } from '@bone-ui/divider'
+```
+
+## Basic
+
+```jsx live
+<Divider></Divider>
+```
+
+## Vertical
+
+```jsx live
+<Box h-60 toCenter>
+  <Divider orientation="vertical"></Divider>
+</Box>
+```
+
+## With title
+
+```jsx live
+<Divider>
+  <DividerTitle>INTRO</DividerTitle>
+</Divider>
+```
+
+## With title vertical
+
+```jsx live
+<Box h-100 toCenter>
+  <Divider orientation="vertical">
+    <DividerTitle>INTRO</DividerTitle>
+  </Divider>
+</Box>
+```
+
+## Horizontal Example
+
+```jsx live
+<Box>
+  <Box>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quia temporibus eveniet a
+    libero incidunt suscipit laborum, rerum accusantium modi quidem, ipsam illum quis sed voluptatum
+    quae eum fugit earum.
+  </Box>
+  <Divider my4>
+    <DividerTitle>INTRO</DividerTitle>
+  </Divider>
+  <Box>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quia temporibus eveniet a
+    libero incidunt suscipit laborum, rerum accusantium modi quidem, ipsam illum quis sed voluptatum
+    quae eum fugit earum.
+  </Box>
+</Box>
+```
+
+## Vertical Example
+
+```jsx live
+<Box toCenter spaceX2 h-20>
+  <Box>Item1</Box>
+  <Divider orientation="vertical"></Divider>
+  <Box>Item2</Box>
+  <Divider orientation="vertical"></Divider>
+  <Box>Item3</Box>
+</Box>
+```
+
+## Customize style
+
+```jsx live
+<Box spaceY4>
+  <Divider bgRed500></Divider>
+  <Divider h-2></Divider>
+  <Divider h-4></Divider>
+  <Divider h-8></Divider>
+</Box>
+```
