@@ -1,6 +1,6 @@
 {
   "name": "@bone-ui/alert",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -20,8 +20,8 @@
   "author": "forsigner",
   "module": "dist/alert.esm.js",
   "dependencies": {
-    "@bone-ui/iconify": "^0.1.0",
-    "@bone-ui/utils": "^0.1.0",
+    "@bone-ui/iconify": "^0.2.0",
+    "@bone-ui/utils": "^0.2.0",
     "@fower/react": "^1.16.0"
   }
 }
