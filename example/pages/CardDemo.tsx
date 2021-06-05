@@ -1,47 +1,67 @@
 import React from 'react'
-import { View, Image } from '@fower/react'
+import { Box, Image } from '@fower/react'
 import { Card } from '@bone-ui/card'
+import { Divider } from '@bone-ui/divider'
 
 export default function CardDemo() {
   return (
-    <View w-400 p10>
-      <Card variant="outline">A basic card.</Card>
-      <br />
-      <br />
-      <Card variant="shadow">
-        <h4>The Bone UI</h4>
-        <p>A shadow card.</p>
+    <Box w-400 p10 spaceY4>
+      <Card>A basic card.</Card>
+
+      <Box bgGray100 p4>
+        <Card borderNone>An unstyled card.</Card>
+      </Box>
+
+      <Card shadow borderNone>
+        A card with shadow.
       </Card>
-      <br />
-      <br />
-      <Card p0 variant="outline" hoverable>
+
+      <Card shadowMD--hover>A hoverable card.</Card>
+
+      <Card spaceY4>
+        <Box textLG fontBold>
+          Bone UI
+        </Box>
+        <Box>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quia temporibus quis
+          sed voluptatum quae eum fugit earum.
+        </Box>
+      </Card>
+
+      <Card spaceY4>
+        <Box textLG fontBold>
+          Bone UI
+        </Box>
+        <Divider></Divider>
+        <Box>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quia temporibus quis
+          sed voluptatum quae eum fugit earum.
+        </Box>
+      </Card>
+
+      <Card p0>
+        <Box p4>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quia temporibus quis
+          sed voluptatum quae eum fugit earum.
+        </Box>
+        <Divider></Divider>
+        <Box textLG fontBold p4>
+          Bone UI
+        </Box>
+      </Card>
+
+      <Card p0>
         <Image w-100p src="https://avatars2.githubusercontent.com/u/2668081"></Image>
-        <View p4>
-          <View text-20 fontBold>
-            The Bone UI
-          </View>
-          <p>A shadow card.</p>
-        </View>
+        <Box p4>
+          <Box textLG fontBold mb2>
+            Bone UI
+          </Box>
+          <Box>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quia temporibus
+            quis sed voluptatum quae eum fugit earum.
+          </Box>
+        </Box>
       </Card>
-      <br />
-      <br />
-      <Card variant="shadow" hoverable>
-        A basic card. hoverable
-      </Card>
-      <br />
-      <br />
-
-      <Card variant="unstyled" hoverable>
-        A basic card.
-      </Card>
-      <br />
-      <br />
-
-      <Card bgTeal200 variant="unstyled" hoverable>
-        unstyled
-      </Card>
-      <br />
-      <br />
-    </View>
+    </Box>
   )
 }

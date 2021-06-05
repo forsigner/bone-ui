@@ -16,65 +16,84 @@ import { Card } from '@bone-ui/card'
 <Card>A basic card.</Card>
 ```
 
+## Borderless
+
+```jsx live
+<Box bgGray100 p4>
+  <Card borderNone>A borderless card.</Card>
+</Box>
+```
+
 ## Shadow
 
 ```jsx live
-<Card variant="shadow">
-  <h4>The Bone UI</h4>
-  <p>A shadow card.</p>
+<Card shadow borderNone>
+  A card with shadow.
 </Card>
 ```
 
-## Content
+## Hoverable
 
 ```jsx live
-<Box toLeft spaceX6>
-  <Badge content={99}>
-    <Avatar rounded-10 name="Bill"></Avatar>
-  </Badge>
-  <Badge content={100} max={99}>
-    <Avatar name="Job"></Avatar>
-  </Badge>
-
-  <Badge content="hot">
-    <Avatar name="Mar" bgRed200 red800></Avatar>
-  </Badge>
-</Box>
+<Card shadowMD--hover>A hoverable card.</Card>
 ```
 
-## Dot
+## With title
 
 ```jsx live
-<Box toLeft spaceX4>
-  <Badge variant="dot">
-    <Avatar rounded-4 name="Job"></Avatar>
-  </Badge>
-
-  <Badge variant="dot" top-5 right-5>
-    <Avatar rounded-16 name="Job"></Avatar>
-  </Badge>
-
-  <Badge variant="dot" bottom0 top={false}>
-    <Avatar rounded-16 name="Job"></Avatar>
-  </Badge>
-</Box>
+<Card spaceY4 w-400>
+  <Box textLG fontBold>
+    Bone UI
+  </Box>
+  <Box>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quia temporibus quis sed
+    voluptatum quae eum fugit earum.
+  </Box>
+</Card>
 ```
 
-## Customize style
+## With Divider
 
 ```jsx live
-<Box toCenterY spaceX4>
-  <Badge content={99} bgBrand500></Badge>
+<Card spaceY4 w-400>
+  <Box textLG fontBold>
+    Bone UI
+  </Box>
+  <Divider></Divider>
+  <Box>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quia temporibus quis sed
+    voluptatum quae eum fugit earum.
+  </Box>
+</Card>
+```
 
-  <Badge content={100} bgOrange200 orange800></Badge>
-  <Badge content={100} bgCyan200 border-2 borderCyan300 cyan800></Badge>
+## With footer
 
-  <Badge variant="dot" bgYellow600>
-    <Avatar rounded-4 name="Job"></Avatar>
-  </Badge>
+```jsx live
+<Card p0 w-400>
+  <Box p4>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quia temporibus quis sed
+    voluptatum quae eum fugit earum.
+  </Box>
+  <Divider></Divider>
+  <Box textLG fontBold p4>
+    Bone UI
+  </Box>
+</Card>
+```
 
-  <Badge variant="dot" bgBlue400>
-    <Avatar rounded-4 name="Job"></Avatar>
-  </Badge>
-</Box>
+## With Image
+
+```jsx live
+<Card p0 w-200>
+  <Box as="img" w-100p src="https://avatars2.githubusercontent.com/u/2668081" />
+  <Box p4>
+    <Box textLG fontBold mb2>
+      Bone UI
+    </Box>
+    <Box>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quia temporibus quis sed
+    </Box>
+  </Box>
+</Card>
 ```
