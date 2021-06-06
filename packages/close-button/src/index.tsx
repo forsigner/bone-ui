@@ -1,34 +1,52 @@
-import React, { forwardRef } from 'react'
-import { styled } from '@fower/styled'
+import React, { FC } from 'react'
+import { forwardRef } from '@bone-ui/utils'
+import { Box } from '@fower/react'
 import { FowerHTMLProps } from '@fower/types'
 import { XOutline } from '@bone-ui/icons/lib/XOutline'
 
-const Button = styled('button')
+type Size = 'sm' | 'md' | 'lg' | number
 
 export interface CloseButtonProps extends FowerHTMLProps<'button'> {
-  size?: number
+  size?: Size
 }
 
-export const CloseButton = forwardRef<HTMLButtonElement, CloseButtonProps>((props, ref) => {
-  const { size = 32, ...rest } = props
+export const CloseButton: FC<CloseButtonProps> = forwardRef((props: CloseButtonProps, ref) => {
+  const { size = 32, children, ...rest } = props
+  const sizeStyle = getSizeStyle(size)
   return (
-    <Button
+    <Box
+      as="button"
       ref={ref}
       aria-label="Close"
       className="bone-close-button"
       toCenter
-      rounded={size * 0.2}
       cursorPointer
       p0
       bgTransparent
+      gray600
       bgBlack--T94--hover
-      square={size}
       outlineNone
       borderNone
       css={{ transition: 'background-color 0.3s' }}
-      {...rest}
+      {...sizeStyle}
+      {...(rest as any)}
     >
-      <XOutline opacity-80 square={size * 0.7}></XOutline>
-    </Button>
+      <XOutline opacity-80 square={sizeStyle.square * 0.7}></XOutline>
+    </Box>
   )
 })
+
+function getSizeStyle(size: Size) {
+  let square: number
+  const squareMaps: Record<Size, number> = { sm: 24, md: 32, lg: 40 }
+  if (typeof size === 'string') {
+    square = squareMaps[size] || squareMaps['md']
+  } else {
+    square = size
+  }
+
+  return {
+    square,
+    rounded: square * 0.2,
+  }
+}

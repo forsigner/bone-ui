@@ -21,6 +21,6 @@
   "module": "dist/form-field.esm.js",
   "dependencies": {
     "@bone-ui/utils": "^0.4.0",
-    "@fower/react": "^1.16.0"
+    "@fower/react": "^1.17.0"
   }
 }

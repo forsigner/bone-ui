@@ -20,6 +20,6 @@
   "author": "forsigner",
   "module": "dist/spinner.esm.js",
   "dependencies": {
-    "@fower/react": "^1.16.0"
+    "@fower/react": "^1.17.0"
   }
 }

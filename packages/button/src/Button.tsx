@@ -1,13 +1,14 @@
 import React, { cloneElement, forwardRef } from 'react'
-import { FowerColor } from '@fower/types'
-import { BoxComponent } from '@fower/react'
-import { styled } from '@fower/styled'
+import { FowerColor, As } from '@fower/types'
+import { Box, BoxComponent } from '@fower/react'
 import { upFirst } from '@fower/utils'
 import { Spinner } from '@bone-ui/spinner'
 
 type Size = 'xs' | 'sm' | 'md' | 'lg' | number
 
 export interface ButtonProps {
+  as?: As
+
   colorScheme?: FowerColor
 
   size?: Size
@@ -23,6 +24,8 @@ export interface ButtonProps {
   disabled?: boolean
 
   loading?: boolean
+
+  children?: string | React.ReactNode
 }
 
 export const Button: BoxComponent<'button', ButtonProps> = forwardRef((props: ButtonProps, ref) => {
@@ -38,7 +41,7 @@ export const Button: BoxComponent<'button', ButtonProps> = forwardRef((props: Bu
     loading,
     children,
     ...rest
-  } = props as any
+  } = props
 
   const sizeStyle = getSizeStyle(size)
 
@@ -46,12 +49,11 @@ export const Button: BoxComponent<'button', ButtonProps> = forwardRef((props: Bu
 
   const isFilled = variant === 'filled'
   const notAllowed = !!(disabled || loading)
-  const Comp = styled(as)
-
   const iconButtonProps = icon ? { w: sizeStyle.h } : {}
 
   return (
-    <Comp
+    <Box
+      as="as"
       ref={ref}
       className="bone-button"
       inlineFlex
@@ -83,7 +85,7 @@ export const Button: BoxComponent<'button', ButtonProps> = forwardRef((props: Bu
       {leftIcon && cloneElement(leftIcon, { mr: 8, square: sizeStyle.text })}
       {children}
       {rightIcon && cloneElement(rightIcon, { ml: 8, square: sizeStyle.text })}
-    </Comp>
+    </Box>
   )
 }) as any
 
