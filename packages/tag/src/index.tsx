@@ -1,26 +1,31 @@
-import React, { forwardRef, cloneElement } from 'react'
-import { FowerColor } from '@fower/types'
-import { Box } from '@fower/react'
-import { FowerHTMLProps } from '@fower/types'
+import React, { cloneElement } from 'react'
+import { forwardRef } from '@bone-ui/utils'
+import { FowerColor, As } from '@fower/types'
+import { Box, BoxComponent } from '@fower/react'
 import { store } from '@fower/store'
 
-export interface TagProps extends FowerHTMLProps<'div'> {
+export interface TagProps {
+  as?: As
+
   colorScheme?: FowerColor
 
-  variant?: 'outline' | 'filled'
+  variant?: 'outline' | 'filled' | 'light'
 
   size?: Size
 
   icon?: React.ReactElement
+
+  children?: string | React.ReactNode
 }
 
-type Size = 'xs' | 'sm' | 'md' | 'lg' | number
+type Size = 'sm' | 'md' | 'lg' | number
 
-export const Tag = forwardRef<HTMLDivElement, TagProps>((props, ref) => {
+export const Tag: BoxComponent<'div', TagProps> = forwardRef((props: TagProps, ref) => {
   const {
+    as = 'div',
     variant = 'filled',
     colorScheme = 'brand500',
-    size = 'xs',
+    size = 'sm',
     icon,
     children,
     ...rest
@@ -34,20 +39,22 @@ export const Tag = forwardRef<HTMLDivElement, TagProps>((props, ref) => {
 
   return (
     <Box
+      as={as}
       className="bone-tag"
       ref={ref}
-      display="inline-flex"
+      inlineFlex
       toCenter
-      text-12
-      h-24
-      px-6
-      rounded-9999
+      roundedFull
+      color={colorScheme}
+      spaceX1={!!icon}
+      css={{
+        whiteSpace: 'nowrap',
+      }}
       {...getVariantStyle(color)[variant]}
       {...sizeStyle}
       {...rest}
     >
       {icon && cloneElement(icon, { square: sizeStyle.text })}
-      {icon && <Box w-6></Box>}
       {isStringChildren && <Box as="span">{children}</Box>}
       {!isStringChildren && children}
     </Box>
@@ -55,25 +62,19 @@ export const Tag = forwardRef<HTMLDivElement, TagProps>((props, ref) => {
 })
 
 function getVariantStyle(color: string): any {
-  return {
-    filled: {
-      color: 'white',
-      bg: color,
-    },
-    outline: {
-      color,
-      border: true,
-      borderColor: color,
-    },
-  }
+  const light: any = { 'bg--T90': color, borderColor: color }
+  const filled: any = { white: true, 'white--dark': true, bg: color }
+  const outline: any = { border: true, borderColor: color, bgTransparent: true }
+
+  const styles = { light, filled, outline }
+  return styles
 }
 
 function getSizeStyle(size: Size) {
   const sizes = {
-    xs: { h: 24, text: 12, px: 8 },
-    sm: { h: 28, text: 14, px: 12 },
-    md: { h: 32, text: 16, px: 14 },
-    lg: { h: 36, text: 18, px: 20 },
+    sm: { h: 24, text: 12, px: 8 },
+    md: { h: 28, text: 14, px: 12 },
+    lg: { h: 32, text: 16, px: 14 },
   }
   if (typeof size === 'string') return sizes[size]
   return { h: size, px: size * 0.6, text: size * 0.5 }
