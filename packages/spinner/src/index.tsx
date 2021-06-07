@@ -1,4 +1,5 @@
-import React, { forwardRef } from 'react'
+import React, { FC } from 'react'
+import { forwardRef } from '@bone-ui/utils'
 import { Box } from '@fower/react'
 import { keyframes } from '@fower/core'
 import { FowerHTMLProps } from '@fower/types'
@@ -10,21 +11,15 @@ export interface SpinnerProps extends FowerHTMLProps<'div'> {
    */
   speed?: string
 
-  // children?: React.ReactChild
   children?: React.ReactElement
 }
 
 const spin = keyframes({
-  from: {
-    transform: 'rotate(0deg)',
-  },
-
-  to: {
-    transform: 'rotate(360deg)',
-  },
+  from: { transform: 'rotate(0deg)' },
+  to: { transform: 'rotate(360deg)' },
 })
 
-export const Spinner = forwardRef<HTMLDivElement, SpinnerProps>((props, ref) => {
+export const Spinner: FC<SpinnerProps> = forwardRef((props: SpinnerProps, ref) => {
   const { speed = '1s', children, ...rest } = props
 
   if (Array.isArray(children)) {
@@ -35,7 +30,7 @@ export const Spinner = forwardRef<HTMLDivElement, SpinnerProps>((props, ref) => 
     ref,
     square: 24,
     className: 'bone-spinner',
-    color: 'brand500',
+    brand500: true,
     css: { animation: `${spin} ${speed} linear infinite` },
     ...rest,
   }
