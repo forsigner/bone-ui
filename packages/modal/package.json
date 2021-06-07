@@ -22,8 +22,8 @@
   "dependencies": {
     "@bone-ui/motion-configs": "^0.4.0",
     "@bone-ui/portal": "^0.4.0",
-    "@fower/react": "^1.18.0"
-  },
+    "@bone-ui/utils": "^0.4.0"
+},
   "devDependencies": {
     "framer-motion": "^4.1.17"
   }

@@ -22,7 +22,7 @@
   "dependencies": {
     "@bone-ui/hooks": "^0.4.0",
     "@bone-ui/popper": "^0.4.0",
-    "@fower/react": "^1.18.0"
+    "@bone-ui/utils": "^0.4.0"
   },
   "devDependencies": {
     "framer-motion": "^4.1.17"

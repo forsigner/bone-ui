@@ -20,7 +20,6 @@
   "author": "forsigner",
   "module": "dist/button.esm.js",
   "dependencies": {
-    "@bone-ui/spinner": "^0.4.0",
-    "@fower/react": "^1.18.0"
+    "@bone-ui/spinner": "^0.4.0"
   }
 }
