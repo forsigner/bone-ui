@@ -1,4 +1,5 @@
-import React, { forwardRef } from 'react'
+import React, { FC } from 'react'
+import { forwardRef } from '@bone-ui/utils'
 import { Box } from '@fower/react'
 import { FowerHTMLProps } from '@fower/types'
 
@@ -16,7 +17,7 @@ export interface DotProps extends FowerHTMLProps<'div'> {
   type?: DotType
 }
 
-export const Dot = forwardRef<HTMLDivElement, DotProps>((props, ref) => {
+export const Dot: FC<DotProps> = forwardRef((props: DotProps, ref) => {
   const { type = 'default', children, ...rest } = props
 
   return (

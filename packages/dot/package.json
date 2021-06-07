@@ -20,6 +20,7 @@
   "author": "forsigner",
   "module": "dist/dot.esm.js",
   "dependencies": {
-    "@fower/react": "^1.17.0"
+    "@bone-ui/utils": "^0.4.0",
+    "@fower/react": "^1.18.0"
   }
 }

@@ -20,6 +20,6 @@
   "author": "forsigner",
   "module": "dist/hooks.esm.js",
   "dependencies": {
-    "@fower/react": "^1.17.0"
+    "@fower/react": "^1.18.0"
   }
 }

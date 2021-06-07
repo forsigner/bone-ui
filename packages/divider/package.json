@@ -21,6 +21,6 @@
   "module": "dist/divider.esm.js",
   "dependencies": {
     "@bone-ui/utils": "^0.4.0",
-    "@fower/react": "^1.17.0"
+    "@fower/react": "^1.18.0"
   }
 }
