@@ -1,0 +1,58 @@
+---
+sidebar_position: 3
+---
+
+# Spinner
+
+## import
+
+```jsx
+import { Spinner } from '@bone-ui/spinner'
+```
+
+## Basic
+
+```jsx live
+<Spinner />
+```
+
+## Colors
+
+```jsx live
+<Box toCenterY spaceX4>
+  <Spinner gray400 />
+  <Spinner red400 />
+  <Spinner green500 />
+  <Spinner blue600 />
+</Box>
+```
+
+## Sizes
+
+```jsx live
+<Box toCenterY spaceX4>
+  <Spinner gray400 square-16 />
+  <Spinner red400 square-24 />
+  <Spinner green500 square-32 />
+  <Spinner blue600 square10 />
+</Box>
+```
+
+## Customize Child
+
+```jsx live
+<Box toCenterY spaceX4>
+  <Spinner orange500>
+    <SunOutline></SunOutline>
+  </Spinner>
+  <Spinner teal600>
+    <CashOutline></CashOutline>
+  </Spinner>
+</Box>
+```
+
+## Speed
+
+```jsx live
+<Spinner speed="0.2s"></Spinner>
+```

@@ -10,6 +10,8 @@ import { Box } from '@fower/react';
 import { DownloadOutline } from '@bone-ui/icons/lib/DownloadOutline'
 import { ArrowRightOutline } from '@bone-ui/icons/lib/ArrowRightOutline'
 import { MailSolid } from '@bone-ui/icons/lib/MailSolid'
+import SunOutline from '@bone-ui/icons/lib/SunOutline'
+import CashOutline from '@bone-ui/icons/lib/CashOutline'
 import { Avatar } from '@bone-ui/avatar';
 import { Alert, AlertIcon, AlertTitle, AlertDescription } from '@bone-ui/alert'
 import { CloseButton } from '@bone-ui/close-button'
@@ -18,6 +20,7 @@ import { Button } from '@bone-ui/button'
 import { Card } from '@bone-ui/card'
 import { Divider, DividerTitle } from '@bone-ui/divider'
 import { Tag } from '@bone-ui/tag'
+import { Spinner } from '@bone-ui/spinner'
 
 
 const ButtonExample = (props) => (
@@ -42,6 +45,8 @@ const ReactLiveScope = {
   DownloadOutline,
   ArrowRightOutline,
   MailSolid,
+  SunOutline,
+  CashOutline,
   Box,
   Avatar,
   Alert, AlertIcon, AlertTitle, AlertDescription,
@@ -52,6 +57,7 @@ const ReactLiveScope = {
   Divider,
   DividerTitle,
   Tag,
+  Spinner,
 };
 
 export default ReactLiveScope;
