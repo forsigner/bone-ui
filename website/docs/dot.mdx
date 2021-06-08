@@ -1,0 +1,74 @@
+---
+sidebar_position: 3
+---
+
+# Dot
+
+## import
+
+```jsx
+import { Dot } from '@bone-ui/dot'
+```
+
+## Basic
+
+```jsx live
+<Dot></Dot>
+```
+
+## Types
+
+```jsx live
+<Box spaceX5 toLeft>
+  <Dot type="error">Error</Dot>
+  <Dot type="info">Info</Dot>
+  <Dot type="success">Success</Dot>
+  <Dot type="warning">Warning</Dot>
+</Box>
+```
+
+## With Text
+
+```jsx live
+<Box spaceY3 column>
+  <Dot bgTeal400>Dot 1</Dot>
+  <Dot bgPink400>Dot 2</Dot>
+  <Dot bgGreen500>Dot 2</Dot>
+</Box>
+```
+
+## Customize size
+
+```jsx live
+<Box spaceY-10 column>
+  <Dot bgRed400 square3>
+    Size 1
+  </Dot>
+  <Dot bgPurple400 square4>
+    Size 2
+  </Dot>
+  <Dot bgTeal400 square5>
+    Size 3
+  </Dot>
+</Box>
+```
+
+## Rounded
+
+```jsx live
+<Box spaceX5 toLeft>
+  <Dot type="error" roundedNone></Dot>
+  <Dot type="info" rounded-2></Dot>
+  <Dot type="success" square4 rounded-4></Dot>
+  <Dot type="warning"></Dot>
+</Box>
+```
+
+## Bordered
+
+```jsx live
+<Box spaceX5 toLeft>
+  <Dot bgYellow300 square-16 border borderYellow800></Dot>
+  <Dot bgRed300 square-16 border-2 borderRed800></Dot>
+</Box>
+```

@@ -24,6 +24,9 @@ export default function DotDemo() {
       <Box spaceY-10 column>
         <Dot bgTeal400>Custom Background Color</Dot>
         <Dot bgPink400>Custom Background Color</Dot>
+      </Box>
+
+      <Box spaceY-10 column>
         <Dot bgPurple400 square-10>
           Custom Size
         </Dot>

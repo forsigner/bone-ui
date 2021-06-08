@@ -21,6 +21,7 @@ import { Card } from '@bone-ui/card'
 import { Divider, DividerTitle } from '@bone-ui/divider'
 import { Tag } from '@bone-ui/tag'
 import { Spinner } from '@bone-ui/spinner'
+import { Dot } from '@bone-ui/dot'
 
 
 const ButtonExample = (props) => (
@@ -58,6 +59,7 @@ const ReactLiveScope = {
   DividerTitle,
   Tag,
   Spinner,
+  Dot,
 };
 
 export default ReactLiveScope;
