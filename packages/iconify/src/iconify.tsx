@@ -1,9 +1,11 @@
-import React, { forwardRef } from 'react'
+import React, { FC } from 'react'
+import { forwardRef } from '@bone-ui/utils'
 import { Box } from '@fower/react'
 import { AtomicProps, FowerHTMLProps } from '@fower/types'
 
 export interface IconProps extends FowerHTMLProps<'svg'> {
   fill?: 'none' | 'currentColor'
+
   strokeWidth?: number
 
   size?: number
@@ -46,12 +48,14 @@ export interface IconifyOptions {
 export function iconify(options: IconifyOptions) {
   const { viewBox, d, fill = 'none', path, displayName, atomicProps = {} } = options
 
-  const Comp = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const Comp: FC<IconProps> = forwardRef((props: IconProps, ref) => {
     const svgFill = props.fill || fill
     const isOutline = svgFill === 'none'
     const size = isOutline ? 24 : 20
     const svgPros = isOutline ? { stroke: 'currentColor' } : {}
     let pathProps: any = {}
+
+    console.log('size----:', size)
 
     if (options.pathProps) {
       pathProps = options.pathProps
