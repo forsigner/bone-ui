@@ -12,6 +12,8 @@ import { ArrowRightOutline } from '@bone-ui/icons/lib/ArrowRightOutline'
 import { MailSolid } from '@bone-ui/icons/lib/MailSolid'
 import SunOutline from '@bone-ui/icons/lib/SunOutline'
 import CashOutline from '@bone-ui/icons/lib/CashOutline'
+import { SearchOutline } from '@bone-ui/icons/lib/SearchOutline'
+import { CheckSolid } from '@bone-ui/icons/lib/CheckSolid'
 import { Avatar } from '@bone-ui/avatar';
 import { Alert, AlertIcon, AlertTitle, AlertDescription } from '@bone-ui/alert'
 import { CloseButton } from '@bone-ui/close-button'
@@ -22,6 +24,7 @@ import { Divider, DividerTitle } from '@bone-ui/divider'
 import { Tag } from '@bone-ui/tag'
 import { Spinner } from '@bone-ui/spinner'
 import { Dot } from '@bone-ui/dot'
+import { Input, InputGroup, InputAddon, InputElement } from '@bone-ui/input'
 
 
 const ButtonExample = (props) => (
@@ -48,6 +51,8 @@ const ReactLiveScope = {
   MailSolid,
   SunOutline,
   CashOutline,
+  SearchOutline,
+  CheckSolid,
   Box,
   Avatar,
   Alert, AlertIcon, AlertTitle, AlertDescription,
@@ -60,6 +65,7 @@ const ReactLiveScope = {
   Tag,
   Spinner,
   Dot,
+  Input, InputGroup, InputAddon, InputElement,
 };
 
 export default ReactLiveScope;

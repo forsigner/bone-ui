@@ -128,6 +128,7 @@ interface Sizes {
     rounded?: number
   }
 }
+
 function getSizeStyle(size: Size) {
   const sizes: Sizes = {
     xs: { h: 24, text: 12, px: 8, rounded: 2 },

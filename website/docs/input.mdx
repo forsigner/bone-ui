@@ -1,0 +1,132 @@
+---
+sidebar_position: 3
+---
+
+# Input
+
+## import
+
+```jsx
+import { Input, InputGroup, InputAddon, InputElement } from '@bone-ui/input'
+```
+
+## Basic
+
+```jsx live
+<Input placeholder="user name" />
+```
+
+## Variants
+
+```jsx live
+<Box spaceY3>
+  <Input variant="outline" placeholder="outline" />
+  <Input variant="filled" placeholder="filled" />
+  <Input variant="unstyled" placeholder="unstyled" />
+</Box>
+```
+
+## Color scheme
+
+```jsx live
+<Box spaceY3>
+  <Input placeholder="user name" colorScheme="red400" />
+  <Input placeholder="user name" colorScheme="blue400" />
+  <Input placeholder="user name" colorScheme="purple400" />
+</Box>
+```
+
+## Preset Sizes
+
+```jsx live
+<Box spaceY3>
+  <Input size="sm" placeholder="small" />
+  <Input size="md" placeholder="medium" />
+  <Input size="lg" placeholder="large" />
+</Box>
+```
+
+## Any Sizes
+
+```jsx live
+<Box spaceY3 w-200>
+  <Input size={20} placeholder="size 20" />
+  <Input size={30} placeholder="size 30" />
+  <Input size={50} placeholder="size 40" />
+</Box>
+```
+
+## Rounded
+
+```jsx live
+<Box spaceY3>
+  <Input placeholder="rounded full" roundedFull />
+  <Input placeholder="rounded full with filled" variant="filled" roundedFull />
+  <Input placeholder="rounded large" roundedLG />
+  <Input placeholder="rounded none" roundedNone />
+</Box>
+```
+
+## Customize shadow on focus
+
+```jsx live
+<Box spaceY3>
+  <Input variant="outline" placeholder="outline" shadowNone--focus />
+</Box>
+```
+
+## Disabled
+
+```jsx live
+<Box spaceY3>
+  <Input disabled placeholder="outline disabled" />
+  <Input disabled variant="filled" placeholder="filled disabled" />
+  <Input disabled variant="unstyled" placeholder="filled disabled" />
+</Box>
+```
+
+## Addons
+
+```jsx live
+<Box spaceY3>
+  <InputGroup>
+    <InputAddon>+007</InputAddon>
+    <Input placeholder="phone" />
+  </InputGroup>
+
+  <InputGroup>
+    <Input placeholder="search" />
+    <InputAddon bgBrand500 borderBrand500>
+      <SearchOutline white />
+    </InputAddon>
+  </InputGroup>
+
+  <InputGroup>
+    <InputAddon>https://</InputAddon>
+    <Input placeholder="url" />
+    <InputAddon>.com</InputAddon>
+  </InputGroup>
+</Box>
+```
+
+## Inner element
+
+```jsx live
+<Box spaceY3>
+  <Box spaceY3>
+    <InputGroup>
+      <InputElement>
+        <MailSolid gray500 />
+      </InputElement>
+      <Input placeholder="email" />
+    </InputGroup>
+
+    <InputGroup>
+      <Input placeholder="check" />
+      <InputElement>
+        <CheckSolid green500 />
+      </InputElement>
+    </InputGroup>
+  </Box>
+</Box>
+```
