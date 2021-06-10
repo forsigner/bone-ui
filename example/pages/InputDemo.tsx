@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Input } from '@bone-ui/input'
+import { Input, InputGroup, InputAddon, InputElement } from '@bone-ui/input'
 import { Box } from '@fower/react'
 
 export default function InputDemo() {
@@ -7,51 +7,70 @@ export default function InputDemo() {
   const [username, setUsername] = useState('')
 
   useEffect(() => {
-    console.log('ref:', ref.current)
-    console.log('ref:', ref.current?.name)
+    // console.log('ref:', ref.current)
+    // console.log('ref:', ref.current?.name)
   }, [])
 
   return (
-    <Box p20>
+    <Box p20 spaceY4>
       <Input
         onChange={(e) => setUsername(e.target.value)}
         value={username}
         name="username"
         ref={ref}
         placeholder="user name"
-        size="small"
       />
-      <br />
-      <br />
-      <Input rounded-40 placeholder="medium input" size="medium" colorScheme="red500"></Input>
+      <Input rounded-40 placeholder="md input" size="md" colorScheme="red500" />
+      <Input size="lg" colorScheme="green500" />
+      <Input variant="outline" placeholder="outline" />
+      <Input variant="filled" placeholder="filled" />
+      <Input variant="unstyled" placeholder="unstyled" />
+      <Input disabled variant="outline" placeholder="outline disabled" />
+      <Input disabled variant="filled" placeholder="filled disabled" />
 
-      <br />
-      <br />
-      <Input size="large" colorScheme="green500"></Input>
+      <InputGroup>
+        <InputAddon>$</InputAddon>
+        <Input size="lg" placeholder="unstyled disabled" />
+      </InputGroup>
 
-      <br />
-      <br />
-      <Input variant="outline" placeholder="outline"></Input>
+      <InputGroup>
+        <Input size="lg" placeholder="unstyled disabled" />
+        <InputAddon>$</InputAddon>
+      </InputGroup>
 
-      <br />
-      <br />
-      <Input variant="filled" placeholder="filled"></Input>
+      <InputGroup>
+        <InputAddon>$</InputAddon>
+        <Input size="lg" placeholder="unstyled disabled" />
+        <InputAddon>$</InputAddon>
+      </InputGroup>
 
-      <br />
-      <br />
-      <Input variant="unstyled" placeholder="unstyled"></Input>
+      <InputGroup>
+        <InputElement>$</InputElement>
+        <Input size="lg" placeholder="unstyled disabled" />
+      </InputGroup>
 
-      <br />
-      <br />
-      <Input disabled variant="outline" placeholder="outline disabled"></Input>
+      <InputGroup>
+        <Input size="lg" placeholder="unstyled disabled" />
+        <InputElement>$</InputElement>
+      </InputGroup>
 
-      <br />
-      <br />
-      <Input disabled variant="filled" placeholder="filled disabled"></Input>
+      <InputGroup>
+        <InputElement>$</InputElement>
+        <Input size="lg" placeholder="unstyled disabled" />
+        <InputElement>$</InputElement>
+      </InputGroup>
 
-      <br />
-      <br />
-      <Input disabled variant="unstyled" placeholder="unstyled disabled"></Input>
+      <InputGroup>
+        <InputAddon>$</InputAddon>
+        <Input size="lg" placeholder="unstyled disabled" />
+        <InputElement>$</InputElement>
+      </InputGroup>
+
+      <InputGroup>
+        <InputElement>$</InputElement>
+        <Input size="lg" placeholder="unstyled disabled" />
+        <InputAddon>$</InputAddon>
+      </InputGroup>
     </Box>
   )
 }

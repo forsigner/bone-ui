@@ -34,7 +34,7 @@ export default function DotDemo() {
           Custom Size
         </Dot>
 
-        <Dot bgYellow400square-16 border borderYellow800>
+        <Dot bgYellow400 square-16 border borderYellow800>
           with border
         </Dot>
       </Box>
