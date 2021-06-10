@@ -4,6 +4,7 @@ import { Box } from '@fower/react'
 import { store } from '@fower/store'
 import { FowerHTMLProps, AtomicProps } from '@fower/types'
 import { Placement, useInputGroupContext } from './context'
+import { Id } from './types'
 
 export interface InputProps extends Omit<FowerHTMLProps<'input'>, 'size'> {
   colorScheme?: keyof FowerTypes.Colors
@@ -17,35 +18,63 @@ const sizes = {
   lg: { px: 16, h: 48, text: 18 },
 }
 
+interface Attrs extends AtomicProps {
+  [key: string]: any
+}
+
+function useStyles(props: InputProps, h: any) {
+  let attrs: Attrs = { rounded: true }
+  const ctx = useInputGroupContext()
+
+  // pure input, not with input group
+  if (!ctx.placementMap) return attrs
+
+  const { placementMap } = ctx
+  const { placement } = placementMap.get(props)!
+  const mapArr = Array.from(placementMap.values())
+  const first = mapArr[0]
+  const last = mapArr.pop()
+
+  if (first.id === Id.InputElement) {
+    attrs['pl--i'] = h
+  }
+
+  if (last?.id === Id.InputElement) {
+    attrs['pr--i'] = h
+  }
+
+  if (first.id === Id.InputAddon) {
+    attrs['roundedL--i'] = 0
+  }
+
+  if (last?.id === Id.InputAddon) {
+    attrs['roundedR--i'] = 0
+  }
+
+  attrs['zIndex--focus'] = 1
+
+  if (placement === Placement.middle) {
+    attrs.borderL = 1
+  }
+
+  if (placement === Placement.start) {
+    attrs.borderL = 1
+  }
+
+  if (placement === Placement.end) {
+    attrs.borderR = 1
+  }
+
+  return attrs
+}
+
 export const Input: FC<InputProps> = forwardRef((props: InputProps, ref) => {
   const { colorScheme = 'brand500', size = 'md', variant = 'outline', ...rest } = props
   const { disabled } = props
   const shadowColor = store.theme.colors[colorScheme]
+  const sizesStyle = sizes[size]
 
-  const ctx = useInputGroupContext()
-  let attrs: AtomicProps = {}
-
-  if (ctx.placement) {
-    const { placement } = ctx
-    const placementValue = placement.get(props)
-
-    ;(attrs as any)['zIndex--focus'] = 1
-
-    if (placementValue === Placement.middle) {
-      attrs.borderL = 1
-      attrs.roundedNone = true
-    }
-
-    if (placementValue === Placement.start) {
-      attrs.borderL = 1
-      attrs.roundedLMD = true
-    }
-
-    if (placementValue === Placement.end) {
-      attrs.borderR = 1
-      attrs.roundedRMD = true
-    }
-  }
+  const attrs = useStyles(props, sizesStyle.h)
 
   const variants = {
     outline: {
@@ -71,7 +100,6 @@ export const Input: FC<InputProps> = forwardRef((props: InputProps, ref) => {
       as="input"
       className="bone-input"
       ref={ref}
-      rounded
       w-100p
       gray800
       bgTransparent--focus
@@ -83,7 +111,7 @@ export const Input: FC<InputProps> = forwardRef((props: InputProps, ref) => {
       borderColor--focus={`${shadowColor}`}
       transitionCommon
       duration-300
-      {...sizes[size]}
+      {...sizesStyle}
       {...variants[variant]}
       {...(attrs as any)}
       {...rest}
@@ -94,3 +122,5 @@ export const Input: FC<InputProps> = forwardRef((props: InputProps, ref) => {
 if (__DEV__) {
   Input.displayName = 'Input'
 }
+
+;(Input as any).id = 'Input'

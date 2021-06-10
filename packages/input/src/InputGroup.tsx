@@ -11,24 +11,30 @@ export const InputGroup: FC<InputGroupProps> = forwardRef((props: InputGroupProp
   const { children } = props
   const childrenArray: any[] = Array.isArray(children) ? children : [children]
 
-  const placement = new Map()
+  const placementMap = new Map()
 
   const validChildren = childrenArray.filter((child) => React.isValidElement(child))
 
   validChildren.forEach((child, index) => {
-    const value =
+    const { id = '' } = child.type
+    const placement =
       index === 0
         ? Placement.start
         : index === validChildren.length - 1
         ? Placement.end
         : Placement.middle
 
-    placement.set(child.props, value)
+    placementMap.set(child.props, { id, placement })
     if (child.props?.size) size = child.props?.size
   })
 
   return (
-    <InputGroupProvider value={{ size, placement }}>
+    <InputGroupProvider
+      value={{
+        size,
+        placementMap,
+      }}
+    >
       <Box className="bone-input-group" ref={ref} toCenterY relative {...props} />
     </InputGroupProvider>
   )
