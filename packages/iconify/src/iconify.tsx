@@ -55,8 +55,6 @@ export function iconify(options: IconifyOptions) {
     const svgPros = isOutline ? { stroke: 'currentColor' } : {}
     let pathProps: any = {}
 
-    console.log('size----:', size)
-
     if (options.pathProps) {
       pathProps = options.pathProps
     } else {

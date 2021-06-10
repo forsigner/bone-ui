@@ -9,12 +9,6 @@ export interface InputElementProps extends FowerHTMLProps<'div'> {
   placementMap?: 'left' | 'right'
 }
 
-const sizeMaps: any = {
-  sm: 32,
-  md: 40,
-  lg: 48,
-}
-
 export const InputElement: FC<InputElementProps> = forwardRef((props: InputElementProps, ref) => {
   let attrs: AtomicProps = {}
   const ctx = useInputGroupContext()
@@ -22,7 +16,7 @@ export const InputElement: FC<InputElementProps> = forwardRef((props: InputEleme
     const { size, placementMap } = ctx
     const { placement } = placementMap.get(props)!
 
-    attrs.square = sizeMaps[size]
+    attrs.square = size
 
     if (placement === Placement.start) {
       attrs.left = 0

@@ -12,13 +12,7 @@ export interface InputGroupContext {
   /**
    * placement map
    */
-  placementMap: Map<
-    any,
-    {
-      id: string
-      placement: Placement
-    }
-  >
+  placementMap: Map<any, { id: string; placement: Placement }>
 }
 
 export const inputGroupContext = createContext<InputGroupContext>({} as InputGroupContext)

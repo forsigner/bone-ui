@@ -6,6 +6,12 @@ import { InputGroupProvider, Placement } from './context'
 
 export interface InputGroupProps extends FowerHTMLProps<'div'> {}
 
+function formatSize(size: any): number {
+  const maps: any = { sm: 32, md: 40, lg: 48 }
+  if (typeof size === 'string') return maps[size]
+  return size
+}
+
 export const InputGroup: FC<InputGroupProps> = forwardRef((props: InputGroupProps, ref) => {
   let size: string = 'md'
   const { children } = props
@@ -31,7 +37,7 @@ export const InputGroup: FC<InputGroupProps> = forwardRef((props: InputGroupProp
   return (
     <InputGroupProvider
       value={{
-        size,
+        size: formatSize(size),
         placementMap,
       }}
     >

@@ -62,7 +62,7 @@ export const Tag: BoxComponent<'div', TagProps> = forwardRef((props: TagProps, r
 })
 
 function getVariantStyle(color: string): any {
-  const light: any = { 'bg--T90': color, borderColor: color }
+  const light: any = { 'bg--T85': color, borderColor: color }
   const filled: any = { white: true, 'white--dark': true, bg: color }
   const outline: any = { border: true, borderColor: color, bgTransparent: true }
 
