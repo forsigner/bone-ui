@@ -6,16 +6,12 @@ import { FowerHTMLProps, AtomicProps } from '@fower/types'
 import { Placement, useInputGroupContext } from './context'
 import { Id } from './types'
 
+type Size = 'sm' | 'md' | 'lg' | number
+
 export interface InputProps extends Omit<FowerHTMLProps<'input'>, 'size'> {
   colorScheme?: keyof FowerTypes.Colors
-  size?: 'sm' | 'md' | 'lg'
+  size?: Size
   variant?: 'outline' | 'unstyled' | 'filled'
-}
-
-const sizes = {
-  sm: { px: 12, h: 32, text: 14 },
-  md: { px: 16, h: 40, text: 16 },
-  lg: { px: 16, h: 48, text: 18 },
 }
 
 interface Attrs extends AtomicProps {
@@ -68,24 +64,48 @@ function useStyles(props: InputProps, h: any) {
   return attrs
 }
 
+interface Sizes {
+  [key: string]: {
+    h: number
+    text: number
+    px?: number
+  }
+}
+
+function getSizeStyle(size: Size) {
+  const sizes: Sizes = {
+    sm: { px: 12, h: 32, text: 14 },
+    md: { px: 16, h: 40, text: 16 },
+    lg: { px: 16, h: 48, text: 18 },
+  }
+
+  if (typeof size === 'string') return sizes[size]
+  return {
+    h: size,
+    px: size * 0.35,
+    text: size * 0.35,
+    rounded: size * 0.1,
+  }
+}
+
 export const Input: FC<InputProps> = forwardRef((props: InputProps, ref) => {
   const { colorScheme = 'brand500', size = 'md', variant = 'outline', ...rest } = props
   const { disabled } = props
   const shadowColor = store.theme.colors[colorScheme]
-  const sizesStyle = sizes[size]
+  const sizesStyle = getSizeStyle(size)
 
   const attrs = useStyles(props, sizesStyle.h)
 
   const variants = {
     outline: {
       border: true,
-      borderGray300: true,
+      borderGray200: true,
     },
     filled: {
       bgGray100: true,
       border: true,
       borderColor: 'transparent',
-      'bgGray200--hover': !disabled,
+      'bgGray100--D4--hover': !disabled,
     },
     unstyled: {
       border: 'none',
@@ -105,6 +125,7 @@ export const Input: FC<InputProps> = forwardRef((props: InputProps, ref) => {
       bgTransparent--focus
       bgWhite
       outlineNone
+      placeholderGray400
       opacity-40={!!disabled}
       cursorNotAllowed={!!disabled}
       shadow--focus={`0 0 0 1px ${shadowColor}`}

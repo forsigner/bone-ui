@@ -38,7 +38,6 @@ export const InputElement: FC<InputElementProps> = forwardRef((props: InputEleme
       ref={ref}
       absolute
       top0
-      px4
       toCenter
       zIndex-2
       {...(attrs as any)}
