@@ -10,7 +10,9 @@ type Size = 'sm' | 'md' | 'lg' | number
 
 export interface InputProps extends Omit<FowerHTMLProps<'input'>, 'size'> {
   colorScheme?: keyof FowerTypes.Colors
+
   size?: Size
+
   variant?: 'outline' | 'unstyled' | 'filled'
 }
 

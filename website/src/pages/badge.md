@@ -10,7 +10,7 @@ title: Markdown page example
 import { Badge } from '@bone-ui/badge'
 ```
 
-## Default
+## Basic
 
 ```jsx live
 <Box spaceX-10>

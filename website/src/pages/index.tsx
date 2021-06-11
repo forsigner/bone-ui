@@ -31,7 +31,7 @@ export default function Home() {
         <InputGroup w-460 shadowSM roundedXL>
           <Input roundedXL size={60} placeholder="find somethings" />
           <InputElement>
-            <SearchOutline black />
+            <SearchOutline black size={30} />
           </InputElement>
         </InputGroup>
       </Box>

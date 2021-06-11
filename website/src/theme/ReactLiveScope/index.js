@@ -25,6 +25,7 @@ import { Tag } from '@bone-ui/tag'
 import { Spinner } from '@bone-ui/spinner'
 import { Dot } from '@bone-ui/dot'
 import { Input, InputGroup, InputAddon, InputElement } from '@bone-ui/input'
+import { Switch } from '@bone-ui/switch'
 
 
 const ButtonExample = (props) => (
@@ -66,6 +67,7 @@ const ReactLiveScope = {
   Spinner,
   Dot,
   Input, InputGroup, InputAddon, InputElement,
+  Switch,
 };
 
 export default ReactLiveScope;

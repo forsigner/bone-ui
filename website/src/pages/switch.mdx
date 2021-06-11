@@ -1,0 +1,98 @@
+# Badge
+
+## import
+
+```jsx
+import { Switch } from '@bone-ui/switch'
+```
+
+## Basic
+
+```jsx live
+<Box spaceX3>
+  <Switch />
+  <Switch defaultChecked />
+  <Switch defaultChecked />
+</Box>
+```
+
+## Color scheme
+
+```jsx live
+<Box spaceX3>
+  <Switch colorScheme="orange400" defaultChecked />
+  <Switch colorScheme="teal400" defaultChecked />
+  <Switch colorScheme="purple400" offColorScheme="black" />
+</Box>
+```
+
+## Preset sizes
+
+```jsx live
+<Box spaceX3 toCenterY>
+  <Switch size="sm" />
+  <Switch size="md" />
+  <Switch size="lg" />
+  <Switch size="sm" defaultChecked />
+  <Switch size="md" defaultChecked />
+  <Switch size="lg" defaultChecked />
+</Box>
+```
+
+## Any sizes
+
+```jsx live
+<Box toCenterY spaceX3>
+  <Switch size={16} />
+  <Switch size={20} />
+  <Switch size={24} defaultChecked />
+  <Switch size={32} />
+  <Switch size={40} />
+  <Switch size={48} defaultChecked />
+</Box>
+```
+
+## Aspect Ratio
+
+```jsx live
+<Box spaceX3 toCenterY>
+  <Switch size="sm" aspectRatio={1.5} />
+  <Switch size="md" defaultChecked aspectRatio={2} />
+  <Switch size="lg" aspectRatio={2.5} />
+</Box>
+```
+
+## Controlled
+
+```jsx live
+function Demo() {
+  const [checked, setChecked] = useState(false)
+
+  return (
+    <Switch
+      checked={checked}
+      onChange={(e) => {
+        setChecked(e.target.checked)
+      }}
+    />
+  )
+}
+```
+
+## Witch text
+
+```jsx live
+<Box spaceX3>
+  <Switch>Open it?</Switch>
+</Box>
+```
+
+## Disabled
+
+```jsx live
+<Box spaceX3>
+  <Switch colorScheme="orange400" defaultChecked disabled />
+  <Switch colorScheme="teal400" defaultChecked disabled />
+  <Switch colorScheme="purple400" disabled />
+</Box>
+```

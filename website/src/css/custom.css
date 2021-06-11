@@ -29,3 +29,8 @@ a:hover {
   /* color: var(--ifm-link-color); */
   text-decoration: none;
 }
+
+.square-30 {
+  width: 30px;
+  height: 30px;
+}
