@@ -1,9 +1,18 @@
-import React, { forwardRef, memo } from 'react'
+import React, { FC, memo } from 'react'
+import { forwardRef } from '@bone-ui/utils'
 import { Box } from '@fower/react'
 import { FowerColor, FowerHTMLProps } from '@fower/types'
 import { Checkbox } from '@bone-ui/checkbox'
 
-export interface SwitchProps extends FowerHTMLProps<'input'> {
+type Size = 'sm' | 'md' | 'lg' | number
+
+function formatSize(size: any): number {
+  const maps: any = { sm: 16, md: 20, lg: 24 }
+  if (typeof size === 'string') return maps[size]
+  return size
+}
+
+export interface SwitchProps extends Omit<FowerHTMLProps<'input'>, 'size'> {
   colorScheme?: FowerColor
 
   offColorScheme?: FowerColor
@@ -11,7 +20,7 @@ export interface SwitchProps extends FowerHTMLProps<'input'> {
   /**
    * Switch size, you can set any size
    */
-  size?: number
+  size?: Size
 
   /**
    * Aspect ratio for siwtch
@@ -19,47 +28,50 @@ export interface SwitchProps extends FowerHTMLProps<'input'> {
   aspectRatio?: number
 }
 
-export const Switch = memo(
-  forwardRef<HTMLInputElement, Partial<SwitchProps>>((props, ref) => {
+export const Switch: FC<SwitchProps> = memo(
+  forwardRef((props: SwitchProps, ref) => {
     const {
       colorScheme = 'brand500',
       offColorScheme = 'gray400',
-      size = 20,
+      size = 'md',
       aspectRatio = 1.8,
       ...rest
     } = props
-    const width = size * aspectRatio
-    const borderWidth = Math.ceil(size / 10)
+    const formattedSize = formatSize(size)
+    const width = formattedSize * aspectRatio
+    const borderWidth = Math.ceil(formattedSize / 10)
 
     return (
       <Checkbox
         {...rest}
         ref={ref}
         render={({ checked }) => {
-          const x = checked ? `${width - size}px` : '0px'
+          const x = checked ? `${width - formattedSize}px` : '0px'
           const currentColor = checked ? colorScheme : offColorScheme
           return (
             <Box
-              h={size}
+              h={formattedSize}
               w={width}
-              rounded-9999
+              roundedFull
               border={borderWidth}
               borderColor={currentColor}
               bg={currentColor}
+              // boxContent
               css={{ boxSizing: 'content-box' }}
             >
               <Box
-                circle={size}
+                circle={formattedSize}
                 bgWhite
+                // bgWhite--dark
                 css={{
                   transform: `translateX(${x})`,
                   transition: 'transform ease 250ms',
                 }}
-              ></Box>
+              />
             </Box>
           )
         }}
-      ></Checkbox>
+      />
     )
   }),
 )
