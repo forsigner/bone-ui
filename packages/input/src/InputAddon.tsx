@@ -8,12 +8,6 @@ export interface InputAddonProps extends FowerHTMLProps<'div'> {
   placementMap?: 'left' | 'right'
 }
 
-const sizeMaps: any = {
-  sm: 32,
-  md: 40,
-  lg: 48,
-}
-
 export const InputAddon: FC<InputAddonProps> = forwardRef((props: InputAddonProps, ref) => {
   let attrs: AtomicProps = {}
   const ctx = useInputGroupContext()
@@ -22,18 +16,18 @@ export const InputAddon: FC<InputAddonProps> = forwardRef((props: InputAddonProp
     const { size, placementMap } = ctx
     const { placement } = placementMap.get(props)!
 
-    attrs.h = sizeMaps[size]
+    attrs.h = size
     attrs.borderT = 1
     attrs.borderB = 1
 
     if (placement === Placement.start) {
       attrs.borderL = 1
-      attrs.roundedLMD = true
+      attrs.roundedLeftMD = true
     }
 
     if (placement === Placement.end) {
       attrs.borderR = 1
-      attrs.roundedRMD = true
+      attrs.roundedRightMD = true
     }
   }
   return (

@@ -1,8 +1,8 @@
 import React, { FC } from 'react'
 import { forwardRef, __DEV__ } from '@bone-ui/utils'
 import { Box } from '@fower/react'
-import { store } from '@fower/store'
 import { FowerHTMLProps, AtomicProps } from '@fower/types'
+import { upFirst } from '@fower/utils'
 import { Placement, useInputGroupContext } from './context'
 import { Id } from './types'
 
@@ -42,11 +42,11 @@ function useStyles(props: InputProps, h: any) {
   }
 
   if (first.id === Id.InputAddon) {
-    attrs['roundedL--i'] = 0
+    attrs['roundedLeft--i'] = 0
   }
 
   if (last?.id === Id.InputAddon) {
-    attrs['roundedR--i'] = 0
+    attrs['roundedRight--i'] = 0
   }
 
   attrs['zIndex--focus'] = 1
@@ -93,10 +93,11 @@ function getSizeStyle(size: Size) {
 export const Input: FC<InputProps> = forwardRef((props: InputProps, ref) => {
   const { colorScheme = 'brand500', size = 'md', variant = 'outline', ...rest } = props
   const { disabled } = props
-  const shadowColor = store.theme.colors[colorScheme]
   const sizesStyle = getSizeStyle(size)
 
   const attrs = useStyles(props, sizesStyle.h)
+
+  attrs[`ring${upFirst(colorScheme)}-1--focus`] = true
 
   const variants = {
     outline: {
@@ -130,8 +131,7 @@ export const Input: FC<InputProps> = forwardRef((props: InputProps, ref) => {
       placeholderGray400
       opacity-40={!!disabled}
       cursorNotAllowed={!!disabled}
-      shadow--focus={`0 0 0 1px ${shadowColor}`}
-      borderColor--focus={`${shadowColor}`}
+      borderColor--focus={colorScheme}
       transitionCommon
       duration-300
       {...sizesStyle}
