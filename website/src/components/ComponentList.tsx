@@ -5,17 +5,23 @@ import { ItemSwitch } from './items/ItemSwitch'
 import { Item } from './Item'
 import { ItemTag } from './items/ItemTag'
 import { ItemSpinner } from './items/ItemSpinner'
+import { ItemAvatar } from './items/ItemAvatar'
+import { ItemDot } from './items/ItemDot'
+import { ItemInput } from './items/ItemInput'
+import { ItemBadge } from './items/ItemBadge'
+import { ItemAlert } from './items/ItemAlert'
+import { ItemDivider } from './items/ItemDivider'
 
 const list: [string, any][] = [
-  ['Alert', ItemSwitch],
-  ['Avatar', ItemSwitch],
-  ['Badge', ItemSwitch],
+  ['Alert', ItemAlert],
+  ['Avatar', ItemAvatar],
+  ['Badge', ItemBadge],
   ['Button', ItemButton],
   ['Card', ItemButton],
   ['Close-Button', ItemButton],
-  ['divider', ItemButton],
-  ['dot', ItemButton],
-  ['input', ItemButton],
+  ['divider', ItemDivider],
+  ['dot', ItemDot],
+  ['input', ItemInput],
   ['Switch', ItemSwitch],
   ['Tag', ItemTag],
   ['Spinner', ItemSpinner],
@@ -23,7 +29,7 @@ const list: [string, any][] = [
 
 export function ComponentList() {
   return (
-    <Box mt10 mx-auto px10 flexWrap="wrap" grid gridTemplateColumns-6 gap-16 toLeft>
+    <Box mt10 mx-auto px10 flexWrap toCenter gap-16>
       {list.map(([title, Comp]) => (
         <Item key={title} title={title}>
           <Comp></Comp>

@@ -15,7 +15,7 @@ export default function SwitchDemo() {
       <Switch ref={ref}>Switch</Switch>
       <Switch defaultChecked />
       <Switch disabled />
-      <Switch checked disabled onChange={e => setCheked(e.target.checked)} />
+      <Switch checked disabled onChange={(e) => setCheked(e.target.checked)} />
 
       <Switch colorScheme="orange400" defaultChecked />
       <Switch colorScheme="purple400" defaultChecked />

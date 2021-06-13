@@ -15,8 +15,8 @@ export const Item: FC<Props> = ({ children, title, ...rest }) => {
   const index = (Math.random() * keys.length) >> 0
   const attr = { [`bg${keys[index]}--T90`]: true }
   return (
-    <Link to={'/' + title.toLowerCase()}>
-      <Card shadow shadowMD--hover borderNone p0 transitionCommon maxW-200 {...rest}>
+    <Link to={'/docs/' + title.toLowerCase()}>
+      <Card ringGray100-2 shadowMD--hover borderNone p0 transitionCommon maxW-200 {...rest}>
         {React.cloneElement(children as any, {
           flex: true,
           'flex-1': true,

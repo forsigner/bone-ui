@@ -18,6 +18,7 @@ export default function InputDemo() {
     <Box p20 spaceY4>
       <Box spaceY3>
         <Input variant="outline" placeholder="outline" />
+        <Input variant="outline" placeholder="outline" />
         <Input variant="filled" placeholder="filled" />
         <Input variant="unstyled" placeholder="unstyled" />
       </Box>
