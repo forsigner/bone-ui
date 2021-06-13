@@ -27,6 +27,7 @@ import { Dot } from '@bone-ui/dot'
 import { Input, InputGroup, InputAddon, InputElement } from '@bone-ui/input'
 import { Switch } from '@bone-ui/switch'
 import { Radio, RadioGroup } from '@bone-ui/radio'
+import { Checkbox, CheckboxGroup } from '@bone-ui/checkbox'
 
 
 const ButtonExample = (props) => (
@@ -69,7 +70,8 @@ const ReactLiveScope = {
   Dot,
   Input, InputGroup, InputAddon, InputElement,
   Switch,
-  Radio, RadioGroup
+  Radio, RadioGroup,
+  Checkbox, CheckboxGroup,
 };
 
 export default ReactLiveScope;

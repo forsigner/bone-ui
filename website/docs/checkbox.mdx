@@ -1,0 +1,105 @@
+---
+sidebar_position: 3
+---
+
+# Checkbox
+
+## import
+
+```jsx
+import { Checkbox, CheckboxGroup, CheckboxProps } from '@bone-ui/checkbox'
+```
+
+## Basic
+
+```jsx live
+<Checkbox>Checkbox</Checkbox>
+```
+
+## Color Scheme
+
+```jsx live
+<Box toCenterY spaceX3>
+  <Checkbox colorScheme="orange500" defaultChecked>
+    Orange500
+  </Checkbox>
+  <Checkbox colorScheme="red500" defaultChecked>
+    Red500
+  </Checkbox>
+  <Checkbox colorScheme="blue500" defaultChecked>
+    Blue500
+  </Checkbox>
+</Box>
+```
+
+## Checkbox Group
+
+```tsx live
+function GroupDemo() {
+  const [value, setValue] = useState(['green'])
+  return (
+    <CheckboxGroup
+      value={value}
+      onChange={(e) => {
+        setValue(e)
+      }}
+    >
+      <Checkbox value="red">Red</Checkbox>
+      <Checkbox value="green">Green</Checkbox>
+      <Checkbox value="blue">Blue</Checkbox>
+    </CheckboxGroup>
+  )
+}
+```
+
+## Use options
+
+```jsx live
+function Demo() {
+  const options = [
+    { label: 'A', value: 'A' },
+    { label: 'B', value: 'B', disabled: true },
+    { label: 'C', value: 'C' },
+  ]
+  return <CheckboxGroup options={options}></CheckboxGroup>
+}
+```
+
+## Customize Checkbox Render
+
+```jsx live
+<Checkbox
+  render={({ checked }) => (
+    <Box toCenter circle-48 bg={checked ? 'gray200' : false}>
+      <Box circle-32 bgRed100></Box>
+    </Box>
+  )}
+/>
+```
+
+## Customize CheckboxGroup renderItem
+
+```jsx live
+function Demo() {
+  const ColorCheckbox = (props) => (
+    <Checkbox
+      {...props}
+      render={({ checked }) => (
+        <Box toCenter circle-48 bg={checked ? 'gray200' : false}>
+          <Box bg={props.value} circle-32></Box>
+        </Box>
+      )}
+    />
+  )
+
+  return (
+    <CheckboxGroup defaultValue={['green300']}>
+      <ColorCheckbox value="red300"></ColorCheckbox>
+      <ColorCheckbox value="green300"></ColorCheckbox>
+      <ColorCheckbox value="blue300"></ColorCheckbox>
+      <ColorCheckbox value="orange300"></ColorCheckbox>
+      <ColorCheckbox value="purple300"></ColorCheckbox>
+    </CheckboxGroup>
+  )
+}
+```

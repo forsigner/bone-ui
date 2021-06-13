@@ -1,4 +1,5 @@
-import React, { forwardRef, memo } from 'react'
+import React, { FC, memo } from 'react'
+import { forwardRef } from '@bone-ui/utils'
 import { Box } from '@fower/react'
 import { useRadio } from './useRadio'
 import { defaultRender } from './defaultRender'
@@ -6,8 +7,8 @@ import { RadioProps } from './types'
 import { cx } from '@bone-ui/utils'
 import { css } from '@fower/core'
 
-export const Radio = memo(
-  forwardRef<HTMLInputElement, RadioProps>((props, ref) => {
+export const Radio: FC<RadioProps> = memo(
+  forwardRef((props: RadioProps, ref) => {
     const {
       children,
       shouldRenderChildren = true,
