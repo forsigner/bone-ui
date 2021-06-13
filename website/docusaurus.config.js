@@ -21,7 +21,7 @@ module.exports = {
 
     sidebarCollapsible: false,
     navbar: {
-      title: 'My Site',
+      title: 'Bone UI',
       logo: {
         alt: 'My Site Logo',
         src: 'img/logo.svg',
@@ -31,7 +31,7 @@ module.exports = {
           type: 'doc',
           docId: 'intro',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Docs',
         },
         { to: '/blog', label: 'Blog', position: 'left' },
         {
@@ -44,15 +44,6 @@ module.exports = {
     footer: {
       style: 'dark',
       links: [
-        {
-          title: 'Docs',
-          items: [
-            {
-              label: 'Tutorial',
-              to: '/docs/intro',
-            },
-          ],
-        },
         {
           title: 'Community',
           items: [

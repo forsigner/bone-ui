@@ -4,7 +4,7 @@ import { Box, BoxComponent } from '@fower/react'
 import { upFirst } from '@fower/utils'
 import { Spinner } from '@bone-ui/spinner'
 
-type Size = 'xs' | 'sm' | 'md' | 'lg' | number
+type Size = 'sm' | 'md' | 'lg' | number
 
 export interface ButtonProps {
   as?: As
@@ -53,7 +53,7 @@ export const Button: BoxComponent<'button', ButtonProps> = forwardRef((props: Bu
 
   return (
     <Box
-      as="as"
+      as={as}
       ref={ref}
       className="bone-button"
       inlineFlex
@@ -131,15 +131,14 @@ interface Sizes {
 
 function getSizeStyle(size: Size) {
   const sizes: Sizes = {
-    xs: { h: 24, text: 12, px: 8, rounded: 2 },
     sm: { h: 32, text: 14, px: 12, rounded: 4 },
-    md: { h: 40, text: 16, px: 15, rounded: 6 },
-    lg: { h: 48, text: 18, px: 18, rounded: 8 },
+    md: { h: 40, text: 16, px: 16, rounded: 6 },
+    lg: { h: 48, text: 18, px: 20, rounded: 8 },
   }
   if (typeof size === 'string') return sizes[size]
   return {
     h: size,
-    px: size * 0.375,
+    px: size * 0.4,
     text: size * 0.35,
     rounded: size * 0.1,
   }

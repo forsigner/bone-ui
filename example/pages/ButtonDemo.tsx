@@ -16,7 +16,6 @@ export default function ButtonDemo() {
       <Box as="h2">Sizes</Box>
 
       <Box toCenterY spaceX4>
-        <Button size="xs">Xsmall</Button>
         <Button size="sm">Small</Button>
         <Button size="md">Middle</Button>
         <Button size="lg">Large</Button>
@@ -181,10 +180,6 @@ export default function ButtonDemo() {
       <Box as="h2">Loading</Box>
 
       <Box row space-20 flexWrap="wrap">
-        <Button loading size="xs">
-          Xsmall
-        </Button>
-
         <Button loading size="sm">
           Small
         </Button>
