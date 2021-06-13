@@ -1,0 +1,133 @@
+---
+sidebar_position: 3
+---
+
+# Radio
+
+## import
+
+```jsx
+import { Radio, RadioGroup } from '@bone-ui/radio'
+```
+
+## Basic
+
+```jsx live
+<Radio>Radio</Radio>
+```
+
+## Color Scheme
+
+```jsx live
+<Box toCenterY spaceX3>
+  <Radio colorScheme="red500" defaultChecked>
+    Red500
+  </Radio>
+  <Radio colorScheme="blue500" defaultChecked>
+    Blue500
+  </Radio>
+  <Radio colorScheme="cyan500" defaultChecked>
+    cyan500
+  </Radio>
+</Box>
+```
+
+## Radio Group
+
+```jsx live
+<RadioGroup
+  value=""
+  onChange={(value) => {
+    console.log('value:', value)
+  }}
+>
+  <Radio value="red" name="color">
+    Red
+  </Radio>
+  <Radio value="green" name="color">
+    Green
+  </Radio>
+  <Radio value="blue" name="color">
+    Blue
+  </Radio>
+</RadioGroup>
+```
+
+## Use options
+
+```jsx live
+function Demo() {
+  const options = [
+    { label: 'A', value: 'A' },
+    { label: 'B', value: 'B', disabled: true },
+    { label: 'C', value: 'C' },
+  ]
+  return <RadioGroup options={options}></RadioGroup>
+}
+```
+
+## Customize Radio Render
+
+```jsx live
+function Demo() {
+  const ColorRadio = (props) => (
+    <Radio
+      {...props}
+      render={({ checked }) => (
+        <Box toCenter square-48 rounded-8 bg={checked ? 'gray200' : false}>
+          <Box bg={props.value} circle-32></Box>
+        </Box>
+      )}
+    />
+  )
+  return (
+    <RadioGroup value="green300">
+      <ColorRadio value="red300"></ColorRadio>
+      <ColorRadio value="green300"></ColorRadio>
+      <ColorRadio value="blue300"></ColorRadio>
+    </RadioGroup>
+  )
+}
+```
+
+## Customize RadioGroup renderItem
+
+```jsx live
+function Demo() {
+  const options = [
+    { label: 'Free', value: 'free', desc: 'This is Free version' },
+    { label: 'Member', value: 'member', desc: 'This is Member version' },
+    { label: 'Pro', value: 'pro', desc: 'This is Pro version' },
+  ]
+
+  return (
+    <RadioGroup
+      options={options}
+      value=""
+      column
+      spaceY-8
+      flex
+      onChange={(e) => {
+        // setType(e)
+      }}
+      renderItem={({ item, defaultRadio, checked }) => (
+        <Box
+          p4
+          toLeft
+          border
+          ringBrand500={checked}
+          borderColor={checked ? 'brand500' : 'gray400'}
+          rounded-8
+          w-400
+        >
+          {defaultRadio}
+          <Box ml-16>
+            <Box>{item.label}</Box>
+            <Box gray400>{item.desc}</Box>
+          </Box>
+        </Box>
+      )}
+    />
+  )
+}
+```

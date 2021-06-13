@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { View, Box } from '@fower/react'
+import { Box } from '@fower/react'
 import { Radio, RadioGroup, RadioProps } from '@bone-ui/radio'
 
 const ColorRadio = (props: RadioProps) => (
@@ -36,9 +36,18 @@ export default function RadioDemo() {
   }, [])
 
   return (
-    <View p6 space-10 w-800>
+    <Box p6 space-10 w-800>
       <h2>Single radio</h2>
       <Radio value="blue">Blue</Radio>
+
+      <h2>Color Schema radio</h2>
+      <Box toCenterY spaceX3>
+        <Radio colorScheme="red500">Red500</Radio>
+        <Radio colorScheme="blue500" defaultChecked>
+          Blue500
+        </Radio>
+        <Radio colorScheme="cyan500">cyan500</Radio>
+      </Box>
 
       <h2>RadioGroup</h2>
       <RadioGroup
@@ -47,10 +56,10 @@ export default function RadioDemo() {
           console.log('object:', e)
         }}
       >
-        <Radio value="red" name="color" id="color_1">
+        <Radio value="red" name="color">
           Red
         </Radio>
-        <Radio value="green" name="color" id="color_2">
+        <Radio value="green" name="color">
           Green
         </Radio>
         <Radio value="blue" name="color">
@@ -96,6 +105,6 @@ export default function RadioDemo() {
           <ColorRadio value="purple300"></ColorRadio>
         </RadioGroup>
       </Box>
-    </View>
+    </Box>
   )
 }

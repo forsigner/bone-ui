@@ -26,6 +26,7 @@ import { Spinner } from '@bone-ui/spinner'
 import { Dot } from '@bone-ui/dot'
 import { Input, InputGroup, InputAddon, InputElement } from '@bone-ui/input'
 import { Switch } from '@bone-ui/switch'
+import { Radio, RadioGroup } from '@bone-ui/radio'
 
 
 const ButtonExample = (props) => (
@@ -68,6 +69,7 @@ const ReactLiveScope = {
   Dot,
   Input, InputGroup, InputAddon, InputElement,
   Switch,
+  Radio, RadioGroup
 };
 
 export default ReactLiveScope;
