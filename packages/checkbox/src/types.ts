@@ -1,4 +1,4 @@
-import { FowerHTMLProps } from '@fower/types'
+import { FowerColor, FowerHTMLProps } from '@fower/types'
 import { ReactNode } from 'react'
 
 export type InputProps = React.DetailedHTMLProps<
@@ -11,6 +11,8 @@ type StringOrNumber = string | number
 export type CheckboxGroupValue = StringOrNumber[]
 
 export interface CheckboxProps extends Omit<FowerHTMLProps<'input'>, 'ref'> {
+  colorScheme?: FowerColor
+
   render?: (status: CheckboxStatus) => ReactNode
 }
 

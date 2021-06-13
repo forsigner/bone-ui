@@ -1,20 +1,20 @@
-import React, { ChangeEvent, forwardRef } from 'react'
+import React, { ChangeEvent, FC } from 'react'
+import { forwardRef } from '@bone-ui/utils'
 import { cx } from '@bone-ui/utils'
 import { css } from '@fower/core'
 import { Box } from '@fower/react'
-import { styled } from '@fower/styled'
 import { useCheckbox } from './useCheckbox'
 import { CheckboxProps } from './types'
 import { useCheckboxGroupContext } from './checkboxGroupContext'
 import { checkboxDefaultRender } from './checkboxDefaultRender'
 
-const Label = styled('label')
-
-export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>((props, ref) => {
+export const Checkbox: FC<CheckboxProps> = forwardRef((props: CheckboxProps, ref) => {
   const {
     children,
+    colorScheme = 'brand500',
     render = checkboxDefaultRender,
     value,
+    defaultChecked,
     disabled: propDisabled,
     onChange: propOnChnage,
     ...rest
@@ -29,8 +29,17 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>((props, ref)
   const { inputProps, state } = useCheckbox({ ...props, onChange })
   const { disabled } = state
 
+  // TODO: need refactor
+  let checkedProps: any = {}
+  if (Reflect.has(props, 'defaultChecked')) {
+    checkedProps.defaultChecked = defaultChecked
+  } else {
+    checkedProps.checked = state.checked
+  }
+
   return (
-    <Label
+    <Box
+      as="label"
       className="bone-checkbox"
       inlineFlex
       toCenterY
@@ -38,24 +47,24 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>((props, ref)
       cursorPointer={!disabled}
       cursorNotAllowed={disabled}
       opacity-50={disabled}
-      // TODO: 属性多余
-      {...(rest as any)}
+      {...rest}
     >
       <input
         ref={ref}
-        className={cx('bone-radio__input', css('square0', 'opacity-0', 'hidden'))}
+        className={cx('bone-checkbox-input', css('square0', 'opacity-0', 'hidden'))}
         type="checkbox"
         value={value}
+        {...checkedProps}
         {...inputProps}
       />
 
-      {render({ ...state, children })}
+      {render({ ...state, children, colorScheme })}
 
       {children && (
-        <Box className="bone-checkbox__label" ml-8 leading-1em>
+        <Box className="bone-checkbox-label" ml-8 leading-1em>
           {children}
         </Box>
       )}
-    </Label>
+    </Box>
   )
 })
