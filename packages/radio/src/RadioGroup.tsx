@@ -1,4 +1,5 @@
-import React, { forwardRef, useMemo, useState } from 'react'
+import React, { FC, useMemo, useState } from 'react'
+import { forwardRef } from '@bone-ui/utils'
 import { Box } from '@fower/react'
 import { RadioGroupProvider } from './radioGroupContext'
 import { Radio } from './Radio'
@@ -7,7 +8,7 @@ import { RadioGroupProps, RadioProps } from './types'
 import { RadioGroupContext } from './radioGroupContext'
 import { useId } from '@bone-ui/hooks'
 
-export const RadioGroup = forwardRef<HTMLDivElement, Partial<RadioGroupProps>>((props, ref) => {
+export const RadioGroup: FC<RadioGroupProps> = forwardRef((props: RadioGroupProps, ref) => {
   const { children, onChange, value, options = [], renderItem, ...rest } = props
   const [radioGroupValue, setRadioGroupValue] = useState<any>(value)
 

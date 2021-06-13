@@ -1,9 +1,15 @@
 import React from 'react'
 import { Box } from '@fower/react'
-import { RadioRenderProps, DefaultRender } from './types'
+import { DefaultRender } from './types'
 
-export const defaultRender: DefaultRender = ({ checked }: RadioRenderProps) => (
-  <Box toCenter circle-20 border-2 borderGray400={!checked} borderBrand400={checked} overflowHidden>
-    <Box circle-8 bgBrand400 hidden={!checked}></Box>
-  </Box>
-)
+export const defaultRender: DefaultRender = ({ checked, colorScheme = 'brand500' }) => {
+  const atomicProps: any = {}
+  if (checked) {
+    atomicProps.borderColor = colorScheme
+  }
+  return (
+    <Box toCenter circle-20 border-2 borderGray400={!checked} overflowHidden {...atomicProps}>
+      <Box circle-8 bg={colorScheme} hidden={!checked}></Box>
+    </Box>
+  )
+}

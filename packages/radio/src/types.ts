@@ -57,7 +57,7 @@ export interface RadioOption {
   [key: string]: any
 }
 
-export type DefaultRender = (props: RadioRenderProps) => ReactNode
+export type DefaultRender = (props: RadioRenderProps & { colorScheme: string }) => ReactNode
 
 export interface RadioGroupProps extends Omit<FowerHTMLProps<'div'>, 'onChange'> {
   value?: StringOrNumber

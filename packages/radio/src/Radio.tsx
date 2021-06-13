@@ -29,16 +29,16 @@ export const Radio = memo(
         opacity-50={disabled}
       >
         <input
-          className={cx('bone-radio__input', css('square0', 'opacity-0', 'hidden'))}
+          className={cx('bone-radio-input', css('square0', 'opacity-0', 'hidden'))}
           ref={ref}
           type="radio"
           {...inputProps}
           {...rest}
         />
-        {render({ ...state, children })}
+        {render({ ...state, children, colorScheme })}
 
         {shouldRenderChildren && children && (
-          <Box className="bone-radio__label" ml-8>
+          <Box className="bone-radio-label" ml-8>
             {children}
           </Box>
         )}
