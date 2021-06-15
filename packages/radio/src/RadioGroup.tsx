@@ -1,32 +1,28 @@
-import React, { FC, useMemo, useState } from 'react'
+import React, { FC, useMemo } from 'react'
 import { forwardRef } from '@bone-ui/utils'
 import { Box } from '@fower/react'
 import { RadioGroupProvider } from './radioGroupContext'
 import { Radio } from './Radio'
 import { defaultRender } from './defaultRender'
-import { RadioGroupProps, RadioProps } from './types'
-import { RadioGroupContext } from './radioGroupContext'
-import { useId } from '@bone-ui/hooks'
+import { RadioGroupContext, RadioGroupProps, RadioProps } from './types'
+import { useRadioGroup } from './useRadioGroup'
 
 export const RadioGroup: FC<RadioGroupProps> = forwardRef((props: RadioGroupProps, ref) => {
-  const { children, onChange, value, options = [], renderItem, ...rest } = props
-  const [radioGroupValue, setRadioGroupValue] = useState<any>(value)
+  const {
+    defaultValue,
+    value: prpoValue,
+    onChange: onChangeProp,
+    options = [],
+    renderItem,
+    children,
+    ...rest
+  } = props
 
-  function setValue(value: any) {
-    setRadioGroupValue(value)
-    onChange && onChange(value)
-  }
-
-  const name = useId(undefined, 'radio')
+  const { value, onChange, setValue, controlled, name } = useRadioGroup(props)
 
   const initialValue: RadioGroupContext = useMemo(
-    () => ({
-      name,
-      radioGroupValue,
-      setRadioGroupValue: setValue,
-      renderItem,
-    }),
-    [radioGroupValue, setRadioGroupValue],
+    () => ({ controlled, onChange, value, setValue, name }),
+    [controlled, value, onChange, setValue, name],
   )
 
   if (renderItem) initialValue.renderItem = renderItem

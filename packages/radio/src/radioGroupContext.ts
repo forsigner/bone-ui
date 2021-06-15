@@ -1,22 +1,10 @@
-import { createContext, ReactNode } from 'react'
-import { RadioRenderItemProps } from './types'
-
-export interface RadioGroupContext {
-  /**
-   * radio group unique name
-   */
-  name?: string
-
-  /**
-   * radio group name, string or number
-   */
-  radioGroupValue: any
-
-  setRadioGroupValue: any
-
-  renderItem?(props: RadioRenderItemProps): ReactNode
-}
+import { createContext, useContext } from 'react'
+import { RadioGroupContext } from './types'
 
 export const radioGroupContext = createContext<RadioGroupContext | null>(null)
 
 export const RadioGroupProvider = radioGroupContext.Provider
+
+export function useRadioGroupContext() {
+  return useContext(radioGroupContext)
+}

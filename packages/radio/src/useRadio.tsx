@@ -1,5 +1,5 @@
-import { useContext, useState, useEffect } from 'react'
-import { radioGroupContext } from './radioGroupContext'
+import { useState, useEffect } from 'react'
+import { useRadioGroupContext } from './radioGroupContext'
 import { InputProps, RadioHooksResult, RenderItem } from './types'
 
 export function useRadio(props: InputProps): RadioHooksResult {
@@ -8,7 +8,7 @@ export function useRadio(props: InputProps): RadioHooksResult {
   const { value, onChange } = props
 
   /** hooks */
-  const context = useContext(radioGroupContext)
+  const context = useRadioGroupContext()
   const [disabled, setDisabled] = useState(props.disabled ?? false)
   const [checked, setChecked] = useState(props.checked || props.defaultChecked || false)
 
@@ -24,7 +24,7 @@ export function useRadio(props: InputProps): RadioHooksResult {
 
   /** For radio group */
   if (context) {
-    const { radioGroupValue, setRadioGroupValue } = context
+    const { value: radioGroupValue, setValue: setRadioGroupValue } = context
     inputProps.checked = value === radioGroupValue
     inputProps.onChange = (e) => {
       setRadioGroupValue(value)

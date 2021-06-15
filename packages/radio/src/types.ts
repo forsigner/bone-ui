@@ -1,7 +1,7 @@
 import { FowerColor, FowerHTMLProps } from '@fower/types'
 import { ReactNode } from 'react'
 
-type StringOrNumber = string | number
+export type StringOrNumber = string | number
 
 export type RenderItem = (props: RadioRenderItemProps) => ReactNode
 
@@ -10,7 +10,7 @@ export type InputProps = React.DetailedHTMLProps<
   HTMLInputElement
 >
 
-export interface RadioProps extends Omit<FowerHTMLProps<'input'>, 'ref'> {
+export interface RadioProps extends FowerHTMLProps<'input'> {
   render?: (props: RadioRenderProps) => ReactNode
 
   colorScheme?: FowerColor
@@ -57,9 +57,10 @@ export interface RadioOption {
   [key: string]: any
 }
 
-export type DefaultRender = (props: RadioRenderProps & { colorScheme: string }) => ReactNode
+export type DefaultRender = (props: RadioRenderProps & { colorScheme?: string }) => ReactNode
 
-export interface RadioGroupProps extends Omit<FowerHTMLProps<'div'>, 'onChange'> {
+export interface RadioGroupProps
+  extends Omit<FowerHTMLProps<'div'>, 'onChange' | 'value' | 'defaultValue'> {
   value?: StringOrNumber
 
   defaultValue?: StringOrNumber
@@ -71,4 +72,41 @@ export interface RadioGroupProps extends Omit<FowerHTMLProps<'div'>, 'onChange'>
   renderItem?: RenderItem
 
   onChange?(nextValue: StringOrNumber): void
+}
+
+export interface UseRadioGroupReturn {
+  name: string
+  controlled: boolean
+  value?: StringOrNumber
+  onChange: any
+  setValue: any
+  // inputProps: InputProps
+  // state: {
+  //   checked?: boolean
+  //   disabled?: boolean
+  // }
+  [key: string]: any
+}
+
+// export interface RadioGroupContext extends Pick<UseRadioGroupReturn, 'onChange' | 'value'> {
+//   // TODO: handle any
+//   setValue: any
+
+//   controlled: boolean
+// }
+
+export interface RadioGroupContext {
+  /**
+   * radio group unique name
+   */
+  name?: string
+
+  /**
+   * radio group name, string or number
+   */
+  value: any
+
+  setValue: any
+
+  renderItem?(props: RadioRenderItemProps): ReactNode
 }
