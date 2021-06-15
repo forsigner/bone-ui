@@ -52,22 +52,25 @@ export function iconify(options: IconifyOptions) {
     const svgFill = props.fill || fill
     const isOutline = svgFill === 'none'
     const size = isOutline ? 24 : 20
-    const svgPros = isOutline ? { stroke: 'currentColor' } : {}
+    const svgProps: any = isOutline ? { strokeCurrent: true } : {}
     let pathProps: any = {}
+
+    if (isOutline) {
+      svgProps[`stroke-${props.strokeWidth || 2}`] = true
+    }
+
+    if (['none', 'currentColor'].includes(svgFill)) {
+      svgProps['']
+    } else {
+      svgProps.fill = svgFill
+    }
 
     if (options.pathProps) {
       pathProps = options.pathProps
     } else {
       pathProps = isOutline
-        ? {
-            strokeLinecap: 'round',
-            strokeLinejoin: 'round',
-            strokeWidth: props.strokeWidth || 2,
-          }
-        : {
-            fillRule: 'evenodd',
-            clipRule: 'evenodd',
-          }
+        ? { strokeLinecap: 'round', strokeLinejoin: 'round' }
+        : { fillRule: 'evenodd', clipRule: 'evenodd' }
     }
 
     return (
@@ -77,9 +80,8 @@ export function iconify(options: IconifyOptions) {
         className={`bone-icon bone-icon--${displayName}`}
         {...atomicProps}
         square={props.size || atomicProps?.square || 24}
-        fill={svgFill}
         viewBox={viewBox || `0 0 ${size} ${size}`}
-        {...svgPros}
+        {...svgProps}
         xmlns="http://www.w3.org/2000/svg"
         {...(props as any)}
       >
