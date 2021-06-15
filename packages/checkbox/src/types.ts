@@ -10,7 +10,7 @@ type StringOrNumber = string | number
 
 export type CheckboxGroupValue = StringOrNumber[]
 
-export interface CheckboxProps extends Omit<FowerHTMLProps<'input'>, 'ref'> {
+export interface CheckboxProps extends FowerHTMLProps<'input'> {
   colorScheme?: FowerColor
 
   render?: (status: CheckboxStatus) => ReactNode

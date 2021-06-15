@@ -7,9 +7,9 @@ import { CheckboxGroupProps, CheckboxGroupContext } from './types'
 
 export const CheckboxGroup: FC<CheckboxGroupProps> = forwardRef((props, ref) => {
   const {
-    value: prpoValue,
-    onChange: onChangeProp,
     defaultValue,
+    value: propValue,
+    onChange: onChangeProp,
     options,
     name,
     children,
