@@ -52,19 +52,14 @@ export default function RadioDemo() {
       <h2>RadioGroup</h2>
       <RadioGroup
         value={color}
-        onChange={(e) => {
+        onChange={(e: string) => {
           console.log('object:', e)
+          setColor(e)
         }}
       >
-        <Radio value="red" name="color">
-          Red
-        </Radio>
-        <Radio value="green" name="color">
-          Green
-        </Radio>
-        <Radio value="blue" name="color">
-          Blue
-        </Radio>
+        <Radio value="red">Red</Radio>
+        <Radio value="green">Green</Radio>
+        <Radio value="blue">Blue</Radio>
       </RadioGroup>
 
       <Box>
@@ -97,7 +92,7 @@ export default function RadioDemo() {
 
       <Box>
         <h2>Custom Radio render</h2>
-        <RadioGroup value="green300">
+        <RadioGroup defaultValue="green300">
           <ColorRadio value="red300"></ColorRadio>
           <ColorRadio value="green300"></ColorRadio>
           <ColorRadio value="blue300"></ColorRadio>

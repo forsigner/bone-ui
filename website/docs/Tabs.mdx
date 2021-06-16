@@ -1,0 +1,121 @@
+---
+sidebar_position: 3
+---
+
+# Tabs
+
+## import
+
+```jsx
+import { Tabs, Tab } from '@bone-ui/tabs'
+```
+
+## Basic
+
+```jsx live
+<Tabs defaultValue="2">
+  <Tab label="Red" value="1">
+    <Box red500>Red</Box>
+  </Tab>
+  <Tab label="Green" value="2">
+    <Box green500>Green</Box>
+  </Tab>
+  <Tab label="blue" value="3">
+    <Box blue500>Blue</Box>
+  </Tab>
+</Tabs>
+```
+
+## Controlled
+
+```jsx live
+function Demo() {
+  const [color, setColor] = useState('green')
+  return (
+    <Box>
+      <Button onClick={() => setColor('red')}>Select red</Button>
+      <Tabs value={color} onChange={(value) => setColor(value)}>
+        <Tab value="red" label="Red">
+          <Box red500>Red</Box>
+        </Tab>
+        <Tab value="green" label="Green">
+          <Box green500>Green</Box>
+        </Tab>
+        <Tab value="blue" label="Blue">
+          <Box blue500>Blue</Box>
+        </Tab>
+      </Tabs>
+    </Box>
+  )
+}
+```
+
+## Disabled
+
+```jsx live
+<Tabs defaultValue="red">
+  <Tab value="red" label="Red">
+    <Box red500>Red</Box>
+  </Tab>
+  <Tab value="green" label="Green" disabled>
+    <Box green500>Green</Box>
+  </Tab>
+  <Tab value="blue" label="Blue">
+    <Box blue500>Blue</Box>
+  </Tab>
+</Tabs>
+```
+
+## With Icon
+
+```jsx live
+<Tabs defaultValue="2">
+  <Tab
+    value="1"
+    label={
+      <Box toCenterY>
+        <MailOutline stroke-1 size={20} /> <Box>Mail</Box>
+      </Box>
+    }
+  >
+    Mail
+  </Tab>
+  <Tab
+    value="2"
+    label={
+      <Box toCenterY>
+        <UserOutline stroke-1 size={20} /> <Box>User</Box>
+      </Box>
+    }
+  >
+    <Box green500>User</Box>
+  </Tab>
+</Tabs>
+```
+
+## Custom label render
+
+```jsx live
+<Tabs
+  defaultValue="green"
+  hideDivider
+  renderItem={({ checked, item }) => (
+    <Box rounded-9999 px-20 py-8 bg={checked ? 'red200' : 'gray200'}>
+      {item.label}
+    </Box>
+  )}
+>
+  <Tab value="red" label="Red">
+    <Box red500>Red</Box>
+  </Tab>
+  <Tab value="green" label="Green">
+    <Box green500>Green</Box>
+  </Tab>
+  <Tab value="blue" label="Blue" disabled>
+    <Box blue500>Blue</Box>
+  </Tab>
+  <Tab value="purple" label="Purple">
+    <Box purple500>Purple</Box>
+  </Tab>
+</Tabs>
+```

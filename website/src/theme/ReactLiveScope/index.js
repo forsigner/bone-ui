@@ -10,6 +10,8 @@ import { Box } from '@fower/react';
 import { DownloadOutline } from '@bone-ui/icons/lib/DownloadOutline'
 import { ArrowRightOutline } from '@bone-ui/icons/lib/ArrowRightOutline'
 import { MailSolid } from '@bone-ui/icons/lib/MailSolid'
+import { MailOutline } from '@bone-ui/icons/lib/MailOutline'
+import UserOutline from '@bone-ui/icons/lib/UserOutline'
 import SunOutline from '@bone-ui/icons/lib/SunOutline'
 import CashOutline from '@bone-ui/icons/lib/CashOutline'
 import { SearchOutline } from '@bone-ui/icons/lib/SearchOutline'
@@ -28,6 +30,7 @@ import { Input, InputGroup, InputAddon, InputElement } from '@bone-ui/input'
 import { Switch } from '@bone-ui/switch'
 import { Radio, RadioGroup } from '@bone-ui/radio'
 import { Checkbox, CheckboxGroup } from '@bone-ui/checkbox'
+import { Tabs, Tab } from '@bone-ui/tabs'
 
 
 const ButtonExample = (props) => (
@@ -52,7 +55,9 @@ const ReactLiveScope = {
   DownloadOutline,
   ArrowRightOutline,
   MailSolid,
+  MailOutline,
   SunOutline,
+  UserOutline,
   CashOutline,
   SearchOutline,
   CheckSolid,
@@ -72,6 +77,7 @@ const ReactLiveScope = {
   Switch,
   Radio, RadioGroup,
   Checkbox, CheckboxGroup,
+  Tabs, Tab,
 };
 
 export default ReactLiveScope;

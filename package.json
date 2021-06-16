@@ -25,7 +25,7 @@
   "author": "@forsigner",
   "devDependencies": {
     "@bone-ui/utils": "^0.4.0",
-    "@fower/react": "^1.22.0",
+    "@fower/react": "^1.25.0",
     "@types/react": "^17.0.9",
     "@types/prettier": "^2.2.3",
     "@types/react-dom": "^17.0.6",

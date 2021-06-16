@@ -35,21 +35,10 @@ import { Radio, RadioGroup } from '@bone-ui/radio'
 ## Radio Group
 
 ```jsx live
-<RadioGroup
-  value=""
-  onChange={(value) => {
-    console.log('value:', value)
-  }}
->
-  <Radio value="red" name="color">
-    Red
-  </Radio>
-  <Radio value="green" name="color">
-    Green
-  </Radio>
-  <Radio value="blue" name="color">
-    Blue
-  </Radio>
+<RadioGroup defaultValue="green">
+  <Radio value="red">Red</Radio>
+  <Radio value="green">Green</Radio>
+  <Radio value="blue">Blue</Radio>
 </RadioGroup>
 ```
 
@@ -81,7 +70,7 @@ function Demo() {
     />
   )
   return (
-    <RadioGroup value="green300">
+    <RadioGroup defaultValue="green300">
       <ColorRadio value="red300"></ColorRadio>
       <ColorRadio value="green300"></ColorRadio>
       <ColorRadio value="blue300"></ColorRadio>
@@ -103,13 +92,9 @@ function Demo() {
   return (
     <RadioGroup
       options={options}
-      value=""
       column
       spaceY-8
       flex
-      onChange={(e) => {
-        // setType(e)
-      }}
       renderItem={({ item, defaultRadio, checked }) => (
         <Box
           p4
