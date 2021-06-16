@@ -7,6 +7,14 @@ import { defaultRender } from './defaultRender'
 import { RadioGroupContext, RadioGroupProps, RadioProps } from './types'
 import { useRadioGroup } from './useRadioGroup'
 
+function checkIsControlled(props: RadioGroupProps) {
+  if (Reflect.has(props, 'value') && !Reflect.has(props, 'onChange')) {
+    console.error(
+      'when using radio group with controlled mode, value and onChange Props is required',
+    )
+  }
+}
+
 export const RadioGroup: FC<RadioGroupProps> = forwardRef((props: RadioGroupProps, ref) => {
   const {
     defaultValue,
@@ -26,6 +34,8 @@ export const RadioGroup: FC<RadioGroupProps> = forwardRef((props: RadioGroupProp
   )
 
   if (renderItem) initialValue.renderItem = renderItem
+
+  checkIsControlled(props)
 
   return (
     <RadioGroupProvider value={initialValue}>
