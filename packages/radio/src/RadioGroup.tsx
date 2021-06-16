@@ -28,23 +28,23 @@ export const RadioGroup: FC<RadioGroupProps> = forwardRef((props: RadioGroupProp
 
   const { value, onChange, setValue, controlled, name } = useRadioGroup(props)
 
-  const initialValue: RadioGroupContext = useMemo(
+  const ctxValue: RadioGroupContext = useMemo(
     () => ({ controlled, onChange, value, setValue, name }),
     [controlled, value, onChange, setValue, name],
   )
 
-  if (renderItem) initialValue.renderItem = renderItem
+  if (renderItem) ctxValue.renderItem = renderItem
 
   checkIsControlled(props)
 
   return (
-    <RadioGroupProvider value={initialValue}>
+    <RadioGroupProvider value={ctxValue}>
       <Box ref={ref} toLeft spaceX-8 {...rest}>
         {options.map((item, i) => {
           const radioProps: RadioProps = {
             disabled: item.disabled,
             value: item.value,
-            name: initialValue.name,
+            name: ctxValue.name,
           }
 
           if (renderItem) {
