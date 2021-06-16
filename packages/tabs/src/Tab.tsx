@@ -1,7 +1,8 @@
-import React, { forwardRef, ReactNode, useContext } from 'react'
+import React, { FC, ReactNode } from 'react'
+import { forwardRef } from '@bone-ui/utils'
 import { Box } from '@fower/react'
 import { FowerColor } from '@fower/types'
-import { Radio, RadioProps, radioGroupContext } from '@bone-ui/radio'
+import { Radio, RadioProps, useRadioGroupContext } from '@bone-ui/radio'
 
 export interface TabProps extends RadioProps {
   colorScheme?: FowerColor
@@ -12,14 +13,15 @@ export interface TabProps extends RadioProps {
   label?: ReactNode
 }
 
-export const Tab = forwardRef<HTMLInputElement, TabProps>((props, ref) => {
+export const Tab: FC<TabProps> = forwardRef((props: TabProps, ref) => {
   const { colorScheme = 'brand500', label, ...rest } = props
 
-  const context = useContext(radioGroupContext)
+  const context = useRadioGroupContext()
+  console.log('----props:', props)
   return (
     <Radio
-      {...rest}
       ref={ref}
+      {...rest}
       value={props.value || (props.label as any)}
       shouldRenderChildren={false}
       render={({ checked, disabled }) => {
@@ -31,7 +33,7 @@ export const Tab = forwardRef<HTMLInputElement, TabProps>((props, ref) => {
           } as any)
         }
         return (
-          <Box borderColor={checked ? 'brand500' : 'transparent'} borderB-2 py2 px1 mb--1 text-16>
+          <Box borderColor={checked ? colorScheme : 'transparent'} borderB-2 py2 px1 mb--1 text-16>
             {label}
           </Box>
         )

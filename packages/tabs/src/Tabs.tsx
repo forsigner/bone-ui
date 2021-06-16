@@ -1,6 +1,7 @@
-import React, { forwardRef, ReactNode, useState } from 'react'
+import React, { FC, ReactNode, useState } from 'react'
+import { forwardRef } from '@bone-ui/utils'
 import { Box } from '@fower/react'
-import { RadioGroup, RadioGroupProps } from '@bone-ui/radio'
+import { RadioGroup, RadioGroupProps, useRadioGroup } from '@bone-ui/radio'
 
 export interface TabsProps extends RadioGroupProps {
   hideDivider?: boolean
@@ -18,17 +19,26 @@ function getRadio({ children }: TabsProps, value: any): ReactNode | undefined {
   })
 }
 
-export const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
+export const Tabs: FC<TabsProps> = forwardRef((props: TabsProps, ref) => {
   const { onChange, hideDivider, ...rest } = props
-  const [node, setNode] = useState<any>(getRadio(props, props.value))
+  const { value, controlled } = useRadioGroup(props)
+  let [node, setNode] = useState<any>(getRadio(props, value))
+
+  if (controlled) {
+    // TODO: hack，如果是受控模式，直接修改，避免重复渲染
+    node = getRadio(props, value)
+    rest.value = value
+  }
+
   return (
     <RadioGroup
-      {...rest}
       ref={ref}
       column
-      value={props.value || node?.props?.value || node?.props?.label}
+      {...rest}
       onChange={(currentValue) => {
-        setNode(getRadio(props, currentValue))
+        if (!controlled) {
+          setNode(getRadio(props, currentValue))
+        }
         onChange && onChange(currentValue)
       }}
     >

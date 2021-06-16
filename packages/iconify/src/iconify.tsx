@@ -60,7 +60,8 @@ export function iconify(options: IconifyOptions) {
     }
 
     if (['none', 'currentColor'].includes(svgFill)) {
-      svgProps['']
+      if (svgFill === 'none') svgProps['fillNone'] = true
+      if (svgFill === 'currentColor') svgProps['fillCurrent'] = true
     } else {
       svgProps.fill = svgFill
     }
