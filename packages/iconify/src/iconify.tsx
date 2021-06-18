@@ -74,6 +74,13 @@ export function iconify(options: IconifyOptions) {
         : { fillRule: 'evenodd', clipRule: 'evenodd' }
     }
 
+    console.log('props:', props, Object.keys(props))
+    for (const key in props) {
+      if (Object.prototype.hasOwnProperty.call(props, key)) {
+        console.log('key:', key)
+      }
+    }
+
     return (
       <Box
         as="svg"
@@ -92,6 +99,7 @@ export function iconify(options: IconifyOptions) {
   })
 
   if (displayName) Comp.displayName = displayName
+  ;(Comp as any).isBoneIcon = true
 
   return Comp
 }

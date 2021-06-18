@@ -11,9 +11,9 @@ export interface DropdownState {
 export interface DropdownContext {
   state: DropdownState
 
-  setState: any
-
   dropdownProps: DropdownProps
+
+  setState: any
 
   /**
    * Open dropdown content
@@ -91,3 +91,5 @@ export interface DropdownProps {
   // children: ((props: DropdownRenderProps) => ReactNode) | ReactNode
   children: any
 }
+
+export interface UseDropdownReturn extends DropdownContext {}

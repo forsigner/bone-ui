@@ -65,9 +65,15 @@ export function useOutsideClick(props: UseOutsideClickOptions) {
 function isValidEvent(event: any, ref: React.RefObject<HTMLElement>) {
   const target = event.target as HTMLElement
   if (event.button > 0) return false
+
   // if the event target is no longer in the document
+
   if (target) {
     const ownerDocument = target.ownerDocument
+    if (target.nodeName === 'HTML') {
+      return true
+    }
+
     if (!ownerDocument || !ownerDocument.body.contains(target)) {
       return false
     }

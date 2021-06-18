@@ -1,45 +1,15 @@
-import React, { FC, useState } from 'react'
-import { DropdownProvider } from './dropdownContext'
-import { DropdownContext, DropdownState, DropdownProps } from './types'
+import React, { FC } from 'react'
+import { DropdownProvider } from './context'
+import { DropdownProps } from './types'
+import { useDropdown } from './useDropdown'
 
 export const Dropdown: FC<DropdownProps> = (props) => {
-  const { children, initialOpened, onClose, onOpen } = props
-
-  const [state, setState] = useState({
-    isOpen: initialOpened,
-  } as DropdownState)
-
-  const ctxValue: DropdownContext = {
-    state,
-    setState,
-    dropdownProps: props,
-    open() {
-      setState((prev) => ({
-        ...prev,
-        isOpen: true,
-      }))
-      onOpen?.()
-    },
-    close() {
-      setState((prev) => ({
-        ...prev,
-        isOpen: false,
-      }))
-      onClose?.()
-    },
-    getRenderProps() {
-      return {
-        isOpen: state.isOpen,
-        close: ctxValue.close,
-        open: ctxValue.open,
-      }
-    },
-  }
-
-  const renderProps = ctxValue.getRenderProps()
+  const { children } = props
+  const dropdown = useDropdown(props)
+  const renderProps = dropdown.getRenderProps()
 
   return (
-    <DropdownProvider value={ctxValue}>
+    <DropdownProvider value={dropdown}>
       {typeof children === 'function' ? children(renderProps) : children}
     </DropdownProvider>
   )
